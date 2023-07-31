@@ -1,0 +1,72 @@
+header{
+    text-align : center;
+}
+div.writter{ 
+    text-align: center;
+    border:1px solid black; 
+    height: 150px;
+    padding-top: 20px;
+    padding-bottom: 10px;   
+}
+div.writter>a.img{
+    position: block;
+    text-align: center;
+}
+div.writter>div.writter_name{
+    position: block;
+    text-align: center;
+}
+section{
+    height: 90%;
+}
+section>span.title{
+    text-align: center;
+    margin-bottom: 80px;
+}
+#apply{
+    position: absolute;
+    left: 1100px;
+    background-color: rgb(52,152,219);
+}
+#write{
+    position: absolute;
+    left: 1200px;
+    background-color: rgb(52,152,219);
+}
+div.post{
+    position: absolute; 
+    width: 900px;
+    height: 125px;
+    /*text-align: center;가운데정렬*/
+}
+div.post>a.thumbnail{
+    position: absolute; 
+    left : 920px;
+    top: 10px;
+}
+
+div.post>div.post-title{
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break:break-all;
+}
+div.post>span.post-content{
+    margin-top: 10px;
+    margin-left: 10px;
+    display: block;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+div.paging{
+    position: inline-block;
+    text-align: center;
+    height: 10%;
+}
