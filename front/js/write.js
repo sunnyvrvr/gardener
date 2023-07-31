@@ -1,31 +1,30 @@
 $(() => {
-  const pTag = $("<p><br></p>");
-  const imgBtn = $("div.img-pic>input");
-  const articleDiv = $("div[name=article]");
+  const imgBtn = $("input[name='image']");
 
-  // 에디터 첫 줄 예외처리
-  articleDiv.click(() => {
-    console.log(articleDiv.contents().first().prevObject[1]);
-  });
-
-  // 이미지 버튼 클릭시
   imgBtn.change((e) => {
-    const img = e.target.files[0];
-    const imgTag = $("<img>");
-
-    if (!img) {
-      alert("파일이 없다.");
-      return;
-    }
-
-    // 이미지 읽기
     const reader = new FileReader();
-    reader.readAsDataURL(img);
-    reader.onload = (e) => {
-      imgTag.attr("src", e.target.result);
-      articleDiv.append(imgTag);
+    const file = e.target.files[0];
+    console.log(file);
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      $(".main-image").css("background-image", `url(${reader.result})`);
     };
+
+    let formData = new FormData();
+    formData.append("image", file);
+    $.ajax({
+      url: "https://api.imgur.com/3/image",
+      method: "POST",
+      contentType: false,
+      processData: false,
+      data: formData,
+      headers: {
+        Authorization: "Bearer 09d9c70a8bda2147f06c4c8b2885ee00e4e9f5c9",
+        Accept: "application/json",
+      },
+      success: (response) => {
+        console.log(response);
+      },
+    });
   });
 });
-
-// 이미지를 중앙정렬 할 div

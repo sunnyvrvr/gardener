@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../css/write.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script src="../js/write.js"></script>
+  <script defer src="../js/editor.js"></script>
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+  <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.css" />
+
+  <link rel="stylesheet" href="../css/editor.css">
+  <link rel="stylesheet" href="../css/write.css">
   <title>Document</title>
 </head>
 
@@ -15,11 +19,26 @@
   <!-- 헤더 시작 -->
   <header>
     <div class="main-logo">
-      <img src="/suwan/logo.png" alt="">
+      <img src="../images/logo.png" alt="">
     </div>
   </header>
   <!-- 헤더 끝 -->
+
+  <!-- 섹션 시작 -->
   <section>
+    <!-- 섹션 헤더 시작 -->
+    <div class="section-header-image">
+      <div class=" main-image"></div>
+      <!-- 이미지 btn 시작 -->
+      <div class="img-pic">
+        <label for="imgBtn">
+          <img src="../images/image.png" alt="">
+        </label>
+        <input id="imgBtn" type="file" name="image" accept="image/*" hidden>
+      </div>
+      <!-- 이미지 btn 끝 -->
+    </div>
+    <!-- 섹션 헤더 타이틀 -->
     <div class="section-header-title">
       <input type="text" placeholder="제목을 입력해주세요" name="title" onfocus="this.placeholder=''"
         onblur="this.placeholder='제목을 입력해주세요'">
@@ -27,23 +46,14 @@
         <input type="text" placeholder="소제목" name="subtitle" onfocus="this.placeholder=''"
           onblur="this.placeholder='소제목을 입력해주세요'">
       </div>
-
     </div>
     <!-- 아티클 시작 -->
     <article>
-      <div contenteditable="true" name="article">
-      </div>
+      <div id="editor"></div>
     </article>
     <!-- 아티클 끝 -->
 
-    <!-- 이미지 btn 시작 -->
-    <div class="img-pic">
-      <label for="imgBtn">
-        <img src="../suwan/image.png" alt="">
-      </label>
-      <input id="imgBtn" type="file" name="image" accept="image/*" hidden>
-    </div>
-    <!-- 이미지 btn 끝 -->
+
 
     <!-- 공개 | 비공개 체크 시작 -->
     <div class="secret">
@@ -92,6 +102,10 @@
     </div>
     <!-- 글쓰기 등록 btn 끝 -->
   </section>
+
+
+
+
 </body>
 
 </html>
