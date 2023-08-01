@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import com.my.gardener.member.service.MemberService;
 
 @WebServlet("/member")
@@ -34,7 +33,6 @@ public class MemberController extends HttpServlet {
 		String profile = request.getParameter("profile");
 		// 요청전달데이터 얻기
 
-=======
 /**
  * Servlet implementation class MemberController
  */
