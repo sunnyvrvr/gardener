@@ -7,9 +7,9 @@
   
   <dependencies>
 	<dependency>
-    <groupId>org.mybatis</groupId>
-    <artifactId>mybatis</artifactId>
-    <version>3.5.13</version>
+    	<groupId>org.mybatis</groupId>
+    	<artifactId>mybatis</artifactId>
+    	<version>3.5.13</version>
 	</dependency>
 <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api -->
     <dependency>
@@ -19,9 +19,9 @@
     </dependency>
 
 	<dependency>
-    <groupId>com.oracle.database.jdbc</groupId>
-    <artifactId>ojdbc8</artifactId>
-    <version>21.1.0.0</version>
+    	<groupId>com.oracle.database.jdbc</groupId>
+    	<artifactId>ojdbc8</artifactId>
+    	<version>21.1.0.0</version>
 	</dependency>
 	
 <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
@@ -38,6 +38,42 @@
      <artifactId>gson</artifactId>
      <version>2.9.0</version>
      </dependency>
+
+	<dependency>
+    	<groupId>org.apache.tomcat</groupId>
+    	<artifactId>tomcat-servlet-api</artifactId>
+    	<version>9.0.78</version>
+	</dependency>
+  
+  <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+	<dependency>
+    	<groupId>org.projectlombok</groupId>
+    	<artifactId>lombok</artifactId>
+    	<version>1.18.26</version>
+    	<scope>provided</scope>
+	</dependency>
+	
+<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api -->
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-servlet-api</artifactId>
+    <version>9.0.78</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.26</version>
+    <scope>provided</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+      <dependency>
+          <groupId>com.google.code.gson</groupId>
+          <artifactId>gson</artifactId>
+          <version>2.9.0</version>
+      </dependency>
 
   
   </dependencies>

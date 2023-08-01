@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../css/write.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="../js/write.js"></script>
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+  <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.css" />
+
+
+  <link rel="stylesheet" href="../css/editor.css">
+  <link rel="stylesheet" href="../css/write.css">
   <title>Document</title>
 </head>
 
@@ -15,76 +20,83 @@
   <!-- 헤더 시작 -->
   <header>
     <div class="main-logo">
-      <img src="/suwan/logo.png" alt="">
+      <img src="../images/logo.png" alt="">
     </div>
   </header>
   <!-- 헤더 끝 -->
+
+  <!-- 섹션 시작 -->
   <section>
-    <div class="section-header-title">
-      <input type="text" placeholder="제목을 입력해주세요" name="title" onfocus="this.placeholder=''"
-        onblur="this.placeholder='제목을 입력해주세요'">
-      <div class="section-header-subtitle">
-        <input type="text" placeholder="소제목" name="subtitle" onfocus="this.placeholder=''"
-          onblur="this.placeholder='소제목을 입력해주세요'">
+    <!-- 섹션 헤더 시작 -->
+    <div class="section-header-image">
+      <div class=" main-image"></div>
+      <!-- 이미지 btn 시작 -->
+      <div class="img-pic">
+        <label for="imgBtn">
+          <img src="../images/image.png" alt="">
+        </label>
+        <input id="imgBtn" type="file" name="image" accept="image/*" hidden>
+      </div>
+      <!-- 이미지 btn 끝 -->
+    </div>
+    <!-- 섹션 헤더 타이틀 -->
+    <form>
+      <div class="section-header-title">
+        <input type="text" placeholder="제목을 입력해주세요" value="제목" name="title" onfocus="this.placeholder=''"
+          onblur="this.placeholder='제목을 입력해주세요'">
+        <div class="section-header-subtitle">
+          <input type="text" placeholder="소제목" name="subtitle" value="소제목" onfocus="this.placeholder=''"
+            onblur="this.placeholder='소제목을 입력해주세요'">
+        </div>
       </div>
 
-    </div>
-    <!-- 아티클 시작 -->
-    <article>
-      <div contenteditable="true" name="article">
+      <!-- 아티클 시작 -->
+      <article>
+        <div id="editor"></div>
+      </article>
+      <!-- 아티클 끝 -->
+
+
+
+      <!-- 공개 | 비공개 체크 시작 -->
+      <div class="secret">
+        <input type="checkbox" name="secret" value="0" id="secret" hidden>
+        <span>
+          비공개 | 공개
+        </span>
+        <label for="secret" class="secret-toggle">
+          <span class="secret-toggle-btn"></span>
+        </label>
       </div>
-    </article>
-    <!-- 아티클 끝 -->
+      <!-- 공개 | 비공개 체크 끝 -->
 
-    <!-- 이미지 btn 시작 -->
-    <div class="img-pic">
-      <label for="imgBtn">
-        <img src="../suwan/image.png" alt="">
-      </label>
-      <input id="imgBtn" type="file" name="image" accept="image/*" hidden>
-    </div>
-    <!-- 이미지 btn 끝 -->
+      <!-- 카테고리 시작 -->
+      <div class="category">
 
-    <!-- 공개 | 비공개 체크 시작 -->
-    <div class="secret">
-      <input type="checkbox" name="secret" value="0" id="secret" hidden>
-      <span>
-        비공개 | 공개
-      </span>
-      <label for="secret" class="secret-toggle">
-        <span class="secret-toggle-btn"></span>
-      </label>
-    </div>
-    <!-- 공개 | 비공개 체크 끝 -->
 
-    <!-- 카테고리 시작 -->
-    <div class="category">
-      <fieldset>
-        <legend>카테고리</legend>
         <ul>
           <li><input type="checkbox" name="cate" value="1">시</li>
           <li><input type="checkbox" name="cate" value="2">연애</li>
           <li><input type="checkbox" name="cate" value="3">IT</li>
         </ul>
         <ul>
-          <li><input type="checkbox" name="cate" id="4">시사</li>
-          <li><input type="checkbox" name="cate" id="5">사진</li>
-          <li><input type="checkbox" name="cate" id="6">육아</li>
+          <li><input type="checkbox" name="cate" value="4">시사</li>
+          <li><input type="checkbox" name="cate" value="5">사진</li>
+          <li><input type="checkbox" name="cate" value="6">육아</li>
         </ul>
         <ul>
-          <li><input type="checkbox" name="cate" id="7">요리</li>
-          <li><input type="checkbox" name="cate" id="8">운동</li>
-          <li><input type="checkbox" name="cate" id="9">문화</li>
+          <li><input type="checkbox" name="cate" value="7">요리</li>
+          <li><input type="checkbox" name="cate" value="8">운동</li>
+          <li><input type="checkbox" name="cate" value="9">문화</li>
         </ul>
         <ul>
-          <li><input type="checkbox" name="cate" id="10">인문학</li>
-          <li><input type="checkbox" name="cate" id="11">역사</li>
-          <li><input type="checkbox" name="cate" id="12">애완동물</li>
+          <li><input type="checkbox" name="cate" value="10">인문학</li>
+          <li><input type="checkbox" name="cate" value="11">역사</li>
+          <li><input type="checkbox" name="cate" value="12">애완동물</li>
         </ul>
-      </fieldset>
-    </div>
-    <!-- 카테고리 끝 -->
-
+      </div>
+      <!-- 카테고리 끝 -->
+    </form>
     <!-- 글쓰기 등록 btn 시작 -->
     <div class="post-btn">
       <button>취소</button>
@@ -92,6 +104,10 @@
     </div>
     <!-- 글쓰기 등록 btn 끝 -->
   </section>
+
+
+
+
 </body>
 
 </html>

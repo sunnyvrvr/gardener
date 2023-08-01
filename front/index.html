@@ -5,38 +5,3 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-
-  <body>
-    <input type="text" value="수완" readonly />
-    <input type="text" value="카리나" readonly />
-    <button onclick="btnClikc()">정보 수정한다</button>
-  </body>
-  <script>
-    let status = 0;
-    const btnClikc = () => {
-      if (status === 0) {
-        const a = document.querySelectorAll("input");
-        for (let b of a) {
-          b.removeAttribute("readonly");
-        }
-        status = 1;
-        alert(status);
-      }
-
-      if (status === 1) {
-        document.querySelector("button").textContent = "정보 수정";
-        status = 2;
-      } else if (status === 2) {
-        document.querySelector("button").textContent = "정보 완료";
-        if (status === 0) {
-          const a = document.querySelectorAll("input");
-          for (let b of a) {
-            b.setAttribute("readonly");
-          }
-          status = 1;
-          alert(status);
-        }
-      }
-    };
-  </script>
-</html>
