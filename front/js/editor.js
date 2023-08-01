@@ -30,3 +30,6 @@ const editor = new toastui.Editor({
     },
   },
 });
+$("div.post-btn").click(() => {
+  console.log(editor.getHTML());
+});
