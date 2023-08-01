@@ -8,7 +8,7 @@
     <setting name="mapUnderscoreToCamelCase" value="true" />
   </settings>
   <typeAliases>
-  	<typeAlias type="com.gardener.user.dto.User" alias="User"/>
+  	<typeAlias type="com.gardener.member.dto.Member" alias="Member"/>
   	<typeAlias type="com.gardener.post.dto.Post" alias="Post"/>
   	<typeAlias type="com.gardener.comment.dto.Comment" alias="Comment"/>
   </typeAliases>	
@@ -17,14 +17,14 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="oracle.jdbc.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@localhost:1521/suwanPDB"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
         <property name="username" value="servlet"/>
         <property name="password" value="suwan"/>
       </dataSource>
     </environment>
   </environments>
   <mappers>
-    <mapper resource="/mappers/UserMapper.xml"/>
+    <mapper resource="/mappers/MemberMapper.xml"/>
     <mapper resource="/mappers/PostMapper.xml"/>
     <mapper resource="/mappers/CommentMapper.xml"/>
   </mappers>
