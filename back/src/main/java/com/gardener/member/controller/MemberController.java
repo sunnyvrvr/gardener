@@ -47,8 +47,16 @@ public class MemberController extends HttpServlet {
 /**
  * Servlet implementation class MemberController
  */
+<<<<<<< HEAD
+<<<<<<< HEAD
+@WebServlet("/member")
+=======
+@WebServlet("/user")
+>>>>>>> origin
+=======
 @WebServlet("/member")
 >>>>>>> ca6ce0378bd2e378480644d4496b70b73bf43b04
+>>>>>>> 0d53565f9944c2b41e90e1f5d3023e3a9414b2b7
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

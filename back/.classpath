@@ -61,10 +61,19 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0 (2)"/>
+>>>>>>> 7c0758c722caee8d0cb9ccbc4ec4bf8c0766a941
+=======
+>>>>>>> origin
+=======
 =======
 
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0 (2)"/>
 
 >>>>>>> ca6ce0378bd2e378480644d4496b70b73bf43b04
+>>>>>>> 0d53565f9944c2b41e90e1f5d3023e3a9414b2b7
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

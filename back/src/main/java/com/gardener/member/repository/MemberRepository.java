@@ -1,6 +1,8 @@
 package com.gardener.member.repository;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
 public class MemberRepository {
 
 }
@@ -18,6 +20,7 @@ public class MemberRepository {
 
 }
 
+>>>>>>> 0d53565f9944c2b41e90e1f5d3023e3a9414b2b7
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -75,5 +78,13 @@ public class MemberRepository {
 //		session = sessionFactory.openSession();
 //		Map<String, String> map = new HashMap<>();
 //		}
+<<<<<<< HEAD
+=======
+public class MemberRepository {
+
+}
+>>>>>>> origin
+=======
 
 >>>>>>> ca6ce0378bd2e378480644d4496b70b73bf43b04
+>>>>>>> 0d53565f9944c2b41e90e1f5d3023e3a9414b2b7
