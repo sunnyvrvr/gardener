@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class MemberController
  */
+<<<<<<< HEAD
 @WebServlet("/member")
+=======
+@WebServlet("/user")
+>>>>>>> origin
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

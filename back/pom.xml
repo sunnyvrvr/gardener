@@ -17,7 +17,10 @@
     <artifactId>ojdbc8</artifactId>
     <version>21.1.0.0</version>
 	</dependency>
+<<<<<<< HEAD
 	
+=======
+>>>>>>> origin
 <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api -->
 <dependency>
     <groupId>org.apache.tomcat</groupId>
@@ -32,13 +35,17 @@
     <version>1.18.26</version>
     <scope>provided</scope>
 </dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin
 <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
       <dependency>
           <groupId>com.google.code.gson</groupId>
           <artifactId>gson</artifactId>
           <version>2.9.0</version>
       </dependency>
+<<<<<<< HEAD
 
 <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api -->
 	<dependency>
@@ -61,6 +68,8 @@
      <artifactId>gson</artifactId>
      <version>2.9.0</version>
      </dependency>
+=======
+>>>>>>> origin
   
   </dependencies>
   

@@ -1,0 +1,3 @@
+SELECT * FROM "MEMBER";
+SELECT * FROM "writer";
+SELECT USER FROM dual;

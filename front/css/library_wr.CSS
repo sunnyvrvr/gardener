@@ -1,142 +1,127 @@
-*{
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Orbit&display=swap");
+/*body CSS*/
+* {
+  box-sizing: border-box;
 }
-div.logo{
-    text-align : center;
-    display: block;
+/*body CSS*/
+
+/*header CSS*/
+h1 {
+  text-align: center;
 }
-div.library_view{
-    margin: 100px 100px 100px 100px; 
+h1 > a > img {
+  width: 250px;
+  height: 150px;
 }
 
-div.library_view>div.library_like{ 
-    float: left;
-    width: 50%;
-    position: static;
-    text-align: center;
-    color: rgb(34.0 12 64 / 60%);
-}
-div.library_view>div.library_like>span.like:hover{ 
-    cursor: pointer;
-    text-decoration: underline;
+header > nav > ul {
+  list-style-type: none;
+  padding-left: 200px;
+  width: 100%;
 }
 
-div.library_view>div.library_following{
-    float: right;  
-    width: 50%;
-    position: static;
-    text-align: center;
-    color: #008000;
-    font-weight: bold;
-}
-div.library_view>div.library_following>span.following:hover{ 
-    cursor: pointer;
-    text-decoration: underline;
+header > nav > ul > li {
+  font-family: "Orbit", sans-serif;
+  display: inline-block;
+  width: 19%;
 }
 
-div.following{
-    margin: 100px 100px 100px;
+header > nav > ul > li > a {
+  text-decoration: none;
+  color: black;
 }
-#f1{ 
-    float: left;
-    width: 50%;
-    position: static;
+/*header CSS*/
+/*좋아요한 글, 구독 작가 선택- 공통영역*/
+div.library_view {
+  margin: 50px 100px 100px 150px;
+  display: block;
+  font-family: "Orbit", sans-serif;
 }
-#f1-content{ 
-    display:table;
-    margin-left: 5px;
+div.library_view > div.library_like {
+  float: left;
+  width: 50%;
+  position: static;
+  text-align: center;
+  color: rgb(34 12 64 / 60%);
+  margin-bottom: 0px;
 }
-span.wr_name{
-    padding-left: 10px;
-    align-items: center;
-    display:table-cell;
-    vertical-align:middle;
-}   
-#f2{ 
-    float: left;
-    width: 50%;
-    position: static;
-}
-#f2-content{ 
-    display:table;
-    margin-left: 5px;
-}
-#f3{ 
-    float: left;
-    width: 50%;
-    position: static;
-}
-#f3-content{ 
-    display:table;
-    margin-left: 5px;
-}
-#f4{ 
-    float: left;
-    width: 50%;
-    position: static;
-}
-#f4-content{ 
-    display:table;
-    margin-left: 5px;
-}
-#f5{ 
-    float: left;
-    width: 50%;
-    position: static;
-}
-#f5-content{ 
-    display:table;
-    margin-left: 5px;
-}
-#f6{ 
-    float: left;
-    width: 50%;
-    position: static;
-}
-#f6-content{ 
-    display:table;
-    margin-left: 5px;
-}
-#f7{ 
-    float: left;
-    width: 50%;
-    position: static;
-}
-#f7-content{ 
-    display:table;
-    margin-left: 5px;
-}
-#f8{ 
-    float: left;
-    width: 50%;
-    position: static;
-}
-#f8-content{ 
-    display:table;
-    margin-left: 5px;
-}
-#f9{ 
-    float: left;
-    width: 50%;
-    position: static;
-}
-#f9-content{ 
-    display:table;
-    margin-left: 5px;
-}
-#f10{ 
-    float: left;
-    width: 50%;
-    position: static;
-}
-#f10-content{ 
-    display:table;
-    margin-left: 5px;
+div.library_view > div.library_like > span.like > a {
+  text-decoration: none;
+  color: black;
 }
 
-div.paging{
-    position: block;
-    text-align: center;
-    height: 10%;
-    margin-bottom: 50px;
+div.library_view > div.library_like > span.like:hover {
+  cursor: pointer;
+  /*    text-decoration: underline;*/
 }
+
+div.library_view > div.library_following {
+  float: right;
+  width: 50%;
+  position: static;
+  text-align: center;
+  color: #008000;
+  font-weight: bold;
+  margin-bottom: 0px;
+  text-decoration: none;
+}
+
+div.library_view > div.library_following > span.following > a {
+  text-decoration: none;
+  color: black;
+}
+
+div.library_view > div.library_following > span.following:hover {
+  cursor: pointer;
+  /*    text-decoration: underline;*/
+}
+/*좋아요한 글, 구독 작가 선택- 공통영역*/
+
+/*구독작가 영역*/
+div.following {
+  margin: 50px 150px 150px 150px;
+  display: block;
+  font-family: "Orbit", sans-serif;
+  display: block;
+}
+div.following > table {
+  width: 100%;
+  vertical-align: middle;
+  flex-direction: column;
+}
+
+div.following > table > tbody > tr {
+  flex-direction: column;
+}
+
+.subscribe {
+  background-color: rgb(121, 193, 150);
+  border-radius: 10px;
+  font-family: "Orbit", sans-serif;
+  vertical-align: middle;
+}
+
+/*구독작가 영역*/
+
+/*페이징처리*/
+div.paging {
+  position: block;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/*footer CSS*/
+footer > div > p.footer-center {
+  text-align: center;
+}
+
+footer {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  /*  position: fixed;*/
+  bottom: 0;
+  width: 100%;
+}
+/*footer CSS*/
