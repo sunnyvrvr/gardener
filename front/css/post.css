@@ -9,6 +9,7 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 /* 헤더 시작 */
@@ -24,7 +25,6 @@
 
 /* 섹션 시작 */
 section {
-  max-width: 900px;
   margin: 0 auto;
 }
 /* 섹션 헤더 제목 시작 */
@@ -41,12 +41,12 @@ div.section-header-image > div.main-image {
   position: relative;
   margin-left: -500px;
   opacity: 0.4;
+  z-index: -1;
 }
 /* 섹션 헤더 제목 끝 */
 
 /* 섹션 헤더 타이틀 시작 */
 div.section-header-title > div.section-header-main-title {
-  text-align: center;
   font-size: 53px;
   text-align: center;
   font-weight: bold;
@@ -77,14 +77,30 @@ div.section-header-info > div.section-header-info-date {
   margin-right: 10px;
 }
 /* 섹션 헤더 글 정보 끝 */
-/* 
-/* 섹션 헤더 엄지척,신고 시작 */
+
+/* 섹션 헤더 끝 */
+
+/* 아티클 시작 */
+section article {
+  max-width: 900px;
+  margin: 50px auto 0;
+  min-height: 600px;
+  height: 100%;
+}
+/* 아티클 끝 */
+
+/* 버튼 섹션 시작 */
+.btn-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
 div.section-header-icon {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   position: relative;
-  left: 913px;
-  top: 82px;
   width: 50px;
   height: 40px;
 }
@@ -98,34 +114,23 @@ div.section-header-icon > div > span {
   position: relative;
   top: 17px;
 }
+
 div.section-header-icon img {
   height: 40px;
 }
-/* 섹션 헤더 엄지척,신고 끝 */
 
-/* 섹션 헤더 끝 */
-
-/* 아티클 시작 */
-section article {
-  margin: 50px auto 0;
-  min-height: 600px;
-  height: 100%;
-}
-/* 아티클 끝 */
-
-/* 세 가지 버튼 시작 */
 div.modify-btn {
+  width: 450px;
   display: flex;
   justify-content: end;
 }
-div.modify-btn > div {
-  width: 150px;
-}
-/* 세 가지 버튼 끝 */
+
+/* 버튼 섹션 끝 */
 
 /* 작가 프로필 시작 */
 div.writer-profile {
   display: flex;
+  margin: 0 auto;
   width: 900px;
   height: 170px;
 }
@@ -153,6 +158,8 @@ div.writer-profile > div.writer-profile-pic > img {
 
 /* 댓글 시작 */
 div.section-comment {
+  width: 900px;
+  margin: 0 auto;
   margin-top: 50px;
 }
 div.section-comment > div.section-comment-write {

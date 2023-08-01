@@ -1,5 +1,6 @@
 package com.gardener.post.service;
 
+<<<<<<< HEAD
 import com.gardener.post.dto.Post;
 import com.gardener.post.repository.PostRepository;
 
@@ -17,4 +18,8 @@ public class PostService {
 		repository.selectById(loginid);
 		return p;
 	}
+=======
+public class PostService {
+
+>>>>>>> ca6ce0378bd2e378480644d4496b70b73bf43b04
 }

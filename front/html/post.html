@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../css/post.css">
   <script src="../js/post.js"></script>
+  <link rel="stylesheet" href="../css/post.css">
   <title>Document</title>
 </head>
 
@@ -23,8 +23,8 @@
   <!-- 섹션 시작 -->
   <section>
     <!-- 섹션 헤더 시작 -->
-    <div class="section-header-image" style="text-align: center;">
-      <div class="main-image"></div>
+    <div class="section-header-image">
+      <div class=" main-image"></div>
     </div>
     <!-- 섹션 헤더 제목 시작 -->
     <div class="section-header-title">
@@ -39,15 +39,6 @@
     </div>
     <!-- 섹션 헤더 글 정보 끝 -->
 
-    <!-- 섹션 헤더 엄지척,신고 시작 -->
-    <div class="section-header-icon">
-      <div>
-        <img src="../suwan/thumbs-up.png" alt="좋아요 표시" onclick="alert('카리나 ★ 이수완 예쁘게 봐주세요')">
-        <span>5</span>
-      </div>
-      <div><img src="../suwan/report.png" alt="신고 이미지" onclick="alert('삐용삐용')"></div>
-    </div>
-    <!-- 섹션 헤더 엄지척,신고 끝 -->
 
     <!-- 섹션 헤더 끝 -->
 
@@ -71,13 +62,24 @@
 
     <!-- 수정, 삭제, 저장 버튼 시작 -->
     <!-- 내 글을 확인할 때는 수정, 삭제만 보이게, 다른 사람 글은 반대로 -->
-    <div class="modify-btn">
-      <div>
-        <!-- 수정시 수정 페이지로 ... /post/{id}-->
-        <button>수정</button>
-        <!-- 삭제시 수정 페이지로 ... /post/{id} -->
-        <button>삭제</button>
-        <button>글저장</button>
+    <div class="btn-wrap">
+      <!-- 섹션 헤더 엄지척,신고 시작 -->
+      <div class="section-header-icon">
+        <div>
+          <img src="../suwan/thumbs-up.png" alt="좋아요 표시" onclick="alert('카리나 ★ 이수완 예쁘게 봐주세요')">
+          <span>5</span>
+          <div><img src="../suwan/report.png" alt="신고 이미지" onclick="alert('삐용삐용')"></div>
+        </div>
+      </div>
+      <!-- 섹션 헤더 엄지척,신고 끝 -->
+
+      <div class="modify-btn">
+        <div>
+          <!-- 수정시 수정 페이지로 ... /post/{id}-->
+          <button>수정</button>
+          <!-- 삭제시 수정 페이지로 ... /post/{id} -->
+          <button>삭제</button>
+        </div>
       </div>
     </div>
     <!-- 수정, 삭제, 저장 버튼 끝 -->
