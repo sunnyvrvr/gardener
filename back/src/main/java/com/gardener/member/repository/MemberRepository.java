@@ -1,5 +1,10 @@
 package com.gardener.member.repository;
 
+<<<<<<< HEAD
+public class MemberRepository {
+
+}
+=======
 
 import com.gardener.member.dto.Member;
 
@@ -71,3 +76,4 @@ public class MemberRepository {
 //		Map<String, String> map = new HashMap<>();
 //		}
 
+>>>>>>> ca6ce0378bd2e378480644d4496b70b73bf43b04
