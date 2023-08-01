@@ -1,4 +1,4 @@
-package com.gardener.user.controller;
+package com.gardener.member.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class UserController
+ * Servlet implementation class MemberController
  */
-@WebServlet("/user")
-public class UserController extends HttpServlet {
+@WebServlet("/member")
+public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserController() {
+    public MemberController() {
         super();
         // TODO Auto-generated constructor stub
     }

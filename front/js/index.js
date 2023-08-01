@@ -28,7 +28,7 @@ $(() => {
 
   searchbtn.click(() => {
     alert('검색');
-    location.href = '..//html/search.html';
+    location.href = './html/search.html';
   });
   //검색버튼을 클릭하면 할 일 end
 
