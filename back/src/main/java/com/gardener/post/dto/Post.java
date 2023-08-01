@@ -1,6 +1,7 @@
 package com.gardener.post.dto;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,6 +33,8 @@ public class Post {
 	
 	
 =======
+=======
+>>>>>>> 0d53565f9944c2b41e90e1f5d3023e3a9414b2b7
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -50,5 +53,11 @@ public class Post {
     private String category;         //카테고리
     private int postPublic;            //비공개,공개(0,1)
     private int favorite;            //좋아요
+<<<<<<< HEAD
 >>>>>>> origin
+=======
+=======
+public class Post {
+>>>>>>> ca6ce0378bd2e378480644d4496b70b73bf43b04
+>>>>>>> 0d53565f9944c2b41e90e1f5d3023e3a9414b2b7
 }
