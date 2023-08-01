@@ -42,50 +42,5 @@ public class MemberController extends HttpServlet {
 		String intro = request.getParameter("intro");
 		String profile = request.getParameter("profile");
 		// 요청전달데이터 얻기
-
-=======
-/**
- * Servlet implementation class MemberController
- */
-<<<<<<< HEAD
-<<<<<<< HEAD
-@WebServlet("/member")
-=======
-@WebServlet("/user")
->>>>>>> origin
-=======
-@WebServlet("/member")
->>>>>>> ca6ce0378bd2e378480644d4496b70b73bf43b04
->>>>>>> 0d53565f9944c2b41e90e1f5d3023e3a9414b2b7
-public class MemberController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MemberController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-<<<<<<< HEAD
-=======
-
->>>>>>> ca6ce0378bd2e378480644d4496b70b73bf43b04
-	}
-
 }
