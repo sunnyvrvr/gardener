@@ -34,5 +34,4 @@ public class PostController extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }
