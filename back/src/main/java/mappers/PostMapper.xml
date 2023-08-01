@@ -2,5 +2,10 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.gardener.PostMapper">
+<mapper namespace="com.gardener.post.mapper.PostMapper">
+  <select id="selectById" 
+		 parameterType="String"
+		 resultType="Post">
+  SELECT *FROM post WHERE id=#{aaa}
+  </select>
 </mapper>
