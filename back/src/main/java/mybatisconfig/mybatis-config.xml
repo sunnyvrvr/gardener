@@ -17,7 +17,7 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="oracle.jdbc.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521/suwanPDB"/>
         <property name="username" value="servlet"/>
         <property name="password" value="suwan"/>
       </dataSource>

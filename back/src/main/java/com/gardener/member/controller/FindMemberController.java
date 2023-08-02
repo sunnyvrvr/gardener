@@ -12,10 +12,6 @@ import com.my.gardener.member.service.MemberService;
 public class FindMemberController extends HttpServlet {
 	private MemberService service;
 
-	public UpdateMemberController() {
-		service=MemberService.getInstance();
-	}
-
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub

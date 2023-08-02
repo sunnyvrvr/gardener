@@ -1,6 +1,14 @@
 $(() => {
   let imgs = [];
 
+  // 클릭시 라디오버튼 체크 시작
+  $("div.category li").click((e) => {
+    e.stopPropagation();
+    const radioButton = $(e.currentTarget).find("input[type='radio']");
+    radioButton.prop("checked", true);
+  });
+  // 클릭시 라디오버튼 체크 끝
+
   // 본문 메인 이미지 선택 시작
   const imgBtn = $("input[name='image']");
   imgBtn.change((e) => {
@@ -62,7 +70,7 @@ $(() => {
           },
           data: formData,
           success: (response) => {
-            imgs.push({ contemt: response?.data?.link });
+            imgs.push(response?.data?.link);
             console.log(response);
             cb(response.data.link);
           },
@@ -76,30 +84,32 @@ $(() => {
   // 본문에서 이미지 선택 끝
 
   $("div.post-btn").click(() => {
-    const form = $("form");
-    const jsonData = form.serialize();
+    const title = $("input[name='title']").val();
+    const subTitle = $("input[name='subtitle']").val();
     const content = editor.getMarkdown();
     const mainImage = $(".main-image").css("background-image");
     const mainImgUrl = mainImage.slice(
       mainImage.indexOf('"') + 1,
       mainImage.lastIndexOf('"')
     );
+    const secret = $("#secret:checked").val();
+    const cate = $("input[name='cate']:checked").val();
 
-    const formData = new FormData();
-    formData.append("jsondata", jsonData);
-    formData.append("content", content);
-    formData.append("mainImage", mainImgUrl);
-
+    const data = {
+      title: title,
+      subtitle: subTitle,
+      content: content,
+      mainImg: mainImgUrl,
+      imgs: imgs,
+      secret: secret,
+      cate: cate,
+    };
+    console.log(data);
     $.ajax({
-      url: "http://localhost:8888/post",
-      method: "get",
-      processData: false,
-      contentType: false,
-      data: formData,
-      success: (response) => {
-        console.log(response, "--");
-        sessionStorage.setItem("name", response);
-      },
+      url: "http://localhost:8888/back/post",
+      method: "POST",
+      data: data,
+      success: (response) => {},
     });
   });
 });

@@ -1,21 +1,22 @@
 package com.gardener.post.service;
 
-
 import com.gardener.post.dto.Post;
 import com.gardener.post.repository.PostRepository;
 
 public class PostService {
-	private static PostService service = new PostService();
+	static private PostService service = new PostService();
 	private PostRepository repository;
-	public PostService() {
+
+	private PostService() {
 		repository = new PostRepository();
 	}
+
 	public static PostService getInstance() {
 		return service;
 	}
-	public Post selectById(String loginid) {
-		Post p = new Post();
-		repository.selectById(loginid);
-		return p;
+
+	public void savePost(Post post) {
+		repository.insertPost(post);
 	}
 
+}
