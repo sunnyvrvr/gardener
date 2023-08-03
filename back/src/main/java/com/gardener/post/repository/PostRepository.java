@@ -30,15 +30,27 @@ public class PostRepository {
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-			System.out.println(session + " -- repo session 확인");
 			session.insert("com.gardener.PostMapper.insertPost", post);
 			session.commit();
 		} catch (Exception e) {
+			session.rollback();
 			e.printStackTrace();
 		} finally {
 			if (session != null) {
 				session.close();
 			}
 		}
+	}
+
+	public Post selectByPost(int id) {
+		SqlSession session = null;
+		Post post = new Post();
+		try {
+			session = sessionFactory.openSession();
+			post = session.selectOne("com.gardener.PostMapper.selectPost", id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return post;
 	}
 }

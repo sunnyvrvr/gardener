@@ -92,8 +92,17 @@ $(() => {
       mainImage.indexOf('"') + 1,
       mainImage.lastIndexOf('"')
     );
-    const secret = $("#secret:checked").val();
+    let secret = $("#secret:checked").val();
     const cate = $("input[name='cate']:checked").val();
+
+    if (typeof secret === "undefined") {
+      secret = 0;
+    }
+
+    if (typeof cate === "undefined") {
+      swal("카테고리를 하나 선택해 주세요");
+      return;
+    }
 
     const data = {
       title: title,
@@ -111,6 +120,10 @@ $(() => {
       data: data,
       success: (response) => {},
     });
+  });
+
+  $("#st").click((e) => {
+    location.href = "../html/post.html";
   });
 });
 

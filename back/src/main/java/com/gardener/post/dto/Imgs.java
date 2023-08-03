@@ -1,12 +1,14 @@
 package com.gardener.post.dto;
 
-import lombok.Setter;
+import java.util.List;
 
-@Setter
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
 public class Imgs {
-	private String img1;
-	private String img2;
-	private String img3;
-	private String img4;
-	private String img5;
+	private List<String> img;
 }

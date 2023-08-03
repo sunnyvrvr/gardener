@@ -19,4 +19,7 @@ public class PostService {
 		repository.insertPost(post);
 	}
 
+	public Post findPost(int id) {
+		return repository.selectByPost(id);
+	}
 }

@@ -5,11 +5,18 @@
 <mapper namespace="com.gardener.PostMapper">
     <sql id="postColumns">
         id
-        ,user_id, main_title, sub_title, content, main_title_img, category, post_public, favorite, create_date    </sql>
+        ,user_id, main_title, sub_title, content, main_title_img, category, post_public, favorite, create_post
+    </sql>
 
     <insert id="insertPost" parameterType="Post">
         insert into post(<include refid="postColumns"></include>)
         values(post_seq.nextval, #{userId}, #{mainTitle}, #{subTitle}, #{content}, #{mainTitleImg},
-         #{category}, 0, 0, systimestamp )
+        #{category}, 0, 0, systimestamp )
     </insert>
+
+    <select id="selectPost" parameterType="int" resultType="Post">
+        select *
+        from post
+        where id = #{id}
+    </select>
 </mapper>
