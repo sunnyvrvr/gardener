@@ -26,4 +26,5 @@ public class Post {
 				+ subTitle + ", content=" + content + ", mainTitleImg=" + mainTitleImg + ", contentImg=" + contentImg
 				+ ", category=" + category + ", postPublic=" + postPublic + ", favorite=" + favorite + "]";
 	}
+}
 
