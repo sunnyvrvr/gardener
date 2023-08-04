@@ -33,6 +33,7 @@ public class PostController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		Gson gson = new Gson();
 		int id = Integer.parseInt(request.getParameter("num"));
+		System.out.println(id);
 
 		Post post = service.findPost(id);
 		String postJson = gson.toJson(post);

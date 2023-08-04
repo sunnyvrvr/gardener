@@ -2,6 +2,8 @@ package com.gardener.post.repository;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -45,10 +47,14 @@ public class PostRepository {
 	public Post selectByPost(int id) {
 		SqlSession session = null;
 		Post post = new Post();
+		Map<Integer, Post> map = new HashMap<>();
 		try {
 			session = sessionFactory.openSession();
+			System.out.println(id);
 			post = session.selectOne("com.gardener.PostMapper.selectPost", id);
+			System.out.println(post);
 		} catch (Exception e) {
+			System.out.println("post 없어. 아마?");
 			e.printStackTrace();
 		}
 		return post;
