@@ -4,7 +4,7 @@ $(() => {
     success: (response) => {
       const a = response.content
         .replace(
-          /!\[\]\((https:\/\/i\.imgur\.com\/a0Ket8n\.jpg)\)/g,
+          /!\[\]\((https:\/\/i\.imgur\.com\/[a-zA-Z0-9]+\.[a-z]+)\)/g,
           '<img src="$1" alt=""/>'
         )
         .replace(/\n/g, "<br>");
