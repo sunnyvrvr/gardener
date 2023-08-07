@@ -7,6 +7,7 @@ import com.gardener.member.repository.MemberRepository;
 public class MemberService {
 	private static MemberService service = new MemberService();
 	private MemberRepository repository;
+
 	
 	private MemberService () {
 		repository = new MemberRepository();	
@@ -19,9 +20,9 @@ public class MemberService {
 	public Member login (String id, String pwd) throws FindException {
 		Member m = repository.selectById(id);
 		if(pwd.equals(m.getPwd())) {
-			return m; //·Î±×ÀÎ¼º°ø
+			return m; // ë¡œê·¸ì¸ì„±ê³µ
 		}else {
-			throw new FindException("·Î±×ÀÎ ½ÇÆÐ");
+			throw new FindException("ë¡œê·¸ì¸ ì‹¤íŒ¨");
 		}
 	}
 	
@@ -34,4 +35,28 @@ public class MemberService {
 		
 	
 	
+=======
+
+	private MemberService() {
+		repository = new MemberRepository();
+	}
+
+	public static MemberService getInstance() {
+		return service;
+	}
+
+	public Member findByMember(String memberId) {
+		// íšŒì› ì •ë³´ ì¡°íšŒ ë¡œì§ êµ¬í˜„
+
+		try {
+			return repository.selectById(memberId);
+		} catch (FindException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+//		return repository.findById(memberId);
+		return null;
+	}
+>>>>>>> 21611a7624e77cf682f16ae501571903703724c6
 }

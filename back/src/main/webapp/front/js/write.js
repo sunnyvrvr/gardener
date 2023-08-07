@@ -34,6 +34,7 @@ $(() => {
   // 본문 메인 이미지 선택 끝
 
   // 본문에서 이미지 선택 시작
+
   const editor = new toastui.Editor({
     el: document.querySelector("#editor"),
     height: "600px",
@@ -73,6 +74,7 @@ $(() => {
       },
     },
   });
+
   // 본문에서 이미지 선택 끝
 
   $("div.post-btn").click(() => {
@@ -103,6 +105,3 @@ $(() => {
     });
   });
 });
-
-// ajax 메소드를 만들고, then으로 후속처리 할 수 있을듯
-// ![](https://i.imgur.com/n0fuOT1.jpg)![](https://i.imgur.com/Rk3nhVu.jpg)

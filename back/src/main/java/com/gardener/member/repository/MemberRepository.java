@@ -14,9 +14,11 @@ import com.gardener.member.dto.Member;
 
 public class MemberRepository {
 	private SqlSessionFactory sessionFactory;
+	
 	public MemberRepository(){
 		String resource ="/mybatisconfig/mybatis-config.xml";
 		InputStream inputStream;
+		
 		try {
 			inputStream = Resources.getResourceAsStream(resource);			
 			sessionFactory = 
@@ -32,9 +34,9 @@ public class MemberRepository {
 			session = sessionFactory.openSession();
 			Member m = session.selectOne("com.gardener.MemberMapper.selectById", id);
 			if(m == null) {
-				throw new FindException("ÀúÀåµÈ °í°´ Á¤º¸°¡ ¾ø½À´Ï´Ù");
+				throw new FindException("ì €ì¥ëœ ê³ ê° ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤");
 			}
-			System.out.println("m.id=" + m.getId() + ", m.pwd=" + m.getPwd() + ",m.name=" + m.getName());
+	//		System.out.println("m.id=" + m.() + ", m.pwd=" + m.getPwd() + ",m.name=" + m.getName());
 			return m;		
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -44,14 +46,8 @@ public class MemberRepository {
 				session.close();
 			}			
 		}		
-		
-	
-		
-		
-		
-	}
+		}
 	public void insert(Member m){	}
-	
-}
+	}
 
 

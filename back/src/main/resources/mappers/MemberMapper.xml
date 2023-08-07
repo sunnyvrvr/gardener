@@ -4,7 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gardener.MemberMapper">
 <select id="selectById" resultType="Member" parameterType="string">
+<<<<<<< HEAD:back/src/main/java/mappers/MemberMapper.xml
  SELECT * FROM member WHERE login_id=#{id}
+=======
+<<<<<<< HEAD
+ SELECT * FROM customer WHERE userid=#{id}
+=======
+SELECT * FROM customer WHERE id=#{id}
+>>>>>>> a25342519161b0a8045e00291ab54d5f2e03857f
+>>>>>>> 21611a7624e77cf682f16ae501571903703724c6:back/src/main/resources/mappers/MemberMapper.xml
 </select>
 
 <insert id="insert" parameterType="map">
