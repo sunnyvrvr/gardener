@@ -11,15 +11,16 @@
   	<typeAlias type="com.gardener.member.dto.Member" alias="Member"/>
   	<typeAlias type="com.gardener.post.dto.Post" alias="Post"/>
   	<typeAlias type="com.gardener.comment.dto.Comment" alias="Comment"/>
+  	<typeAlias type="com.gardener.search.dto.Search" alias="Search"/>
   </typeAliases>	
   <environments default="development">
     <environment id="development">
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="oracle.jdbc.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-        <property name="username" value="servlet"/>
-        <property name="password" value="suwan"/>
+        <property name="url" value="jdbc:oracle:thin:@192.168.0.30:1521:xe"/>
+        <property name="username" value="gardener"/>
+        <property name="password" value="1234"/>
       </dataSource>
     </environment>
   </environments>
@@ -27,5 +28,6 @@
     <mapper resource="/mappers/MemberMapper.xml"/>
     <mapper resource="/mappers/PostMapper.xml"/>
     <mapper resource="/mappers/CommentMapper.xml"/>
+    <mapper resource="/mappers/SearchMapper.xml"/>
   </mappers>
 </configuration>

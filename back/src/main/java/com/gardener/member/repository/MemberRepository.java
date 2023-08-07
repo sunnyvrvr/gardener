@@ -16,9 +16,11 @@ import com.gardener.member.dto.Member;
 
 public class MemberRepository {
 	private SqlSessionFactory sessionFactory;
+	
 	public MemberRepository(){
 		String resource ="/mybatisconfig/mybatis-config.xml";
 		InputStream inputStream;
+		
 		try {
 			inputStream = Resources.getResourceAsStream(resource);			
 			sessionFactory = 
