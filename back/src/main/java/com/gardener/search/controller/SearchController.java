@@ -31,6 +31,7 @@ public class SearchController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setHeader("Access-Control-Allow-Origin","*");
 		response.setContentType("application/json; charset=utf-8");
+		
 		PrintWriter out = response.getWriter();
 
 		
@@ -41,42 +42,50 @@ public class SearchController extends HttpServlet {
 		String keyword = request.getParameter("text");
 		
 		//SQL구문 실행결과를 받아올 변수
-		List<Search> result = new ArrayList<Search>();
+		List<Search> resultList = new ArrayList<Search>();
 		
 		//json형태로 넘겨줄 Gson객체 생성
 		Gson gson = new Gson();
+		
+		String result = null;
 		
 		System.out.println("html에서 dropdown = "+select);
 		System.out.println("html에서 입력한 Text = "+keyword);
 		
 		if(select.equals("title")) {
 			try {
-				result = service.selectTitle(keyword);
-				System.out.println("result.size() = "+result.size());
-				String r = gson.toJson(result);
-				System.out.println(r);
+				resultList = service.selectTitle(keyword);
+				System.out.println("resultList.size() = "+resultList.size());
+				result = gson.toJson(resultList);
+				System.out.println(result);
 			} catch (FindException e) {
 				e.printStackTrace();
 			}
 		}else if(select.equals("name")) {
 			try {
-				result = service.selectName(keyword);
-				System.out.println("result.size() = "+result.size());
-				result.forEach(e->System.out.println(e));
+				resultList = service.selectName(keyword);
+				System.out.println("resultList.size() = "+resultList.size());
+				result = gson.toJson(resultList);
+				System.out.println(result);
 			} catch (FindException e) {
 				e.printStackTrace();
 			}
 			
 		}else if(select.equals("content")) {
 			try {
-				result = service.selectContent(keyword);
-				System.out.println("result.size() = "+result.size());
-				result.forEach(e->System.out.println(e));
+				resultList = service.selectContent(keyword);
+				System.out.println("resultList.size() = "+resultList.size());
+				result = gson.toJson(resultList);
+				System.out.println(result);
 			} catch (FindException e) {
 				e.printStackTrace();
 			}
 		}
 		
+		//json형태로 응답
+		out.print(result);
+		
+	
 
 		
 		
