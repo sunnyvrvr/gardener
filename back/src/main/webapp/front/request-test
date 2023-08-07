@@ -1,0 +1,6 @@
+POST http://localhost:8888/back/member HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+{
+id:"suwan"
+}
