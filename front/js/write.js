@@ -123,12 +123,8 @@ $(() => {
   });
 
   $("#st").click((e) => {
-    location.href = "../html/post.html";
+    location.href = "../html/posts.html";
   });
 });
 
 // ajax 메소드를 만들고, then으로 후속처리 할 수 있을듯
-// ![](https://i.imgur.com/n0fuOT1.jpg)
-// ![](https://i.imgur.com/Rk3nhVu.jpg)
-// ![](https://i.imgur.com/bmK2lv3.jpg)
-// ![](https://i.imgur.com/9si3lCv.jpg)

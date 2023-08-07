@@ -2,8 +2,6 @@ package com.gardener.post.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.ServletException;
@@ -12,14 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.gardener.post.dto.Imgs;
 import com.gardener.post.dto.Post;
 import com.gardener.post.service.PostService;
 import com.google.gson.Gson;
 
 @WebServlet("/post")
 public class PostController extends HttpServlet {
-	private final PostService service;
+	public PostService service;
 
 	public PostController() {
 		service = PostService.getInstance();
@@ -33,11 +30,9 @@ public class PostController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		Gson gson = new Gson();
 		int id = Integer.parseInt(request.getParameter("num"));
-		System.out.println(id);
 
-		Post post = service.findPost(id);
-		String postJson = gson.toJson(post);
-		System.out.println(postJson + " -- > ");
+		Optional<Post> post = service.findPost(id);
+		String postJson = gson.toJson(post.get());
 		out.print(postJson);
 	}
 
@@ -47,7 +42,6 @@ public class PostController extends HttpServlet {
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		request.setCharacterEncoding("utf-8");
 		Post post = null;
-		List<String> imgList = new ArrayList<>();
 
 		String title = request.getParameter("title");
 		String subTitle = request.getParameter("subtitle");
@@ -59,19 +53,14 @@ public class PostController extends HttpServlet {
 		Optional<String[]> imgOp = Optional.ofNullable(imgArr);
 
 		if (imgOp.isEmpty()) {
-			System.out.println("비어있어요");
 			post = new Post(0, 1, title, subTitle, content, mainImg, cate, secret, 0, null);
 			service.savePost(post);
 			return;
 		}
 
-		for (int i = 1; i < imgArr.length; i++) {
-			imgList.add(imgArr[i]);
-		}
+		post = new Post(0, 1, title, subTitle, content, mainImg, cate, secret, 0, null);
+		service.savePost(post);
+		service.saveImg(imgArr);
 
-		Imgs imgs = new Imgs(imgList);
-		System.out.println(imgs.getImg() + " --");
-		// post = new Post(0, 1, title, subTitle, content, mainImg, cate, secret, 0,
-		// null);
 	}
 }

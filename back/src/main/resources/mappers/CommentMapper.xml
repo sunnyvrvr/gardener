@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.gardener.CommentMapper">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gardener.comments.CommentsMapper">
+    <sql id="commentsColumns">
+        id
+        , post_id, member_id, content, create_date, report
+    </sql>
+    <insert id="insertComments" parameterType="Comments">
+        insert into comments(<include refid="commentsColumns"></include>)
+        values(comments_seq.nextval,#{postId},#{memberId},#{content},systimestamp,0)
+    </insert>
+
+
+    <resultMap id="joinMap" type="Comments">
+        <result property="content" column="content"/>
+        <result property="createDate" column="create_date"/>
+        <result property="report" column="report"/>
+        <association property="member" javaType="Member" autoMapping="true"/>
+    </resultMap>
+
+    <select id="selectComments" parameterType="int" resultMap="joinMap">
+        SELECT c.content, to_char(c.create_date, 'yyyy-mm-dd hh:mm:ss') create_date, c.report, m.id, m.name
+        FROM comments c
+                 JOIN member m ON c.member_id = m.id
+        WHERE c.post_id = #{postid}
+    </select>
+
+    <!--    count-->
+    <select id="selectAll" parameterType="map" resultMap="joinMap">
+        SELECT *
+        FROM (SELECT ROWNUM AS rn, co.*
+              FROM (SELECT c.content,
+                           to_char(c.create_date, 'yyyy-mm-dd hh:mm:ss') create_date,
+                           c.report,
+                           m.id,
+                           m.name
+                    FROM comments c
+                             JOIN member m ON c.member_id = m.id
+                    WHERE c.post_id = #{num}
+                    ORDER BY id asc) co)
+        WHERE rn BETWEEN #{startRow} AND #{endRow}
+    </select>
+
+    <select id="count" parameterType="int" resultType="int">
+        SELECT COUNT(*)
+        FROM comments
+        WHERE post_id = #{num}
+    </select>
 </mapper>

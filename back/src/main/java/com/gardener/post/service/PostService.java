@@ -1,5 +1,8 @@
 package com.gardener.post.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import com.gardener.post.dto.Post;
 import com.gardener.post.repository.PostRepository;
 
@@ -19,7 +22,19 @@ public class PostService {
 		repository.insertPost(post);
 	}
 
-	public Post findPost(int id) {
-		return repository.selectByPost(id);
+	public void saveImg(String[] imgs) {
+		repository.insertImgs(imgs);
+	}
+
+	public Optional<Post> findPost(int id) {
+		Optional<Post> post = repository.selectById(id);
+		return post;
+	}
+
+	/**
+	 * 전체 찾기
+	 */
+	public List<Post> findAllPosts() {
+		return repository.selectAllPosts();
 	}
 }

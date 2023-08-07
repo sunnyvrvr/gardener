@@ -22,7 +22,6 @@ public class Post {
 	private String createPost; // 글 생성일자
 
 	private Member member;
-	// private Comment contentTable; // 댓글 dto
 
 	public Post(int id, int memberId, String mainTitle, String subTitle, String content, String mainTitleImg,
 			String category, int postPublic, int favorite, String createPost) {

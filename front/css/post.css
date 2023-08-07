@@ -12,6 +12,18 @@
   margin: 0;
 }
 
+hr {
+  margin: 20px 0;
+}
+
+.content-img {
+  text-align: center;
+}
+
+.content-img > img {
+  max-width: 600px;
+}
+
 /* 헤더 시작 */
 .main-logo {
   margin: 0px auto;
@@ -28,11 +40,11 @@ section {
   margin: 0 auto;
 }
 /* 섹션 헤더 제목 시작 */
-div.section-header-image {
+.section-header-image {
   height: 400px;
   width: 100vw;
 }
-div.section-header-image > div.main-image {
+.section-header-image > .main-image {
   background-repeat: no-repeat;
   margin: 0 auto;
   height: 500px;
@@ -46,13 +58,13 @@ div.section-header-image > div.main-image {
 /* 섹션 헤더 제목 끝 */
 
 /* 섹션 헤더 타이틀 시작 */
-div.section-header-title > div.section-header-main-title {
+.section-header-title > .section-header-main-title {
   font-size: 53px;
   text-align: center;
   font-weight: bold;
   font-size: xx-large;
 }
-div.section-header-title > .section-header-main-subtitle {
+.section-header-title > .section-header-main-subtitle {
   text-align: center;
   font-size: large;
   font-weight: 700;
@@ -60,7 +72,7 @@ div.section-header-title > .section-header-main-subtitle {
 }
 
 /* 섹션 헤더 글 정보 시작 */
-div.section-header-info {
+.section-header-info {
   display: flex;
   position: relative;
   top: 40px;
@@ -68,10 +80,10 @@ div.section-header-info {
   justify-content: end;
   font-weight: bold;
 }
-div.section-header-info > div.section-header-info-writer {
+.section-header-info > .section-header-info-writer {
   margin-right: 10px;
 }
-div.section-header-info > div.section-header-info-date {
+.section-header-info > .section-header-info-date {
   /* 숫자 수평정렬 */
   line-height: 1.4;
   margin-right: 10px;
@@ -97,58 +109,58 @@ section article {
   justify-content: space-between;
 }
 
-div.section-header-icon {
+.section-header-icon {
   display: flex;
   flex-direction: row-reverse;
   position: relative;
   width: 50px;
   height: 40px;
 }
-div.section-header-icon:hover {
+.section-header-icon:hover {
   cursor: pointer;
 }
-div.section-header-icon > div {
+.section-header-icon > div {
   display: flex;
 }
-div.section-header-icon > div > span {
+.section-header-icon > div > span {
   position: relative;
   top: 17px;
 }
 
-div.section-header-icon img {
+.section-header-icon img {
   height: 40px;
 }
 
-div.modify-btn {
+.modify-btn {
   width: 450px;
   display: flex;
   justify-content: end;
 }
-
 /* 버튼 섹션 끝 */
 
 /* 작가 프로필 시작 */
-div.writer-profile {
+.writer-profile {
   display: flex;
   margin: 0 auto;
   width: 900px;
   height: 170px;
+  margin-top: 30px;
+  padding-left: 15px;
 }
-div.writer-profile > div.writer-profile-info {
+.writer-profile > .writer-profile-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   width: 730px;
 }
-div.writer-profile > div.writer-profile-info > div.writer-profile-name {
+.writer-profile > .writer-profile-info > .writer-profile-name {
   font-weight: bold;
 }
 /* 작가 프로필 사진 시작*/
-div.writer-profile > div.writer-profile-pic {
+.writer-profile > .writer-profile-pic {
   width: 170px;
   height: 170px;
 }
-div.writer-profile > div.writer-profile-pic > img {
+.writer-profile > .writer-profile-pic > img {
   border-radius: 50%;
   width: 100%;
   height: 100%;
@@ -157,23 +169,50 @@ div.writer-profile > div.writer-profile-pic > img {
 /* 작가 프로필 끝 */
 
 /* 댓글 시작 */
-div.section-comment {
+.section-comment > div {
+  margin-bottom: 30px;
+  text-align: end;
+}
+.section-comment > div > h3 {
+  display: flex;
+}
+
+.section-comment > div > button {
+  width: 60px;
+  height: 40px;
+}
+
+.section-comment > div > textarea {
+  width: 900px;
+  height: 150px;
+  resize: none;
+}
+
+.section-comment {
   width: 900px;
   margin: 0 auto;
   margin-top: 50px;
 }
-div.section-comment > div.section-comment-write {
+.section-comment > .section-comment-wrap > .section-comment-write {
   display: flex;
 }
-div.section-comment > div.section-comment-write + p {
+.section-comment > .section-comment-wrap > .section-comment-write + p {
   margin: 0 0 20px;
+  text-align: start;
 }
 
-div.section-comment > div.section-comment-write > div:nth-child(1) {
+.section-comment
+  > .section-comment-wrap
+  > .section-comment-write
+  > div:nth-child(1) {
   width: 720px;
+  text-align: start;
 }
 
-div.section-comment > div.section-comment-write > div:nth-child(2) {
+.section-comment
+  > .section-comment-wrap
+  > .section-comment-write
+  > div:nth-child(2) {
   display: flex;
   justify-content: space-between;
   height: 50px;
@@ -185,6 +224,13 @@ div.section-comment > div.section-comment-write > div:nth-child(2) {
 .pagination {
   font-size: x-large;
   text-align: center;
+}
+
+.pagination span {
+  cursor: pointer;
+  display: inline-block;
+  width: 50px;
+  border: 1px solid;
 }
 /* 페이지 네이션 끝 */
 

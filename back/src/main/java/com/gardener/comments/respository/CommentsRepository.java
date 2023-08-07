@@ -1,4 +1,4 @@
-package com.gardener.post.repository;
+package com.gardener.comments.respository;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,40 +6,39 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.gardener.post.dto.Post;
+import com.gardener.comments.dto.Comments;
 
-public class PostRepository {
-
+public class CommentsRepository {
 	private SqlSessionFactory sessionFactory;
 
-	public PostRepository() {
+	public CommentsRepository() {
 		String resource = "/mybatisconfig/mybatis-config.xml";
 		InputStream inputStream;
+
 		try {
 			inputStream = Resources.getResourceAsStream(resource);
 			sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
-	public void insertPost(Post post) {
+	public void insertReply(Comments comments) {
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-			session.insert("com.gardener.post.PostMapper.insertPost", post);
+			int insert = session.insert("com.gardener.comments.CommentsMapper.insertComments", comments);
 			session.commit();
 		} catch (Exception e) {
+			e.printStackTrace();
 			session.rollback();
-			e.printStackTrace();
 		} finally {
 			if (session != null) {
 				session.close();
@@ -47,37 +46,12 @@ public class PostRepository {
 		}
 	}
 
-	public void insertImgs(String[] imgs) {
-		System.out.println(imgs.length + " -- length");
+	public List<Comments> selectAllComments(int num) {
 		SqlSession session = null;
-		Map<String, String> imgMap = new HashMap<>();
-		for (int i = 0; i < imgs.length; i++) {
-			imgMap.put("img" + i, imgs[i]);
-		}
-
-		Set<Map.Entry<String, String>> entries = imgMap.entrySet();
-		entries.forEach(e -> System.out.println("k " + e.getKey() + " v: " + e.getValue()));
-
+		List<Comments> comments = new ArrayList<>();
 		try {
 			session = sessionFactory.openSession();
-			session.insert("com.gardener.post.PostMapper.insertImgs", imgMap);
-			session.commit();
-		} catch (Exception e) {
-			session.rollback();
-			e.printStackTrace();
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
-	}
-
-	public Optional<Post> selectById(int id) {
-		SqlSession session = null;
-		Optional<Post> post = Optional.empty();
-		try {
-			session = sessionFactory.openSession();
-			post = Optional.ofNullable(session.selectOne("com.gardener.post.PostMapper.selectPost", id));
+			comments = (ArrayList) session.selectList("com.gardener.comments.CommentsMapper.selectComments", num);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -85,15 +59,21 @@ public class PostRepository {
 				session.close();
 			}
 		}
-		return post;
+		return comments;
 	}
 
-	public List<Post> selectAllPosts() {
+	public List<Comments> selectAll(int startRow, int endRow, int num) {
+		System.out.println("repo num = " + num);
+		List<Comments> list = new ArrayList();
 		SqlSession session = null;
-		List<Post> posts = new ArrayList<>();
+		Map<String, Integer> map = new HashMap();
+		System.out.println(num + " -- repo num");
 		try {
 			session = sessionFactory.openSession();
-			posts = (ArrayList) session.selectList("com.gardener.post.PostMapper.selectAllPosts");
+			map.put("startRow", startRow);
+			map.put("endRow", endRow);
+			map.put("num", num);
+			list = session.selectList("com.gardener.comments.CommentsMapper.selectAll", map);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -101,6 +81,24 @@ public class PostRepository {
 				session.close();
 			}
 		}
-		return posts;
+		list.forEach(e -> System.out.println(e));
+		return list;
 	}
+
+	public int count(int num) {
+		SqlSession session = null;
+		int count = 0;
+		try {
+			session = sessionFactory.openSession();
+			count = session.selectOne("com.gardener.comments.CommentsMapper.count", num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+		return count;
+	}
+
 }
