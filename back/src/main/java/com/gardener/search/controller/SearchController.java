@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import com.gardener.post.dto.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,17 +26,17 @@ public class SearchController extends HttpServlet {
 		response.setContentType("application/json;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
-		List<Product> list = new ArrayList<>();
-		Product p = new Product("C0001","아메리카노",1000);
-		list.add(p);
-		list.add(new Product("C0002","카페라떼",2000));
-		list.add(new Product("C0003","아이스초코",3000));
-		list.add(new Product("C0004","망고스무디",5000));
+		List<Post> list = new ArrayList<>();
+//		Post p = new Post("C0001","아메리카노",1000);
+//		list.add(p);
+//		list.add(new Ppst("C0002","카페라떼",2000));
+//		list.add(new Post("C0003","아이스초코",3000));
+//		list.add(new Post("C0004","망고스무디",5000));
 		
-		ObjectMapper mapper = new ObjectMapper();
-		String jsonStr = mapper.writeValueAsString(list);
-		System.out.println(jsonStr);
-		out.print(jsonStr);
+//		ObjectMapper mapper = new ObjectMapper();
+//		String jsonStr = mapper.writeValueAsString(list);
+//		System.out.println(jsonStr);
+//		out.print(jsonStr);
 	}
 
 	

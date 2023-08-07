@@ -1,5 +1,5 @@
 package com.gardener.member.service;
 
-public class MemberSservice {
+public class MemberService {
 
 }

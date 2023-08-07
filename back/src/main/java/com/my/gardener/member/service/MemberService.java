@@ -17,7 +17,8 @@ public class MemberService {
 
 	public Member findByMember(String memberId) {
 		// 회원 정보 조회 로직 구현
-		return repository.findById(memberId);
+//		return repository.findById(memberId);
+		return null;
 	}
 
 }

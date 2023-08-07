@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbit&display=swap");
+/*body CSS*/
+* {
+  box-sizing: border-box;
+}
+/*body CSS*/
+
+/*header CSS*/
+h1 {
+  text-align: center;
+}
+h1 > a > img {
+  width: 250px;
+  height: 150px;
+}
+
+header > nav > ul {
+  list-style-type: none;
+  padding-left: 200px;
+  width: 100%;
+}
+
+header > nav > ul > li {
+  font-family: "Orbit", sans-serif;
+  display: inline-block;
+  width: 19%;
+}
+
+header > nav > ul > li > a {
+  text-decoration: none;
+  color: black;
+}
+/*header CSS*/
+
+div.wr {
+  display: block;
+  /*   position: absolute;*/
+  border: 1px solid black;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: "Orbit", sans-serif;
+}
+
+div.wr > div.wr_part > img {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+#subscribe {
+  left: 900px;
+  background-color: rgb(121, 193, 150);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-family: "Orbit", sans-serif;
+}
+/*작가글 전체 위치 잡는 영역*/
+div.posts-title {
+  display: block;
+  flex-direction: column;
+  /*  height: calc(100%-100px);*/
+  margin-bottom: 30px;
+  text-align: center;
+  margin: 50px 200px 50px;
+  font-family: "Orbit", sans-serif;
+}
+/*작가 글 1개씩 보여주는 영역--시작*/
+div.post_part {
+  padding-top: 10px;
+  margin: 20px 300px 50px;
+  font-family: "돋움 medium";
+}
+
+div.posts_part > div.post > a.thumbnail {
+  float: right;
+  position: inline-block;
+  margin: 10px;
+}
+
+div.posts_part > div.post > div.post-title-writer {
+  position: block;
+  margin-top: 15px;
+  margin-left: 10px;
+  font-size: 20px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+}
+
+div.posts_part > div.post > span.post-content {
+  margin-top: 10px;
+  margin-left: 10px;
+  display: block;
+  font-size: 14px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+/*작가 글 1개씩 보여주는 영역--끝*/
+/*페이징처리*/
+div.paging {
+  position: block;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+/*footer CSS*/
+footer > div > p.footer-center {
+  text-align: center;
+}
+
+footer {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  /*  position: fixed;*/
+  bottom: 0;
+  width: 100%;
+}
+/*footer CSS*/

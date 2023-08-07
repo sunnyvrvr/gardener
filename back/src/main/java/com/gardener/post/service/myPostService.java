@@ -1,21 +1,31 @@
 package com.gardener.post.service;
 
 
-import com.gardener.post.dto.Post;
-import com.gardener.post.repository.PostRepository;
+import java.util.ArrayList;
+import java.util.List;
 
-public class PostService {
-	private static PostService service = new PostService();
-	private PostRepository repository;
-	public PostService() {
-		repository = new PostRepository();
+import com.gardener.post.dto.Post;
+import com.gardener.post.repository.myPostRepository;
+import com.my.exception.FindException;
+
+public class myPostService {
+	private static myPostService service = new myPostService();
+	private myPostRepository repository;
+	public myPostService() {
+		repository = new myPostRepository();
 	}
-	public static PostService getInstance() {
+	public static myPostService getInstance() {
 		return service;
 	}
-	public Post selectById(String loginid) {
-		Post p = new Post();
-		repository.selectById(loginid);
-		return p;
+	public List<Post> selectById(String mainTitle) throws FindException {
+		List<Post> listPost = new ArrayList<Post>();
+		listPost = repository.selectById(mainTitle);
+		return listPost;
+	}
+	public List<Post> selectByLoginid(String loginid) throws FindException {
+		List<Post> listPost = new ArrayList<Post>();
+		listPost = repository.selectByLoginid(loginid);
+		return listPost;
 	}
 
+}

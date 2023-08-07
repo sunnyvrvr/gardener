@@ -36,7 +36,7 @@ public class MemberRepository {
 			if(m == null) {
 				throw new FindException("");
 			}
-			System.out.println("m.id=" + m.getId() + ", m.pwd=" + m.getPwd() + ",m.name=" + m.getName());
+	//		System.out.println("m.id=" + m.() + ", m.pwd=" + m.getPwd() + ",m.name=" + m.getName());
 			return m;		
 		}catch(Exception e) {
 			e.printStackTrace();
