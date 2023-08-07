@@ -31,7 +31,17 @@ public class Post {
 =======
 import javax.swing.text.AbstractDocument.Content;
 
+<<<<<<< HEAD
+	@Override
+	public String toString() {
+		return "Post [postNum=" + postNum + ", userNum=" + userNum + ", mainTitle=" + mainTitle + ", subTitle="
+				+ subTitle + ", content=" + content + ", mainTitleImg=" + mainTitleImg + ", contentImg=" + contentImg
+				+ ", category=" + category + ", postPublic=" + postPublic + ", favorite=" + favorite + "]";
+	}
+}
+=======
 import com.gardener.member.dto.Member;
+>>>>>>> 21611a7624e77cf682f16ae501571903703724c6
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

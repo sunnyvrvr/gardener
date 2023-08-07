@@ -21,6 +21,11 @@
 	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
 		<attributes>
 <<<<<<< HEAD
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
+=======
+<<<<<<< HEAD
 =======
 			<attribute name="test" value="true"/>
 >>>>>>> a25342519161b0a8045e00291ab54d5f2e03857f
@@ -37,6 +42,12 @@
 		<attributes>
 			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
+>>>>>>> 21611a7624e77cf682f16ae501571903703724c6
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
@@ -45,6 +56,8 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 	<classpathentry kind="src" path="target/generated-sources/annotations">
@@ -59,5 +72,6 @@
 		</attributes>
 	</classpathentry>
 >>>>>>> a25342519161b0a8045e00291ab54d5f2e03857f
+>>>>>>> 21611a7624e77cf682f16ae501571903703724c6
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

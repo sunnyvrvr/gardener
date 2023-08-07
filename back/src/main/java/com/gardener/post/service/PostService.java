@@ -21,5 +21,6 @@ public class PostService {
 		repository.selectById(loginid);
 		return p;
 	}
+}
 
 }

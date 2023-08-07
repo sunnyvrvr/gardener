@@ -13,11 +13,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
+=======
 import com.gardener.exception.FindException;
 import com.gardener.search.dto.Search;
 import com.gardener.search.service.SearchService;
 import com.google.gson.Gson;
 
+>>>>>>> 21611a7624e77cf682f16ae501571903703724c6
 
 @WebServlet("/search")
 public class SearchController extends HttpServlet {
