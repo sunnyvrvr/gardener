@@ -67,6 +67,13 @@ div.posts_part > div.post > a.thumbnail {
   position: inline-block;
   margin: 10px;
 }
+<<<<<<< HEAD
+=======
+div.posts_part > div.post > a.thumbnail > img {
+  width: 125px;
+  height: 125px;
+}
+>>>>>>> a25342519161b0a8045e00291ab54d5f2e03857f
 
 div.posts_part > div.post > div.post-title-writer {
   margin-top: 10px;

@@ -12,7 +12,7 @@ import com.my.gardener.member.service.MemberService;
 public class FindMemberController extends HttpServlet {
 	private MemberService service;
 
-	public UpdateMemberController() {
+	public FindMemberController() {
 		service=MemberService.getInstance();
 	}
 

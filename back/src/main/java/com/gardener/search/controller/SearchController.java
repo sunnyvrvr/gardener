@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import com.gardener.post.dto.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,6 +36,7 @@ public class SearchController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		
+
 		//select값 가져오기   (title, name, content) 3개중 1개 저장
 		String select = request.getParameter("select");
 		
@@ -83,17 +85,5 @@ public class SearchController extends HttpServlet {
 		}
 		
 		//json형태로 응답
-		out.print(result);
-		
-	
-
-		
-		
-		
-		
-		
+		out.print(result);				
 	}//doget end
-
-	
-
-}//class end

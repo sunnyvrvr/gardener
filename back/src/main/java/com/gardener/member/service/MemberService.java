@@ -18,12 +18,15 @@ public class MemberService {
 
 	public Member findByMember(String memberId) {
 		// 회원 정보 조회 로직 구현
+
 		try {
 			return repository.selectById(memberId);
 		} catch (FindException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
 
+//		return repository.findById(memberId);
+		return null;
+	}
 }
