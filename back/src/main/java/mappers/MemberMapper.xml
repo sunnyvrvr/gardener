@@ -6,4 +6,9 @@
 <select id="selectById" resultType="Member" parameterType="string">
  SELECT * FROM member WHERE login_id=#{id}
 </select>
+
+<insert id="insert" parameterType="map">
+ INSERT INTO member(id, pwd, name, email) VALUES (#{i}, #{p}, #{n}, #{e})
+</insert>
+
 </mapper>

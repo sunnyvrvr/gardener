@@ -3,8 +3,6 @@ package com.gardener.member.repository;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -46,11 +44,14 @@ public class MemberRepository {
 				session.close();
 			}			
 		}		
+		
 	
 		
 		
 		
 	}
+	public void insert(Member m){	}
+	
 }
 
 

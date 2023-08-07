@@ -23,30 +23,32 @@ public class LoginController extends HttpServlet {
     public LoginController() {
        service = MemberService.getInstance();       
     }
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setHeader("Access-Control-Allow-Origin", "*");
+    
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		//요청전달데이터 얻기
-		String id = request.getParameter("id");
-		System.out.println(id);
-		String pwd = request.getParameter("pwd");
+		String id = request.getParameter("id");		//hello
+		String pwd = request.getParameter("pwd");	//kitty
 		
 		//세션얻기
 		HttpSession session = request.getSession();
-		session.removeAttribute("loginedId");
-		int status = 0;
+		session.setAttribute("loginId", id);
+		
 		String memberJson = null;
 		try {
 			Member m = service.login(id, pwd);
-			status = 1;
 			session.setAttribute("loginedId", id);
-			Gson gson = new Gson();
-			memberJson = gson.toJson(m);
+//			Gson gson = new Gson();
+			System.out.println("test:" + m);		
+//			memberJson = gson.toJson(m);
+			memberJson = "1"; 			//로그인성공
 		} catch (FindException e) {			
 			e.printStackTrace();
+			memberJson = "0";			//로그인실패
 		}
 		PrintWriter out = response.getWriter();		
+		System.out.println(memberJson);
 		out.print(memberJson);
+//		response.getWriter().print(memberJson);
 	}
 
 }

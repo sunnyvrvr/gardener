@@ -48,7 +48,7 @@
 }
 
 /*가입버튼*/
-.btn-Signup {
+.signbtn {
   width: 144px;
   height: 20px;
   font-size: 10px;
@@ -57,7 +57,8 @@
   color: white;
 }
 
-.btn-Signup > a {
+.signbtn > a {
   text-decoration: none;
   color: white;
 }
+

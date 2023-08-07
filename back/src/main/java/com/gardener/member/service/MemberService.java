@@ -25,6 +25,9 @@ public class MemberService {
 		}
 	}
 	
+	public void signup(Member m) {	}
+	
+
 
 	
 		
