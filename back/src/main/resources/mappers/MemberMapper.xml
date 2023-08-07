@@ -4,6 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gardener.MemberMapper">
 <select id="selectById" resultType="Member" parameterType="string">
+<<<<<<< HEAD
  SELECT * FROM customer WHERE userid=#{id}
+=======
+SELECT * FROM customer WHERE id=#{id}
+>>>>>>> a25342519161b0a8045e00291ab54d5f2e03857f
 </select>
 </mapper>

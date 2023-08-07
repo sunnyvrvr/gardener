@@ -1,6 +1,7 @@
 package com.gardener.post.controller;
 
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,14 +16,15 @@ import javax.servlet.http.HttpSession;
 import com.gardener.post.dto.Post;
 import com.gardener.post.service.myPostService;
 import com.google.gson.Gson;
+import com.my.exception.FindException;
 
 
-@WebServlet("/postwriter")
-public class PostWriterController extends HttpServlet {
+@WebServlet("/mypost")
+public class myPostController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private myPostService service;
 	
-	public PostWriterController() {
+	public myPostController() {
 		service = myPostService.getInstance();
 	}
 
@@ -30,26 +32,28 @@ public class PostWriterController extends HttpServlet {
 			throws ServletException, IOException {
 		response.setHeader("Access-Control-Allow-Origin","*");
 		response.setContentType("application/json, charset=UTF-8");
-
-		String loginid = request.getParameter("loginid");
-		System.out.println("loginid:"+loginid);
+		//요청 데이터 얻기
+		String loginid = request.getParameter("loginid"); 
+		System.out.println("loginid:" + loginid);
 		//세션얻기
 		HttpSession session = request.getSession();
 		String memberJson = null;
 		
-		List<Post> listPost = new ArrayList<>();
+		List<Post> listPost = new ArrayList<Post>();
 		try {
-//			p = service.selectById(userNum);
 			listPost = service.selectByLoginid(loginid);
-			session.setAttribute("loginid", loginid); 
+			session.setAttribute("listPost", listPost); //setAttribute를 수정함
 			Gson gson = new Gson();
 			memberJson = gson.toJson(listPost);
-			PrintWriter out = response.getWriter(); 
-			out.print(listPost);
-		} catch (Exception e) {
+		} catch (FindException e) {
 			e.printStackTrace();
 		}
-        
-		
+        		
+		PrintWriter out = response.getWriter(); 
+		System.out.println(memberJson + " -- ");
+        out.print(memberJson);
+        out.flush();
 	}
 }
+
+
