@@ -1,23 +1,16 @@
 package com.gardener.member.controller;
 
 import java.io.IOException;
-<<<<<<< HEAD
-=======
-
->>>>>>> ca6ce0378bd2e378480644d4496b70b73bf43b04
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD
 /**
  * Servlet implementation class UserController
  */
 @WebServlet("/user")
-=======
-
 import com.my.gardener.member.service.MemberService;
 
 @WebServlet("/member")
