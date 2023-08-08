@@ -1,5 +1,6 @@
 package com.gardener.post.dto;
 
+
 import java.util.Date;
 
 import com.gardener.content.dto.Content;
@@ -27,3 +28,4 @@ public class Post {
 	private Member member;			//member DTO
 	
 }
+

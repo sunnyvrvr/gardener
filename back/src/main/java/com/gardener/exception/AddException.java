@@ -1,4 +1,4 @@
-package com.my.exception;
+package com.gardener.exception;
 
 public class AddException extends Exception {
 
