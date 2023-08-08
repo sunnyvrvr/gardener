@@ -12,17 +12,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.gardener.exception.FindException;
 import com.gardener.post.dto.Post;
 import com.gardener.post.service.myPostService;
 import com.google.gson.Gson;
 
 
-@WebServlet("/postwriter")
-public class PostWriterController extends HttpServlet {
+@WebServlet("/posttitle")
+public class PostTitleController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private myPostService service;
 	
-	public PostWriterController() {
+	public PostTitleController() {
 		service = myPostService.getInstance();
 	}
 
@@ -30,26 +31,34 @@ public class PostWriterController extends HttpServlet {
 			throws ServletException, IOException {
 		response.setHeader("Access-Control-Allow-Origin","*");
 		response.setContentType("application/json, charset=UTF-8");
+		
+	//	String userNumStr = request.getParameter("userNum");
+	//	int userNum = Integer.parseInt(userNumStr); 
+	//	int userNum = Integer.parseInt(request.getParameter("userNum"));
+	//	userNum = 4;
+		String mainTitle = request.getParameter("mainTitle"); 
 
-		String loginid = request.getParameter("loginid");
-		System.out.println("loginid:"+loginid);
-		//세션얻기
+		System.out.println("maintitle:" + mainTitle);
+		
 		HttpSession session = request.getSession();
 		String memberJson = null;
 		
-		List<Post> listPost = new ArrayList<>();
+		List<Post> listPost = new ArrayList<Post>();
 		try {
-//			p = service.selectById(userNum);
-			listPost = service.selectByLoginid(loginid);
-			session.setAttribute("loginid", loginid); 
+			listPost = service.selectById(mainTitle);
+			session.setAttribute("listPost", listPost); 
 			Gson gson = new Gson();
 			memberJson = gson.toJson(listPost);
-			PrintWriter out = response.getWriter(); 
-			out.print(listPost);
-		} catch (Exception e) {
+		} catch (FindException e) {
 			e.printStackTrace();
 		}
-        
-		
+        		
+        PrintWriter out = response.getWriter(); 
+        out.print(memberJson);
 	}
 }
+
+
+//ArrayList<Post> listPost = new ArrayList<Post>();
+//repository.selectById(userNum);
+//return listPost;
