@@ -22,9 +22,9 @@ form.login {
   zoom: 1.5;
 }
 
-form.login input[name="id"] {
+form.login>input[name="loginId"] {
   width: 200px;
-  margin: 50px 20px 5px;
+  margin: 0px 20px 5px;
 }
 
 form.login > input[name="pwd"] {
@@ -73,13 +73,13 @@ form > span.signup a {
 }
 
 /*아이디*/
-form > span.find-id {
+form > span.find-loginId {
   font-size: 7px;
   color: gray;
   margin: 5px 5px 5px 0px;
 }
 
-form > span.find-id a {
+form > span.find-loginId a {
   text-decoration: none;
   color: gray;
 }

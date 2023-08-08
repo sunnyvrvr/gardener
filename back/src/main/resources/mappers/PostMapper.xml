@@ -2,14 +2,12 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<<<<<<< HEAD
 <mapper namespace="com.gardener.post.mapper.PostMapper">
-  <select id="selectById" 
+  <!-- <select id="selectById" 
 		 parameterType="String"
 		 resultType="Post">
   SELECT *FROM post WHERE id=#{aaa}
-=======
-<mapper namespace="com.gardener.PostMapper">
+  </select> -->
   <select id="selectById" 
 		 parameterType="string"
 		 resultType="Post">
@@ -21,6 +19,5 @@
   SELECT p.maintitle, p.content, p.maintitleimg 
 	FROM post p JOIN member m ON (p.userNum = m.id)
 	WHERE loginid =#{loginid}
->>>>>>> a25342519161b0a8045e00291ab54d5f2e03857f
   </select>
 </mapper>

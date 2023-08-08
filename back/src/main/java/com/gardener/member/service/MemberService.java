@@ -1,5 +1,5 @@
 package com.gardener.member.service;
-
+import com.gardener.exception.AddException;
 import com.gardener.exception.FindException;
 import com.gardener.member.dto.Member;
 import com.gardener.member.repository.MemberRepository;
@@ -9,7 +9,7 @@ public class MemberService {
 	private MemberRepository repository;
 
 	
-	private MemberService () {
+	private MemberService() {
 		repository = new MemberRepository();	
 	}
 	
@@ -17,8 +17,8 @@ public class MemberService {
 		return 	service;	
 	}
 	
-	public Member login (String id, String pwd) throws FindException {
-		Member m = repository.selectById(id);
+	public Member login (String loginId, String pwd) throws FindException {
+		Member m = repository.selectById(loginId);
 		if(pwd.equals(m.getPwd())) {
 			return m; // 로그인성공
 		}else {
@@ -26,37 +26,8 @@ public class MemberService {
 		}
 	}
 	
-	public void signup(Member m) {	}
-	
-
-
-	
-		
-		
-	
-	
-=======
-
-	private MemberService() {
-		repository = new MemberRepository();
+	public void signup(Member m) throws AddException {
+		repository.insert(m);
 	}
-
-	public static MemberService getInstance() {
-		return service;
-	}
-
-	public Member findByMember(String memberId) {
-		// 회원 정보 조회 로직 구현
-
-		try {
-			return repository.selectById(memberId);
-		} catch (FindException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-//		return repository.findById(memberId);
-		return null;
-	}
->>>>>>> 21611a7624e77cf682f16ae501571903703724c6
+			
 }

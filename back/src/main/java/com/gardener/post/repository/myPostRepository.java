@@ -10,8 +10,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.gardener.exception.FindException;
 import com.gardener.post.dto.Post;
-import com.my.exception.FindException;
 
 public class myPostRepository {
 	private SqlSessionFactory sessionFactory;
@@ -29,7 +29,7 @@ public class myPostRepository {
 
 	/**
 	 * 
-	 * @param 작성자 id에 해당하는 글을 반환한다
+	 * @param ���깆�� id�� �대�뱁���� 湲��� 諛�������
 	 * @return List<Post>
 	 * @throws FindException 
 	 */
@@ -37,35 +37,35 @@ public class myPostRepository {
 		SqlSession session = null;
 			System.out.println(mainTitle+" --");
 			session = sessionFactory.openSession();
-			List<Post> result = new ArrayList<Post>(); //list 선언추가 
+			List<Post> result = new ArrayList<Post>(); //list ���몄�媛� 
 			result = session.selectList("com.gardener.PostMapper.selectById", mainTitle);
-			result.forEach(e->System.out.println(e)); //내용확인
+			result.forEach(e->System.out.println(e)); //�댁�⑺����
 			for(int i=0; i<result.size(); i++) {
 				
 			}
 			//listPost = session.selectList("com.gardener.PostMapper.selectById", mainTitle);
-			System.out.println("session 연결 성공");
+			System.out.println("session �곌껐 �깃났");
 			if(result.size() == 0) {
-				throw new FindException("글이 없습니다");
+				throw new FindException("湲��� ���듬����");
 			}
 			return result;
 	}
 	/**
 	 * 
 	 * @param loginid
-	 * @return result 리스트
+	 * @return result 由ъ�ㅽ��
 	 * @throws FindException
 	 */
 	public List<Post> selectByLoginid(String loginid) throws FindException {		
 			SqlSession session = null;
 			System.out.println(loginid+" --");
 			session = sessionFactory.openSession();
-			List<Post> result = new ArrayList<Post>(); //list 생성
+			List<Post> result = new ArrayList<Post>(); //list ����
 			result = session.selectList("com.gardener.PostMapper.selectByLoginid", loginid);
-			//result.forEach(e->System.out.println(e)); //내용확인
-			System.out.println("session 연결 성공");
+			//result.forEach(e->System.out.println(e)); //�댁�⑺����
+			System.out.println("session �곌껐 �깃났");
 			if(result.size() == 0) {
-				throw new FindException("글이 없습니다");
+				throw new FindException("湲��� ���듬����");
 			}
 			return result;
 	}
