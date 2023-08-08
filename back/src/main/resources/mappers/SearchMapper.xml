@@ -9,8 +9,7 @@
 		 parameterType="String"
 		 resultType="com.gardener.search.dto.Search">
   	SELECT maintitle, maintitleimg, content, name
-	FROM MEMBER m
-	JOIN POST p ON (m.usernum = p.usernum)
+	FROM MEMBER m JOIN POST p ON (m.id = p.usernum)
 	WHERE maintitle LIKE '%'|| #{titletext} ||'%'
   </select>
   
@@ -19,7 +18,7 @@
 		 parameterType="String"
 		 resultType="Search">
   	SELECT maintitle, maintitleimg, content, name
-	FROM MEMBER m JOIN POST p ON (m.usernum = p.usernum)
+	FROM MEMBER m JOIN POST p ON (m.id = p.usernum)
 	WHERE name LIKE '%'|| #{nametext} ||'%'
   </select>
   
@@ -28,8 +27,17 @@
 		 parameterType="String"
 		 resultType="Search">
   	SELECT maintitle, maintitleimg, content, name
-	FROM MEMBER m JOIN POST p ON (m.usernum = p.usernum)
+	FROM MEMBER m JOIN POST p ON (m.id = p.usernum)
 	WHERE content LIKE '%'|| #{contenttext} ||'%'
+  </select>
+  
+  <!-- 카테고리로 검색 SQL -->
+  <select id="selectcategory" 
+		 parameterType="String"
+		 resultType="Search">
+		SELECT name, maintitle, content, maintitleimg
+		FROM MEMBER m JOIN POST p ON(m.id = p.usernum)
+		WHERE CATEGORY = #{category}
   </select>
   
 </mapper>

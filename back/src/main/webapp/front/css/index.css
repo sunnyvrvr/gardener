@@ -90,7 +90,7 @@ table.categorie-table {
   margin-top: 20px;
 }
 
-td.categorie {
+td.category {
   width: 100px;
   height: 100px;
 }
@@ -113,10 +113,6 @@ h2 {
 
 h3 {
   display: inline;
-}
-body > div.body > div.search-body > table > tbody > tr > td:nth-child(1){
-	width: 200px;
-  	height: 150px;
 }
 
 /* img{
