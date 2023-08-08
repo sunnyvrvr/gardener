@@ -12,19 +12,18 @@
 .signup {
   margin: 0 350px;
   width: 450px;
+  zoom: 1.8;
 }
 
 /*프로필 이미지 첨부*/
 .profile {
   width: 50px;
   height: 40px;
-  margin: 30px 5px;
+  margin: 10px 5px;
 }
-
 .profile:hover {
   cursor: pointer;
 }
-
 .profile > b {
   font-size: 1px;
 }
@@ -44,23 +43,13 @@
 /*아이디, 필명 중복확인*/
 .signup input[type="button"] {
   width: 144px;
-  /*버튼*/
-}
-
-.member input[type="number"] {
-  width: 70px;
-}
-
-/*인증 확인 버튼*/
-.check {
-  width: 75px;
   height: 20px;
-  font-size: 5px;
+  font-size: 10px;
 }
 
 /*가입버튼*/
-.signup {
-  width: 150px;
+.btn-Signup {
+  width: 144px;
   height: 20px;
   font-size: 10px;
   background-color: rgb(121, 193, 150);
@@ -68,12 +57,8 @@
   color: white;
 }
 
-.signbtn > a {
+.btn-Signup > a {
   text-decoration: none;
   color: white;
 }
 
-.signup > a {
-  text-decoration: none;
-  color: white;
-}

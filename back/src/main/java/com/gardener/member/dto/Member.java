@@ -1,6 +1,5 @@
 package com.gardener.member.dto;
 
-<<<<<<< HEAD
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -11,30 +10,21 @@ import lombok.Setter;
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Member {
    
-   private int id;      //¾ÆÀÌµð
-   private String loginId; //·Î±×ÀÎ¾ÆÀÌµð
-   private String pwd;     //ÆÐ½º¿öµå
-   private String email;   //ÀÌ¸ÞÀÏ
-   private String name;    //ÇÊ¸í
-   private String intro;   //ÀÚ±â¼Ò°³
-   private String joinDate;   //°¡ÀÔ³¯Â¥
-   private String profile; //ÇÁ·ÎÇÊ»çÁø 
+   private int id;      //ì•„ì´ë””
+   private String loginId; //ë¡œê·¸ì¸ì•„ì´ë””
+   private String pwd;     //íŒ¨ìŠ¤ì›Œë“œ
+   private String email;   //ì´ë©”ì¼
+   private String name;    //í•„ëª…
+   private String intro;   //ìžê¸°ì†Œê°œ
+   private String joinDate;   //ê°€ìž…ë‚ ì§œ
+   private String profile; //í”„ë¡œí•„ì‚¬ì§„ 
    
    
-=======
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
-public class Member {
-	 private String id;      		//ì•„ì´ë””
-	 private String pwd;     		//íŒ¨ìŠ¤ì›Œë“œ
-	 private String email;   		//ì´ë©”ì¼
-	 private String name;   		//í•„ëª…
-	 private String intro;  		//ìžê¸°ì†Œê°œ
-	 private String joinDate;   	//ê°€ìž…ë‚ ì§œ
-	 private String profile; 		//í”„ë¡œí•„ì‚¬ì§„ 
->>>>>>> 21611a7624e77cf682f16ae501571903703724c6
+   public Member(String loginId, String pwd, String email, String name) {
+	this.loginId = loginId;
+	this.pwd = pwd;
+	this.email = email;
+	this.name = name;
+   }
+      
 }

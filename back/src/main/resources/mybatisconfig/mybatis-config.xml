@@ -18,18 +18,8 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="oracle.jdbc.OracleDriver"/>
-<<<<<<< HEAD:back/src/main/java/mybatisconfig/mybatis-config.xml
         <property name="url" value="jdbc:oracle:thin:@192.168.0.30:1521:xe"/>
         <property name="username" value="gardener"/>
-=======
-<<<<<<< HEAD
-        <property name="url" value="jdbc:oracle:thin:@192.168.0.30:1521:xe"/>
-        <property name="username" value="gardener"/>
-=======
-        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-        <property name="username" value="gardener_add"/>
->>>>>>> a25342519161b0a8045e00291ab54d5f2e03857f
->>>>>>> 21611a7624e77cf682f16ae501571903703724c6:back/src/main/resources/mybatisconfig/mybatis-config.xml
         <property name="password" value="1234"/>
       </dataSource>
     </environment>

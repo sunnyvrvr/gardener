@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.my.gardener.member.service.MemberService;
+import com.gardener.member.service.MemberService;
 
 public class FindMemberController extends HttpServlet {
 	private MemberService service;

@@ -26,17 +26,17 @@ public class LoginController extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		//요청전달데이터 얻기
-		String id = request.getParameter("id");		//hello
+		String loginId = request.getParameter("loginId");		//hello
 		String pwd = request.getParameter("pwd");	//kitty
 		
 		//세션얻기
 		HttpSession session = request.getSession();
-		session.setAttribute("loginId", id);
+		session.setAttribute("loginId", loginId);
 		
 		String memberJson = null;
 		try {
-			Member m = service.login(id, pwd);
-			session.setAttribute("loginedId", id);
+			Member m = service.login(loginId, pwd);
+			session.setAttribute("loginedId", loginId);
 //			Gson gson = new Gson();
 			System.out.println("test:" + m);		
 //			memberJson = gson.toJson(m);

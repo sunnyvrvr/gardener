@@ -4,9 +4,9 @@ package com.gardener.post.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.gardener.exception.FindException;
 import com.gardener.post.dto.Post;
 import com.gardener.post.repository.myPostRepository;
-import com.my.exception.FindException;
 
 public class myPostService {
 	private static myPostService service = new myPostService();

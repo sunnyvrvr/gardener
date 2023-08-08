@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.my.gardener.member.service.MemberService;
+import com.gardener.member.service.MemberService;
+
 
 @WebServlet("/member")
 public class MemberController extends HttpServlet {
@@ -25,12 +26,12 @@ public class MemberController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String id = request.getParameter("id");
+		String loginId = request.getParameter("loginId");
 		String pwd = request.getParameter("pwd");
 		String email = request.getParameter("email");
 		String name = request.getParameter("name");
 		String intro = request.getParameter("intro");
 		String profile = request.getParameter("profile");
-		// 요청전달데이터 얻기
+		
 	}
 }
