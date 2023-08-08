@@ -53,15 +53,13 @@ public class MemberRepository {
 
 	public void insert(Member m) throws AddException {
 		SqlSession session = null;
-
+		System.out.println(m.getEmail());
+		System.out.println(m.getName());
+		System.out.println(m.getPwd());
+		System.out.println(m.getLoginId());
 		try {
 			session = sessionFactory.openSession();
-			Map<String, String> map = new HashMap<>();			
-			map.put("i", m.getLoginId());
-			map.put("p", m.getPwd());
-			map.put("e", m.getEmail());
-			map.put("n", m.getName());			
-			session.insert("com.gardener.mapper.MemberMapper.insert", map);
+			session.insert("com.gardener.mapper.MemberMapper.insertMember", m);
 			session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();

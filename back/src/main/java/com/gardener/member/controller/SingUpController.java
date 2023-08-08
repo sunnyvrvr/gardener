@@ -21,7 +21,9 @@ public class SingUpController extends HttpServlet {
     public SingUpController() {
         service = MemberService.getInstance();        
     }
-	
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	System.out.println("°Ù");
+    }
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		String loginId = request.getParameter("loginId");
 		String pwd = request.getParameter("pwd");

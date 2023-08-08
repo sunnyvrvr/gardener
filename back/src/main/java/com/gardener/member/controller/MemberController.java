@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.gardener.member.dto.Member;
 import com.gardener.member.service.MemberService;
 
 
@@ -32,6 +33,8 @@ public class MemberController extends HttpServlet {
 		String name = request.getParameter("name");
 		String intro = request.getParameter("intro");
 		String profile = request.getParameter("profile");
+		
+
 		
 	}
 }
