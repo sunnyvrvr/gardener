@@ -1,1 +1,91 @@
-<table cellspacing="0px" class="writing-list"></table>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/search.css" />
+    <script src="../js/search.js"></script>
+    <title>검색한 결과</title>
+  </head>
+  <body>
+    <!--header-->
+    <div class="header"></div>
+    <!--header-->
+
+    <div class="body">
+        
+        <div class="right-dropdown">
+            <span>
+                <select class="dropdown">
+                    <option value="title">제목</option>
+                    <option value="name">작가명</option>
+                    <option value="content">내용</option>
+                </select>
+            </span>
+                <input type="text"  class="search-text" name="keyword" placeholder="검색어를 입력해주세요" >
+                <input type="button"  value="검색"  class="search-button">
+        </div>
+
+        <table cellspacing="0px" class="writing-list">
+            <tr>
+                <td>
+                    <a href="./html/post.html">
+                        <img src="../images/tree_cut_1.png" class="writing-img"></td>
+                    </a>
+                <td>
+                    <h2>사랑의 물리학 -</h2>
+                    <h3>김인육</h3>
+                    <p>질량의 크기는 부피와 비례하지 않는다. 
+                        제비꽃같이 조그마한 그 계집애가
+                        꽃잎같이 하늘거리는 그 계집애가...
+                    </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td><img src="../images/tree_cut_2.png" class="writing-img"></td>
+                <td>
+                    <h2>사랑에 답함 -</h2>
+                    <h3>나태주</h3>
+                    <p>예쁘지 않은 것을 예쁘게
+                        보아주는 것이 사랑이다
+                        좋지 않은 것을 좋게
+                        생각해주는 것이 사랑이다...
+                    </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="../images/air.png" class="writing-img"">
+                </td>
+                <td>
+                    <h2>아찔 -</h2>
+                    <h3>오은영</h3>
+                    <p>어느날 우리는 같은 시간 다른 공간에서
+                        같은 음악을 다른 기분으로 듣는다....
+                    </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td><img src="../images/main6.png" class="writing-img""></td>
+                <td>
+                    <h2>하고많은 것들 중에 당신을 사랑하였다 -</h2>
+                    <h3>서덕준</h3>
+                    <p>하고많은 것들 중에 하필 당신을 사랑하였으나
+                        그는 나에게 정차하는 일이 없었다...
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!--footer-->
+    <div class="footer"></div>
+    <!--footer-->
+  </body>
+</html>
+
