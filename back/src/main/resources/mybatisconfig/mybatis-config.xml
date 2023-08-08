@@ -17,8 +17,8 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="oracle.jdbc.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-        <property name="username" value="gardener_add"/>
+        <property name="url" value="jdbc:oracle:thin:@192.168.0.30:1521:xe"/>
+        <property name="username" value="gardener"/>
         <property name="password" value="1234"/>
       </dataSource>
     </environment>

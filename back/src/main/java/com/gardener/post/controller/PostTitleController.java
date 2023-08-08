@@ -30,7 +30,7 @@ public class PostTitleController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setHeader("Access-Control-Allow-Origin","*");
-		response.setContentType("application/json, charset=UTF-8");
+		response.setContentType("application/json; charset=UTF-8");
 		//요청 데이터 얻기
 	//	String userNumStr = request.getParameter("userNum");
 	//	int userNum = Integer.parseInt(userNumStr); 

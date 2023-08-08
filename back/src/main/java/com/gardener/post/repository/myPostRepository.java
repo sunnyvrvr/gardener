@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.gardener.member.dto.Member;
 import com.gardener.post.dto.Post;
 import com.my.exception.FindException;
 
@@ -56,12 +57,12 @@ public class myPostRepository {
 	 * @return result 리스트
 	 * @throws FindException
 	 */
-	public List<Post> selectByLoginid(String loginid) throws FindException {		
+	public List<Post> selectByLoginid(String id) throws FindException {		
 			SqlSession session = null;
-			System.out.println(loginid+" --");
+			System.out.println(id+" --");
 			session = sessionFactory.openSession();
 			List<Post> result = new ArrayList<Post>(); //list 생성
-			result = session.selectList("com.gardener.PostMapper.selectByLoginid", loginid);
+			result = session.selectList("com.gardener.PostMapper.selectByLoginid", id);
 			//result.forEach(e->System.out.println(e)); //내용확인
 			System.out.println("session 연결 성공");
 			if(result.size() == 0) {
@@ -69,4 +70,42 @@ public class myPostRepository {
 			}
 			return result;
 	}
+	/**
+	 * 
+	 * @param writerid
+	 * @return result 리스트
+	 * @throws FindException
+	 */
+	public List<Member> selectByWriter(int writerid) throws FindException {		
+		SqlSession session = null;
+		System.out.println(writerid+" --");
+		session = sessionFactory.openSession();
+		List<Member> result = new ArrayList<Member>(); //list 생성
+		result = session.selectList("com.gardener.PostMapper.selectByWriter", writerid);
+		System.out.println("session 연결 성공");
+		if(result.size() == 0) {
+			throw new FindException("작가정보가져오기 실패");
+		}
+		return result;
+	}
+	/**
+	 * 
+	 * @param writerid
+	 * @return result 리스트
+	 * @throws FindException
+	 */
+	public List<String> selectByWriterPost(int writerid) throws FindException {		
+		SqlSession session = null;
+		System.out.println(writerid+" --");
+		session = sessionFactory.openSession();
+		List<String> result = new ArrayList<String>(); //list 생성
+		result = session.selectList("com.gardener.PostMapper.selectByWriterPost", writerid);
+		System.out.println("session 연결 성공");
+		if(result.size() == 0) {
+			throw new FindException("작가글 실패");
+		}
+		return result;
+	}
+
+	
 }

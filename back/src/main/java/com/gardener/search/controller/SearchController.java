@@ -27,16 +27,7 @@ public class SearchController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		List<Post> list = new ArrayList<>();
-//		Post p = new Post("C0001","아메리카노",1000);
-//		list.add(p);
-//		list.add(new Ppst("C0002","카페라떼",2000));
-//		list.add(new Post("C0003","아이스초코",3000));
-//		list.add(new Post("C0004","망고스무디",5000));
-		
-//		ObjectMapper mapper = new ObjectMapper();
-//		String jsonStr = mapper.writeValueAsString(list);
-//		System.out.println(jsonStr);
-//		out.print(jsonStr);
+
 	}
 
 	

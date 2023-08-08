@@ -15,21 +15,21 @@ $(() => {
   });
     //글내용 보여주기
   $.ajax({
-    url: "http://localhost:8888/mypost", //실제서버주소
+    url: "http://localhost:8888/back/mypost", //실제서버주소
     type: "get",
-    data: {'loginid':'id1'},
+    data: {'login_id':'asdasd'},
   
     success: (response) => {
       console.log(response, "--");
-   	 	if(response[0] === null){
+   	 	if(response[1] === null){
 			alert("글이 없습니다");
 			$("#post-title-writer").hide();
 			$("#post-content").hide();	
 			$(".thumbnail").hide();				
 		}else {
       alert("연결완료");
-		$("#post-title-writer").text(response[0].mainTitle);
-		$("#post-content").text(response[0].content);
+		$("#post-title-writer").text(response[1].mainTitle);
+		$("#post-content").text(response[1].content);
 		}
     },
     error: () => {
