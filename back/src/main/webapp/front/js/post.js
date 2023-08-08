@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(() => {
   const num = sessionStorage.getItem("num");
   const pn = $(".pagination");
@@ -164,3 +165,6 @@ $(() => {
   };
   // 페이지네이션 이동 끝
 });
+=======
+window.addEventListener("load", () => {});
+>>>>>>> 09fd255ea2a3f1db1cf65b830b4073f6b180c1a5

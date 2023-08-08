@@ -1,7 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,intellij
 .classpath
+<<<<<<< HEAD
 .project
+=======
+>>>>>>> 09fd255ea2a3f1db1cf65b830b4073f6b180c1a5
 assets
 .idea
 ### Eclipse ###

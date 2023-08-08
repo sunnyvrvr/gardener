@@ -48,4 +48,3 @@
         FROM comments
         WHERE post_id = #{num}
     </select>
-</mapper>

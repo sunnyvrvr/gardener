@@ -12,7 +12,11 @@ import com.my.gardener.member.service.MemberService;
 //@WebServlet("/member")
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private MemberService servic;
+	private MemberService service;
+
+	public MemberController() {
+		service = MemberService.getInstance();
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -20,12 +24,12 @@ public class MemberController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String id = request.getParameter("id");
+		String loginId = request.getParameter("loginId");
 		String pwd = request.getParameter("pwd");
 		String email = request.getParameter("email");
 		String name = request.getParameter("name");
 		String intro = request.getParameter("intro");
 		String profile = request.getParameter("profile");
-		// 요청전달데이터 얻기
+
 	}
 }

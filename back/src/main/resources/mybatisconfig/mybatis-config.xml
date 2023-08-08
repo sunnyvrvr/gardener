@@ -11,6 +11,7 @@
   	<typeAlias type="com.gardener.member.dto.Member" alias="Member"/>
   	<typeAlias type="com.gardener.post.dto.Post" alias="Post"/>
   	<typeAlias type="com.gardener.comments.dto.Comments" alias="Comments"/>
+  	<typeAlias type="com.gardener.search.dto.Search" alias="Search"/>
   </typeAliases>	
   <environments default="development">
     <environment id="development">
@@ -27,5 +28,6 @@
     <mapper resource="/mappers/MemberMapper.xml"/>
     <mapper resource="/mappers/PostMapper.xml"/>
     <mapper resource="/mappers/CommentMapper.xml"/>
+    <mapper resource="/mappers/SearchMapper.xml"/>
   </mappers>
 </configuration>
