@@ -1,13 +1,11 @@
 package com.gardener.post.service;
 
-
 import java.util.ArrayList;
 import java.util.List;
-
 import com.gardener.member.dto.Member;
+import com.gardener.exception.FindException;
 import com.gardener.post.dto.Post;
 import com.gardener.post.repository.myPostRepository;
-import com.my.exception.FindException;
 
 public class myPostService {
 	private static myPostService service = new myPostService();
@@ -23,9 +21,9 @@ public class myPostService {
 		listPost = repository.selectById(mainTitle);
 		return listPost;
 	}
-	public List<Post> selectByLoginid(String id) throws FindException {
+	public List<Post> selectByLoginid(String loginid) throws FindException {
 		List<Post> listPost = new ArrayList<Post>();
-		listPost = repository.selectByLoginid(id);
+		listPost = repository.selectByLoginid(loginid);
 		return listPost;
 	}
 	public List<Member> selectByWriter(int writerid)  throws FindException {

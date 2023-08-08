@@ -13,7 +13,7 @@
 		 resultType="Post">
 SELECT p.maintitle, p.content, p.maintitleimg 
 FROM post p JOIN member m ON (p.usernum = m.id)
-WHERE login_id =#{login_id}
+WHERE login_id =#{loginid}
   </select>
       <select id="selectByWriter" 
 		 parameterType="int"

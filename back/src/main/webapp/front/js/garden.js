@@ -13,24 +13,26 @@ $(() => {
   $("#write").on("click", function (e) {
     window.location.href = "../html/write.html";
   });
-    //글내용 보여주기
   $.ajax({
-    url: "http://localhost:8888/back/mypost", //실제서버주소
+    url: "http://localhost:8888/back/mypost",
     type: "get",
-    data: {'login_id':'asdasd'},
-  
+    //data: Json,
+    //contentType: "application/json",
+    //data: `loginid={}`, //로그인하면 세션에 pk로 저장- 에러발생
+    data: {loginId: loginId},
+
     success: (response) => {
       console.log(response, "--");
-   	 	if(response[1] === null){
-			alert("글이 없습니다");
-			$("#post-title-writer").hide();
-			$("#post-content").hide();	
-			$(".thumbnail").hide();				
-		}else {
-      alert("연결완료");
-		$("#post-title-writer").text(response[1].mainTitle);
-		$("#post-content").text(response[1].content);
-		}
+      if (response[1] === null) {
+        alert("글이 없습니다");
+        $("#post-title-writer").hide();
+        $("#post-content").hide();
+        $(".thumbnail").hide();
+      } else {
+//      alert("연결완료");
+        $("#post-title-writer").text(response[1].mainTitle);
+        $("#post-content").text(response[1].content);
+      }
     },
     error: () => {
       alert("에러발생");

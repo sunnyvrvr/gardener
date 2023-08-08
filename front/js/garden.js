@@ -1,4 +1,3 @@
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>;
 $(() => {
   //header를 넣을 태그 찾기
   const header = $("body>div.header");
@@ -16,7 +15,7 @@ $(() => {
   });
   //글내용 보여주기
   $.ajax({
-    url: "http://localhost:8888/mypost",
+    url: "http://localhost:8888/back/mypost",
     type: "get",
     //data: Json,
     //contentType: "application/json",
