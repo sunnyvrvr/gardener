@@ -1,15 +1,14 @@
 package com.gardener.member.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.my.gardener.member.service.MemberService;
+import com.gardener.member.service.MemberService;
 
-//@WebServlet("/member")
+@WebServlet("/member")
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService service;
