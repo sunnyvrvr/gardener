@@ -31,13 +31,12 @@ public class CommentsController extends HttpServlet {
 
 		int num = Integer.parseInt(request.getParameter("num"));
 		Optional<String> cNum = Optional.ofNullable(request.getParameter("cNum"));
+		System.out.println(cNum.get() + " -- controller cNum");
 		int cp = 0;
 		if (cNum.isPresent()) {
 			cp = Integer.parseInt(cNum.orElse("-1"));
 		}
-		int currentPage = 1;
-		// List<Comments> comments = service.findAllComments(num);
-		// response.getWriter().print(gson.toJson(comments));
+		System.out.println(cp + " controller cp");
 		PageBean<Comments> comments = service.findAll(cp, num);
 		response.getWriter().print(gson.toJson(comments));
 

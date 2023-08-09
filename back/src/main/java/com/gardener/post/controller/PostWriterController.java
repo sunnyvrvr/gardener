@@ -27,27 +27,27 @@ public class PostWriterController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setHeader("Access-Control-Allow-Origin","*");
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setContentType("application/json, charset=UTF-8");
 
 		String loginid = request.getParameter("loginid");
-		System.out.println("loginid:"+loginid);
-		//세션얻기
+		System.out.println("loginid:" + loginid);
+		// 세션얻기
 		HttpSession session = request.getSession();
 		String memberJson = null;
-		
+
 		List<Post> listPost = new ArrayList<>();
 		try {
 //			p = service.selectById(userNum);
 			listPost = service.selectByLoginid(loginid);
-			session.setAttribute("loginid", loginid); 
+			session.setAttribute("loginid", loginid);
 			Gson gson = new Gson();
 			memberJson = gson.toJson(listPost);
-			PrintWriter out = response.getWriter(); 
+			PrintWriter out = response.getWriter();
 			out.print(listPost);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-        
-		
+
+	}
 }

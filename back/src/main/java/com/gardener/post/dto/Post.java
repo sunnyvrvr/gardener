@@ -1,6 +1,6 @@
 package com.gardener.post.dto;
 
-import com.gardener.content.dto.Content;
+import com.gardener.comments.dto.Comments;
 import com.gardener.member.dto.Member;
 
 import lombok.AllArgsConstructor;
@@ -25,7 +25,22 @@ public class Post {
 	private int postPublic; // 비공개,공개(0,1)
 	private int favorite; // 좋아요
 	private String createPost; // 글 생성일자
-	private Content contentTable; // 댓글 dto
+	private Comments comments; // 댓글 dto
 	private Member member; // member DTO
+
+	public Post(int postNum, int userNum, String mainTitle, String subTitle, String content, String mainTitleImg,
+			String category, int postPublic, int favorite, String createPost) {
+		super();
+		this.postNum = postNum;
+		this.userNum = userNum;
+		this.mainTitle = mainTitle;
+		this.subTitle = subTitle;
+		this.content = content;
+		this.mainTitleImg = mainTitleImg;
+		this.category = category;
+		this.postPublic = postPublic;
+		this.favorite = favorite;
+		this.createPost = createPost;
+	}
 
 }

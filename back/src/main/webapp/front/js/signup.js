@@ -1,7 +1,7 @@
 $(() => {
   const backURL = "http://localhost:8888/back";
   //DOM트리에서 form객체찾기
-  const formObj = $("formObj.signup");
+  const formObj = $("form.signup");
 
   //아이디 입력란 객체 찾기
   const inputIdObj = $("form.signup>input[name=id]");

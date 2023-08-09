@@ -1,12 +1,20 @@
 package com.gardener.search.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.gardener.exception.FindException;
+import com.gardener.search.dto.Search;
+import com.gardener.search.service.SearchService;
+import com.google.gson.Gson;
 
 @WebServlet("/search")
 public class SearchController extends HttpServlet {
@@ -18,7 +26,8 @@ public class SearchController extends HttpServlet {
 		service = new SearchService();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setContentType("application/json; charset=utf-8");
 

@@ -15,16 +15,11 @@ $(() => {
   });
   //글내용 보여주기
   $.ajax({
-<<<<<<< HEAD
     url: "http://localhost:8888/back/mypost",
     type: "get",
     //data: Json,
     //contentType: "application/json",
     //data: `loginid={}`, //로그인하면 세션에 pk로 저장- 에러발생
-=======
-    url: "http://localhost:8888/mypost", //실제서버주소
-    type: "get",
->>>>>>> 09fd255ea2a3f1db1cf65b830b4073f6b180c1a5
     data: { loginid: "id1" },
 
     success: (response) => {

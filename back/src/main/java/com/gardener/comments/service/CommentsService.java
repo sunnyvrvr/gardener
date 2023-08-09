@@ -29,8 +29,10 @@ public class CommentsService {
 	public PageBean<Comments> findAll(int currentPage, int num) {
 		int cntPerPage = 5;
 		int endRow = currentPage + cntPerPage; // 5 10 15
-		int startRow = endRow - cntPerPage + 1; // 1, 6, 11
-
+		int startRow = endRow - cntPerPage; // 1, 6, 11
+		System.out.println(startRow + " service startRow");
+		System.out.println(endRow + " service endROw");
+		System.out.println(currentPage + " service currentPage");
 		List<Comments> list = repository.selectAll(startRow, endRow, num);
 		int totalCnt = repository.count(num);
 

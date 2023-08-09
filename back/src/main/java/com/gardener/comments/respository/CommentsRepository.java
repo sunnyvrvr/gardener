@@ -63,6 +63,8 @@ public class CommentsRepository {
 	}
 
 	public List<Comments> selectAll(int startRow, int endRow, int num) {
+		System.out.println(startRow + " startRow repo");
+		System.out.println(endRow + " startRow repo");
 		System.out.println("repo num = " + num);
 		List<Comments> list = new ArrayList();
 		SqlSession session = null;
@@ -74,6 +76,7 @@ public class CommentsRepository {
 			map.put("endRow", endRow);
 			map.put("num", num);
 			list = session.selectList("com.gardener.comments.CommentsMapper.selectAll", map);
+			System.out.println(list.size() + " -- comments list size repo");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -81,7 +84,7 @@ public class CommentsRepository {
 				session.close();
 			}
 		}
-		list.forEach(e -> System.out.println(e));
+		list.forEach(e -> System.out.println(e + " -- list"));
 		return list;
 	}
 

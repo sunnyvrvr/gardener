@@ -4,14 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gardener.post.PostMapper">
     <sql id="postColumns">
-        id
-        ,member_id, main_title, sub_title, content, main_title_img, category, post_public, favorite, create_post
+        postnum
+        ,usernum, maintitle, subtitle, content, maintitleimg, category, postpublic, favorite, createpost
     </sql>
 
     <insert id="insertPost" parameterType="Post">
+        <selectKey keyProperty="postNum" resultType="int" order="AFTER">
+            SELECT post_seq.currval FROM dual
+        </selectKey>
+
         insert into post(<include refid="postColumns"></include>)
-        values(post_seq.nextval, #{memberId}, #{mainTitle}, #{subTitle}, #{content}, #{mainTitleImg},
+        values(post_seq.nextval, #{userNum}, #{mainTitle}, #{subTitle}, #{content}, #{mainTitleImg},
         #{category}, 0, 0, systimestamp )
+
     </insert>
 
     <!--    동적쿼리로 처리-->
@@ -40,16 +45,16 @@
     </insert>
 
     <resultMap id="joinMap" type="Post" autoMapping="true">
-        <id property="id" column="id"/>
-        <result property="memberId" column="member_id"/>
-        <result property="mainTitle" column="main_title"/>
-        <result property="subTitle" column="sub_title"/>
+        <id property="postNum" column="postnum"/>
+        <result property="userNum" column="usernum"/>
+        <result property="mainTitle" column="maintitle"/>
+        <result property="subTitle" column="subtitle"/>
         <result property="content" column="content"/>
-        <result property="mainTitleImg" column="main_title_img"/>
+        <result property="mainTitleImg" column="maintitleimg"/>
         <result property="category" column="category"/>
-        <result property="postPublic" column="post_public"/>
+        <result property="postPublic" column="postpublic"/>
         <result property="favorite" column="favorite"/>
-        <result property="createPost" column="create_post"/>
+        <result property="createPost" column="createpost"/>
         <association property="member" javaType="Member" autoMapping="true"/>
     </resultMap>
 
@@ -59,8 +64,8 @@
                m.profile,
                p.*
         FROM post p
-                 JOIN MEMBER m ON p.member_id = m.id
-        WHERE p.id = #{id}
+                 JOIN MEMBER m ON p.usernum = m.id
+        WHERE p.postnum = #{id}
     </select>
 
     <select id="selectAllPosts" resultMap="joinMap">
@@ -70,9 +75,21 @@
                p.*
         from post p,
              member m
-        WHERE (p.member_id = m.id)
-        ORDER BY p.id desc
+        WHERE (p.usernum = m.id)
+        ORDER BY p.postnum desc
     </select>
+
+
+    <update id="updatePost" parameterType="Post">
+        UPDATE post
+        SET maintitle    =#{mainTitle},
+            subtitle     = #{subTitle},
+            content      =#{content},
+            maintitleimg =#{mainTitleImg},
+            category     = #{category},
+            postpublic   = #{postPublic}
+        WHERE postnum = #{postNum}
+    </update>
 
 </mapper>
 

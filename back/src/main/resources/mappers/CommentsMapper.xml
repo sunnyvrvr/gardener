@@ -5,17 +5,17 @@
 <mapper namespace="com.gardener.comments.CommentsMapper">
     <sql id="commentsColumns">
         id
-        , post_id, member_id, content, create_date, report
+        , postnum, usernum, content, createdate, report
     </sql>
     <insert id="insertComments" parameterType="Comments">
         insert into comments(<include refid="commentsColumns"></include>)
-        values(comments_seq.nextval,#{postId},#{memberId},#{content},systimestamp,0)
+        values(comments_seq.nextval,#{postnum},#{usernum},#{content},systimestamp,0)
     </insert>
 
 
     <resultMap id="joinMap" type="Comments">
         <result property="content" column="content"/>
-        <result property="createDate" column="create_date"/>
+        <result property="createDate" column="createdate"/>
         <result property="report" column="report"/>
         <association property="member" javaType="Member" autoMapping="true"/>
     </resultMap>
@@ -23,8 +23,8 @@
     <select id="selectComments" parameterType="int" resultMap="joinMap">
         SELECT c.content, to_char(c.create_date, 'yyyy-mm-dd hh:mm:ss') create_date, c.report, m.id, m.name
         FROM comments c
-                 JOIN member m ON c.member_id = m.id
-        WHERE c.post_id = #{postid}
+                 JOIN member m ON c.usernum = m.id
+        WHERE c.postnum = #{postnum}
     </select>
 
     <!--    count-->
@@ -32,13 +32,13 @@
         SELECT *
         FROM (SELECT ROWNUM AS rn, co.*
               FROM (SELECT c.content,
-                           to_char(c.create_date, 'yyyy-mm-dd hh:mm:ss') create_date,
+                           to_char(c.createdate, 'yyyy-mm-dd hh:mm:ss') createdate,
                            c.report,
                            m.id,
                            m.name
                     FROM comments c
-                             JOIN member m ON c.member_id = m.id
-                    WHERE c.post_id = #{num}
+                             JOIN member m ON c.usernum = m.id
+                    WHERE c.postnum = #{num}
                     ORDER BY id asc) co)
         WHERE rn BETWEEN #{startRow} AND #{endRow}
     </select>
@@ -46,5 +46,6 @@
     <select id="count" parameterType="int" resultType="int">
         SELECT COUNT(*)
         FROM comments
-        WHERE post_id = #{num}
+        WHERE postnum = #{num}
     </select>
+</mapper>

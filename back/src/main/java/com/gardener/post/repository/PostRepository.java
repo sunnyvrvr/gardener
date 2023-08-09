@@ -48,7 +48,6 @@ public class PostRepository {
 	}
 
 	public void insertImgs(String[] imgs) {
-		System.out.println(imgs.length + " -- length");
 		SqlSession session = null;
 		Map<String, String> imgMap = new HashMap<>();
 		for (int i = 0; i < imgs.length; i++) {
@@ -102,5 +101,24 @@ public class PostRepository {
 			}
 		}
 		return posts;
+	}
+
+	public void updatePost(Post post) {
+		System.out.println(post.getPostNum());
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();
+			int update = session.update("com.gardener.post.PostMapper.updatePost", post);
+			System.out.println(update + " -- update result");
+			session.commit();
+		} catch (Exception e) {
+			System.out.println("업데이트 예=외");
+			session.rollback();
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
 	}
 }

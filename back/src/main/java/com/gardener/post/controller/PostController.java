@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.gardener.post.dto.Post;
 import com.gardener.post.service.PostService;
@@ -27,11 +28,13 @@ public class PostController extends HttpServlet {
 			throws ServletException, IOException {
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setContentType("application/json; charset=utf-8");
+		HttpSession session = request.getSession();
+		System.out.println(session + " -- session");
 		PrintWriter out = response.getWriter();
 		Gson gson = new Gson();
 		int id = Integer.parseInt(request.getParameter("num"));
-
 		Optional<Post> post = service.findPost(id);
+		System.out.println(post + " -- 넘겨주는 post");
 		String postJson = gson.toJson(post.get());
 		out.print(postJson);
 	}
@@ -41,6 +44,8 @@ public class PostController extends HttpServlet {
 			throws ServletException, IOException {
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
+		System.out.println(session + " -- session");
 		Post post = null;
 
 		String title = request.getParameter("title");
@@ -55,12 +60,14 @@ public class PostController extends HttpServlet {
 		if (imgOp.isEmpty()) {
 			post = new Post(0, 1, title, subTitle, content, mainImg, cate, secret, 0, null);
 			service.savePost(post);
+			response.getWriter().print(post.getPostNum());
 			return;
 		}
 
 		post = new Post(0, 1, title, subTitle, content, mainImg, cate, secret, 0, null);
 		service.savePost(post);
 		service.saveImg(imgArr);
+		response.getWriter().print(post.getPostNum());
 
 	}
 }

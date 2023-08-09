@@ -31,10 +31,11 @@ public class PostService {
 		return post;
 	}
 
-	/**
-	 * 전체 찾기
-	 */
 	public List<Post> findAllPosts() {
 		return repository.selectAllPosts();
+	}
+
+	public void updatePost(Post post) {
+		repository.updatePost(post);
 	}
 }
