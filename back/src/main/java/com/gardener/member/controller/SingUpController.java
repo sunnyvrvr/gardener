@@ -44,9 +44,7 @@ public class SingUpController extends HttpServlet {
 		}
 		PrintWriter out = response.getWriter();		
 		System.out.println(memberJson);
-		out.print(memberJson);
-		
-		
+		out.print(memberJson);		
 	}
 	
 }

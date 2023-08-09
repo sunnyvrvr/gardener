@@ -34,7 +34,7 @@ public class MemberRepository {
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-			Member m = session.selectOne("com.gardener.MemberMapper.selectById", loginId);
+			Member m = session.selectOne("com.gardener.mapper.MemberMapper.selectById", loginId);
 			if (m == null) {
 				throw new FindException("저장된 고객 정보가 없습니다");
 			}

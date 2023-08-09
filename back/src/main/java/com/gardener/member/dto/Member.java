@@ -1,7 +1,5 @@
 package com.gardener.member.dto;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +16,7 @@ public class Member {
    private String intro;   //자기소개
    private String joinDate;   //가입날짜
    private String profile; //프로필사진 
-   
+
    
    public Member(String loginId, String pwd, String email, String name) {
 	this.loginId = loginId;
