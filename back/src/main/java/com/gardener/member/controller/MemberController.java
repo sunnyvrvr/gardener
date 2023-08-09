@@ -14,6 +14,7 @@ import com.gardener.member.service.MemberService;
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService service;
+	private MemberService service;
 
 	public MemberController() {
     	service = MemberService.getInstance();
@@ -25,6 +26,7 @@ public class MemberController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String loginId = request.getParameter("loginId");
 		String loginId = request.getParameter("loginId");
 		String pwd = request.getParameter("pwd");
 		String email = request.getParameter("email");

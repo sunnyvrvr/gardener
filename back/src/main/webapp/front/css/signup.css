@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Dotum";
-  src: url(../font/KoPubDotumMedium.ttf);
+  src: url(./font/KoPubDotumMedium.ttf);
 }
 
 * {
@@ -36,28 +36,33 @@
   width: 50px;
 }
 
-.btn_area > type > span {
+.bt_area > type > span {
   width: 100px;
 }
 
-/*아이디, 필명 중복확인*/
-.signup input[type="button"] {
+/*아이디, 필명 중복확인 버튼*/
+.signup [type="button"] {
   width: 144px;
   height: 20px;
   font-size: 10px;
+  border: none;
+  background-color:grey;
+  color: white;
 }
 
-/*가입버튼*/
-.btn-Signup {
+/*회원가입버튼*/
+.bt-Signup {
   width: 144px;
   height: 20px;
   font-size: 10px;
+  letter-spacing: 2px;
   background-color: rgb(121, 193, 150);
+  border-radius: 10px;
   border: none;
   color: white;
 }
 
-.btn-Signup > a {
+.bt-Signup > a {
   text-decoration: none;
   color: white;
 }

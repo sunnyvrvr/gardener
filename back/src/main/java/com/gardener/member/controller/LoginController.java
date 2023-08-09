@@ -25,11 +25,11 @@ public class LoginController extends HttpServlet {
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		//¿äÃ»Àü´Şµ¥ÀÌÅÍ ¾ò±â
+		//ìš”ì²­ì „ë‹¬ë°ì´í„° ì–»ê¸°
 		String loginId = request.getParameter("loginId");		//hello
-		String pwd = request.getParameter("pwd");	//kitty
+		String pwd = request.getParameter("pwd");				//kitty
 		
-		//¼¼¼Ç¾ò±â
+		//ì„¸ì…˜ì–»ê¸°
 		HttpSession session = request.getSession();
 		session.setAttribute("loginId", loginId);
 		
@@ -40,10 +40,10 @@ public class LoginController extends HttpServlet {
 //			Gson gson = new Gson();
 			System.out.println("test:" + m);		
 //			memberJson = gson.toJson(m);
-			memberJson = "1"; 			//·Î±×ÀÎ¼º°ø
+			memberJson = "1"; 			//ë¡œê·¸ì¸ì„±ê³µ
 		} catch (FindException e) {			
 			e.printStackTrace();
-			memberJson = "0";			//·Î±×ÀÎ½ÇÆĞ
+			memberJson = "0";			//ë¡œê·¸ì¸ì‹¤íŒ¨
 		}
 		PrintWriter out = response.getWriter();		
 		System.out.println(memberJson);
