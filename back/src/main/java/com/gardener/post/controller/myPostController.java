@@ -31,24 +31,22 @@ public class myPostController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setHeader("Access-Control-Allow-Origin","*");
-		response.setContentType("application/json, charset=UTF-8");
-		//��泥� �곗�댄�� �산린
-		String loginid = request.getParameter("loginid"); 
-		System.out.println("loginid:" + loginid);
-		//�몄���산린
+		response.setContentType("application/json; charset=UTF-8");
+
 		HttpSession session = request.getSession();
+		String loginId = (String)session.getAttribute("loginId"); //세션에 저장된 로그인아이디
+		System.out.println("loginId:" + loginId);
 		String memberJson = null;
 		
 		List<Post> listPost = new ArrayList<Post>();
 		try {
-			listPost = service.selectByLoginid(loginid);
+			listPost = service.selectByLoginid(loginId);
 			session.setAttribute("listPost", listPost); //setAttribute瑜� ������
 			Gson gson = new Gson();
 			memberJson = gson.toJson(listPost);
 		} catch (FindException e) {
 			e.printStackTrace();
-		}
-        		
+		}    	
 		PrintWriter out = response.getWriter(); 
 		System.out.println(memberJson + " -- ");
         out.print(memberJson);

@@ -38,7 +38,7 @@ public class PostWriterController extends HttpServlet {
 
 		List<Post> listPost = new ArrayList<>();
 		try {
-//			p = service.selectById(userNum);
+			// p = service.selectById(userNum);
 			listPost = service.selectByLoginid(loginid);
 			session.setAttribute("loginid", loginid);
 			Gson gson = new Gson();

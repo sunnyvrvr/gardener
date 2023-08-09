@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.gardener.category.service.CategoryService;
 import com.gardener.exception.FindException;
 import com.gardener.search.dto.Search;
-import com.gardener.search.service.SearchService;
 import com.google.gson.Gson;
 
 
@@ -34,19 +33,19 @@ public class CategoryController extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
-		//검색할 카테고리 값 
+		//寃����� 移댄��怨�由� 媛� 
 		String categoryValue = request.getParameter("category");
 		
-		//검색된 카테고리를 받을 리스트
+		//寃����� 移댄��怨�由щ�� 諛��� 由ъ�ㅽ��
 		List<Search> categoryList = new ArrayList<>();
 		
-		//Json으로 변환할 Gson객체 생성
+		//Json�쇰� 蹂����� Gson媛�泥� ����
 		Gson gson = new Gson();
 		
-		//gson으로 변환된 객체는 직렬화되어서 String으로 값을 받아야 한다.
+		//gson�쇰� 蹂����� 媛�泥대�� 吏��ы�����댁�� String�쇰� 媛��� 諛����� ����.
 		String categoryJson = null;
 		
-		System.out.println("클릭한 카테고리= "+categoryValue);
+		System.out.println("�대┃�� 移댄��怨�由�= "+categoryValue);
 		
 		if(categoryValue != "") {
 			try {
@@ -58,10 +57,10 @@ public class CategoryController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else {
-			System.out.println("categoryValue에 값이 없습니다.");
+			System.out.println("categoryValue�� 媛��� ���듬����.");
 		}
 		
-		//json형태로 응답
+		//json����濡� ����
 		out.print(categoryJson);
 		
 		

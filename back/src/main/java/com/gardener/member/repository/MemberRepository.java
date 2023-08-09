@@ -2,8 +2,6 @@ package com.gardener.member.repository;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -34,7 +32,7 @@ public class MemberRepository {
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-			Member m = session.selectOne("com.gardener.MemberMapper.selectById", loginId);
+			Member m = session.selectOne("com.gardener.mapper.MemberMapper.selectById", loginId);
 			if (m == null) {
 				throw new FindException("저장된 고객 정보가 없습니다");
 			}
@@ -57,12 +55,7 @@ public class MemberRepository {
 
 		try {
 			session = sessionFactory.openSession();
-			Map<String, String> map = new HashMap<>();
-			map.put("i", m.getLoginId());
-			map.put("p", m.getPwd());
-			map.put("e", m.getEmail());
-			map.put("n", m.getName());
-			session.insert("com.gardener.mapper.MemberMapper.insert", map);
+			session.insert("com.gardener.mapper.MemberMapper.insertMember", m);
 			session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
