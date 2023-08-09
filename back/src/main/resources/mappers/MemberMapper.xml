@@ -7,6 +7,10 @@
 SELECT * FROM member WHERE loginid= #{loginId}
 </select>
 
+<select id="selectByName" resultType="Member" parameterType="string">
+SELECT * FROM member WHERE name= #{name}
+</select>
+
 <insert id="insertMember" parameterType="Member">
  INSERT INTO member VALUES (member_seq.nextval,#{loginId}, #{pwd}, #{email}, #{name},null,null,null,null)
 </insert>

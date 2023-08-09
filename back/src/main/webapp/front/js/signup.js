@@ -14,12 +14,13 @@ $(() => {
   //필명 입력란 객체 찾기
   const inputNameObj = $('form.signup>input[name=name]')
 
+  //필명 중복확인 버튼 객체 찾기
+  const btNameDupchk = $('form.signup button.namedupchk')
+  
   //가입버튼 객체 찾기
   const btSignup = $('form.signup.bt-Signup')
 
 
-
-  //필명 중복확인 버튼
 
 
 
@@ -42,7 +43,22 @@ $(() => {
   })
 })
 
-
+  btNameDupchk.click(()=>{
+	const name = $("input[name='name']").val();
+  $.ajax({
+	url:'http://localhost:8888/back/namechk' ,
+	methoed: 'get' ,
+	data:`namecheck=${name}` ,
+	success: (responseData) =>{
+		console.log(responseData)
+		if(responseData === '1'){
+			alert('사용 가능한 필명 입니다')
+		}else{
+			alert('중복된 필명 입니다, 다른 필명을 입력해주세요')
+		}
+	}
+  })
+})
 
   formObj.submit((e) => {
     $(e.target)

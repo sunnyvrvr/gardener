@@ -2,8 +2,6 @@ package com.gardener.member.repository;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -51,6 +49,25 @@ public class MemberRepository {
 		}
 	}
 
+	public Member selectByName(String name) throws FindException{
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();
+			Member m = session.selectOne("com.gardener.mapper.MemberMapper.selectByName", name);
+			if (m == null) {
+				throw new FindException ("저장된 필명이 없습니다");
+				}
+				return m;
+			}catch (Exception e) {
+				e.printStackTrace();
+				throw new FindException(e.getMessage());
+			}finally {
+				if(session != null) {
+				session.close();
+			}
+		}
+	}
+	
 	public void insert(Member m) throws AddException {
 		SqlSession session = null;
 		System.out.println(m.getEmail());

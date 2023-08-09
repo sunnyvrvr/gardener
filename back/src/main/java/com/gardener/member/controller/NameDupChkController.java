@@ -10,28 +10,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.gardener.exception.FindException;
-import com.gardener.member.dto.Member;
 import com.gardener.member.service.MemberService;
 
-@WebServlet("/iddupchk")
-public class IdDubChkController extends HttpServlet {
+
+@WebServlet("/namechk")
+public class NameDupChkController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private MemberService service;      
-    public IdDubChkController() {
-        service = MemberService.getInstance();
+    private MemberService service; 
+    public NameDupChkController() {
+       service = MemberService.getInstance();       
     }
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		String loginId=request.getParameter("idcheck");
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String name = request.getParameter("namecheck");
+		System.out.println(name);
 		String memberJson = null;
 		try {
-			service.idDupChk(loginId);
-			memberJson = "1";		//사용 가능한 아이디
-			System.out.println("사용 가능한 아이디 입니다");
-		} catch (FindException e) {
-			memberJson = "0";		//중복 아이디
+			service.nameDupChk(name);
+			memberJson = "1";		//사용 가능한 필명
+			System.out.println("사용 가능한 필명입니다");
+		} catch (FindException e) {			
+			memberJson = "0";		//중복 필명
 			e.printStackTrace();
-		}
+		}		
 		PrintWriter out = response.getWriter();
 		System.out.println(memberJson);
 		out.print(memberJson);		
