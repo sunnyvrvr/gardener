@@ -24,9 +24,6 @@ $(() => {
 
     alert(selectValue + ' button 검색');
 
-    if (selectValue == 'empty') {
-      alert('검색하는 주제를 선택해주세요.');
-    } else {
       $.ajax({
         url: 'http://localhost:8888/back/search',
         method: 'get',
@@ -68,7 +65,7 @@ $(() => {
           alert('검색 실패');
         },
       });
-    }
+    
   });
   //검색버튼을 클릭하면 할 일 end
 
@@ -103,10 +100,11 @@ $(() => {
             const viewtable = $('table.writing-list');
 
             //어떤 카테고리를 선택했는지 해더 출력
-            const categoryHeading = $('<h2>').text('선택한 카테고리= ' + categorieValue);
+            const categoryHeading = $('<h2>').html("카테고리 -> "+categorieValue);
             categoryHeading.css({
-              'margin-bottom': '50px',
-              color: 'red',
+              'margin-bottom': '30px',
+              'font-weight': 'bold',
+              display: 'block',
             });
             viewtable.prepend(categoryHeading);
 

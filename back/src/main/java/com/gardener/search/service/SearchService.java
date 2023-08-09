@@ -22,22 +22,27 @@ public class SearchService {
 	}
 	
 	//repository에서 넘어올 리스트를 받는 변수
-	List<Search> searchText = new ArrayList<Search>();
+	List<Search> searchResult = new ArrayList<Search>();
 	
 	
-	public List<Search> selectTitle(String searchTitle) throws FindException {
-		searchText = repository.searchTitle(searchTitle);
-		return searchText;
+	public List<Search> selectTitle(String title) throws FindException {
+		searchResult = repository.searchTitle(title);
+		return searchResult;
 	}
 	
-	public List<Search> selectName(String searchName) throws FindException {
-		searchText = repository.searchName(searchName);
-		return searchText;
+	public List<Search> selectName(String name) throws FindException {
+		searchResult = repository.searchName(name);
+		return searchResult;
 	}
 	
-	public List<Search> selectContent(String searchContent) throws FindException {
-		searchText = repository.searchContent(searchContent);
-		return searchText;
+	public List<Search> selectContent(String content) throws FindException {
+		searchResult = repository.searchContent(content);
+		return searchResult;
+	}
+	
+	public List<Search> selectAll() throws FindException{
+		searchResult = repository.selectAll();
+		return searchResult;
 	}
 	
 }

@@ -82,6 +82,17 @@ public class SearchController extends HttpServlet {
 			}
 		}
 		
+		if(keyword.isEmpty()) {
+			try {
+				resultList = service.selectAll();
+				System.out.println("resultList.size() = "+resultList.size());
+				result = gson.toJson(resultList);
+				System.out.println(result);
+			} catch (FindException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		//json형태로 응답
 		out.print(result);
 		
