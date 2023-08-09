@@ -6,8 +6,6 @@ import java.util.List;
 import com.gardener.category.repository.CategoryRepository;
 import com.gardener.exception.FindException;
 import com.gardener.search.dto.Search;
-import com.gardener.search.repository.SearchRepository;
-import com.gardener.search.service.SearchService;
 
 public class CategoryService {
 	private static CategoryService service = new CategoryService();
@@ -21,7 +19,7 @@ public class CategoryService {
 		return service;
 	}
 	
-	//메서드 작성
+	//硫����� ����
 	public List<Search> selectCategory(String category) throws FindException {
 		List<Search> categoryList = new ArrayList<>(); 
 		categoryList = repository.selectCategory(category);

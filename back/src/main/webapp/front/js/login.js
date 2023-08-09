@@ -1,5 +1,4 @@
 $(() => {
-	alert("hh")
   const backURL = "http://localhost:8888/back";
   const formObj = $("form.login");
 
