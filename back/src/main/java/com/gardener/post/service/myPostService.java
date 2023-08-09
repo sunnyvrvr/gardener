@@ -26,15 +26,4 @@ public class myPostService {
 		listPost = repository.selectByLoginid(loginid);
 		return listPost;
 	}
-	public List<Member> selectByWriter(int writerid)  throws FindException {
-		List<Member> listPost = new ArrayList<Member>();
-		listPost = repository.selectByWriter(writerid);
-		return listPost;
-	}	
-	public List<String> selectByWriterPost(int writerid)  throws FindException {
-		List<String> listPost = new ArrayList<String>();
-		listPost = repository.selectByWriterPost(writerid);
-		return listPost;
-	}	
-
 }

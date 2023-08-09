@@ -13,26 +13,24 @@ $(() => {
   $("#write").on("click", function (e) {
     window.location.href = "../html/write.html";
   });
+  //글내용 보여주기
   $.ajax({
     url: "http://localhost:8888/back/mypost",
     type: "get",
-    //data: Json,
-    //contentType: "application/json",
-    //data: `loginid={}`, //로그인하면 세션에 pk로 저장- 에러발생
-    data: {loginId: loginId},
-
+    data: {loginId:"loginId"},
     success: (response) => {
       console.log(response, "--");
-      if (response[1] === null) {
-        alert("글이 없습니다");
-        $("#post-title-writer").hide();
-        $("#post-content").hide();
-        $(".thumbnail").hide();
-      } else {
-//      alert("연결완료");
-        $("#post-title-writer").text(response[1].mainTitle);
-        $("#post-content").text(response[1].content);
+      const responselength = response.length;
+//      alert("연결완료");       
+      for (let i = 0; i < responselength; i++) {
+         const imageElement = $('div.posts_part>div.post>a.thumbnail>img');
+    // 새로운 이미지 경로로 src 속성 변경
+  		  imageElement.attr('src', response[i].mainTitleImg);
+        
+        $("#post-title-writer").text(response[i].mainTitle);
+        $("#post-content").text(response[i].content);
       }
+      $(div.posts_part).append(div.post);
     },
     error: () => {
       alert("에러발생");

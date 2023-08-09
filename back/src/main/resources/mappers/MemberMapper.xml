@@ -4,11 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gardener.MemberMapper">
 <select id="selectById" resultType="Member" parameterType="string">
-SELECT * FROM member WHERE login_id= #{loginId}
+SELECT * FROM member WHERE loginid= #{loginid}
 </select>
-
-<insert id="insert" parameterType="string">
- INSERT INTO member(loginId, pwd, email, name) VALUES (#{i}, #{p}, #{e}, #{n})
-</insert>
-
 </mapper>

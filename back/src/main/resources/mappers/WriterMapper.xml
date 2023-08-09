@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gardener.WriterMapper">
+<resultMap id="WriterResultMap" type="Member">
+	<result property="name" column="name"/>
+	<result property="intro" column="intro"/>
+	<result property="profile" column="profile"/>
+</resultMap>
+<select id="selectByWriter"
+	parameterType="int"
+	resultMap="WriterResultMap">
+	SELECT name, intro, profile 
+	FROM member m JOIN writer w ON m.id = w.writerid 
+	WHERE writerid=#{writerid}
+	</select> 
+</mapper>

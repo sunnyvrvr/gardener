@@ -33,8 +33,6 @@ public class PostTitleController extends HttpServlet {
 
 		response.setContentType("application/json; charset=UTF-8");
 		//요청 데이터 얻기
-
-		response.setContentType("application/json, charset=UTF-8");
 		
 
 	//	String userNumStr = request.getParameter("userNum");

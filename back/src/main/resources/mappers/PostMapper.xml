@@ -13,20 +13,6 @@
 		 resultType="Post">
 SELECT p.maintitle, p.content, p.maintitleimg 
 FROM post p JOIN member m ON (p.usernum = m.id)
-WHERE login_id =#{loginid}
-  </select>
-      <select id="selectByWriter" 
-		 parameterType="int"
-		 resultType="Member">
-SELECT m.name, m.intro, m.profile
-FROM writer w JOIN member m ON (w.writerid = m.id)
-WHERE writerid=#{writerid}	
-  </select>	
-        <select id="selectByWriterPost" 
-		 parameterType="int"
-		 resultType="string">
-SELECT p.maintitle, p.content, p.maintitleImg, m.name
-FROM post p, writer w, member m
-WHERE w.writerid = #{writerid}
-  </select>	  
+WHERE loginid =#{loginid}
+  </select>  
 </mapper>
