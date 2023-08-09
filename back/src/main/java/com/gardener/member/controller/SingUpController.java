@@ -21,9 +21,7 @@ public class SingUpController extends HttpServlet {
     public SingUpController() {
         service = MemberService.getInstance();        
     }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	System.out.println("°Ù");
-    }
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		String loginId = request.getParameter("loginId");
 		String pwd = request.getParameter("pwd");
@@ -35,16 +33,18 @@ public class SingUpController extends HttpServlet {
 		try {			
 			Member m = new Member(loginId,pwd,email,name);
 			service.signup(m);
-			memberJson = "1";		//È¸¿ø°¡ÀÔ ¼º°ø
-			System.out.println("È¸¿ø°¡ÀÔ ¼º°ø!");
+			memberJson = "1";		//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			System.out.println("È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!");
 		} catch (AddException e) {			
 			e.printStackTrace();
-			memberJson = "0";		//È¸¿ø°¡ÀÔ ½ÇÆÐ
-			System.out.println("È¸¿ø°¡ÀÔ ½ÇÆÐ");
+			memberJson = "0";		//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			System.out.println("È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		}
 		PrintWriter out = response.getWriter();		
 		System.out.println(memberJson);
-		out.print(memberJson);		
+		out.print(memberJson);
+		
+		
 	}
 	
 }

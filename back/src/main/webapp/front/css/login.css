@@ -1,16 +1,22 @@
 * {
   box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 div.logo {
+div.logo {
   margin: 50px 0px 0px 0px;
+  text-align: center;
   text-align: center;
   display: block;
   width: 100%;
   height: 100%;
   zoom: 1.5;
+  zoom: 1.5;
 }
 
+.profile > b {
 .profile > b {
   font-size: 2px;
 }
@@ -20,18 +26,29 @@ form.login {
   margin: auto;
   top: 300px;
   zoom: 1.5;
+form.login {
+  width: 250px;
+  margin: auto;
+  top: 300px;
+  zoom: 1.5;
 }
 
 form.login>input[name="loginId"] {
+form.login>input[name="loginId"] {
   width: 200px;
+  margin: 0px 20px 5px;
   margin: 0px 20px 5px;
 }
 
 form.login > input[name="pwd"] {
   width: 200px;
   margin: 0px 20px 15px;
+form.login > input[name="pwd"] {
+  width: 200px;
+  margin: 0px 20px 15px;
 }
 
+form.login div {
 form.login div {
   font-size: 10px;
   text-align: right;
@@ -39,11 +56,13 @@ form.login div {
 }
 /*체크박스*/
 form.login input[type="checkbox"] {
+form.login input[type="checkbox"] {
   margin: 0px 0px 2px 50px;
   text-align: right;
 }
 
 /*로그인 버튼*/
+input.loginbtn {
 input.loginbtn {
   color: white;
   font-size: 15px;
@@ -53,9 +72,13 @@ input.loginbtn {
   width: 205px;
   height: 25px;
   margin: 0px 20px;
+  margin: 0px 20px;
   border: none;
 }
 
+form.login > input submit a {
+  text-decoration: none;
+  color: white;
 form.login > input submit a {
   text-decoration: none;
   color: white;
@@ -65,8 +88,15 @@ form.login > input submit a {
 form > span.signup {
   font-size: 7px;
   margin: 5px 5px 5px 35px;
+form > span.signup {
+  font-size: 7px;
+  margin: 5px 5px 5px 35px;
 }
 
+form > span.signup a {
+  text-decoration: none;
+  color: gray;
+}
 form > span.signup a {
   text-decoration: none;
   color: gray;
@@ -74,11 +104,13 @@ form > span.signup a {
 
 /*아이디*/
 form > span.find-loginId {
+form > span.find-loginId {
   font-size: 7px;
   color: gray;
   margin: 5px 5px 5px 0px;
 }
 
+form > span.find-loginId a {
 form > span.find-loginId a {
   text-decoration: none;
   color: gray;
@@ -86,10 +118,14 @@ form > span.find-loginId a {
 
 /*비밀번호*/
 form > span.find-pwd {
+/*비밀번호*/
+form > span.find-pwd {
   font-size: 7px;
   color: gray;
   margin: 5px 5px 2px 0px;
 }
+
+form > span.find-pwd a {
 
 form > span.find-pwd a {
   text-decoration: none;

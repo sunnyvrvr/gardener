@@ -40,4 +40,12 @@
 		WHERE CATEGORY = #{category}
   </select>
   
+  <!-- text창에 아무것도 입력안했을때 모든 글 가져오는 쿼리 -->
+  <select id="selectall" 
+		 parameterType="String"
+		 resultType="Search">
+		SELECT name, maintitle, content, maintitleimg
+		FROM MEMBER m JOIN POST p ON(m.id = p.usernum)
+  </select>
+  
 </mapper>

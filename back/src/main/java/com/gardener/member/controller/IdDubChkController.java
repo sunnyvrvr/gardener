@@ -29,8 +29,8 @@ public class IdDubChkController extends HttpServlet {
 		String memberJson = null;
 			try {
 				service.idDupChk(loginId);
-				memberJson = "1";		//»ç¿ë °¡´ÉÇÑ ¾ÆÀÌµð
-				System.out.println("»ç¿ë °¡´ÉÇÑ ¾ÆÀÌµð ÀÔ´Ï´Ù");
+				memberJson = "1";		//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+				System.out.println("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô´Ï´ï¿½");
 			} catch (com.gardener.exception.FindException e) {
 				memberJson = "0";
 				e.printStackTrace();
