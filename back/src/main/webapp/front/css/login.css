@@ -3,7 +3,6 @@
 }
 
 div.logo {
-div.logo {
   margin: 50px 0px 0px 0px;
   text-align: center;
   text-align: center;
@@ -15,7 +14,6 @@ div.logo {
 }
 
 .profile > b {
-.profile > b {
   font-size: 2px;
 }
 
@@ -24,14 +22,9 @@ form.login {
   margin: auto;
   top: 300px;
   zoom: 1.5;
-form.login {
-  width: 250px;
-  margin: auto;
-  top: 300px;
-  zoom: 1.5;
 }
 
-form.login>input[name="loginId"] {
+form.login > input[name="loginId"] {
   width: 200px;
   margin: 0px 20px 5px;
 }
@@ -39,19 +32,14 @@ form.login>input[name="loginId"] {
 form.login > input[name="pwd"] {
   width: 200px;
   margin: 0px 20px 15px;
-form.login > input[name="pwd"] {
-  width: 200px;
-  margin: 0px 20px 15px;
 }
 
-form.login div {
 form.login div {
   font-size: 10px;
   text-align: right;
   width: 220px;
 }
 /*체크박스*/
-form.login input[type="checkbox"] {
 form.login input[type="checkbox"] {
   margin: 0px 0px 2px 50px;
   text-align: right;
@@ -80,9 +68,6 @@ form.login > input submit a {
 form > span.signup {
   font-size: 7px;
   margin: 5px 5px 5px 35px;
-form > span.signup {
-  font-size: 7px;
-  margin: 5px 5px 5px 35px;
 }
 
 form > span.signup a {
@@ -108,14 +93,10 @@ form > span.find-loginId a {
 
 /*비밀번호*/
 form > span.find-pwd {
-/*비밀번호*/
-form > span.find-pwd {
   font-size: 7px;
   color: gray;
   margin: 5px 5px 2px 0px;
 }
-
-form > span.find-pwd a {
 
 form > span.find-pwd a {
   text-decoration: none;
