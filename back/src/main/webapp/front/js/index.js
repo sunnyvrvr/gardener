@@ -24,24 +24,24 @@ $(() => {
 
     alert(selectValue + ' button 검색');
 
-      $.ajax({
-        url: 'http://localhost:8888/back/search',
-        method: 'get',
-        data: { select: selectValue, text: textValue },
-        success: (resultData) => {
-          if (resultData.length != 0) {
-            //받은 데이터 확인
-            console.log(resultData);
-            const resultlength = resultData.length;
-            console.log(resultlength);
+    $.ajax({
+      url: 'http://localhost:8888/back/search',
+      method: 'get',
+      data: { select: selectValue, text: textValue },
+      success: (resultData) => {
+        if (resultData.length != 0) {
+          //받은 데이터 확인
+          console.log(resultData);
+          const resultlength = resultData.length;
+          console.log(resultlength);
 
-            body.load('./search.html', () => {
-              const viewtable = $('table.writing-list');
+          body.load('./search.html', () => {
+            const viewtable = $('table.writing-list');
 
-              for (var i = 0; i < resultlength; i++) {
-                const tabletr = document.createElement('tr');
+            for (var i = 0; i < resultlength; i++) {
+              const tabletr = document.createElement('tr');
 
-                tabletr.innerHTML = `
+              tabletr.innerHTML = `
                   <td>
                     <a>
                       <img src="${resultData[i].mainTitleImg}" alt="제목이미지" 
@@ -54,18 +54,17 @@ $(() => {
                     <p>${resultData[i].content}</p>
                   </td>`;
 
-                $(viewtable).append(tabletr);
-              }
-            });
-          } else {
-            alert('검색하는 결과가 없습니다.');
-          }
-        },
-        error: function () {
-          alert('검색 실패');
-        },
-      });
-    
+              $(viewtable).append(tabletr);
+            }
+          });
+        } else {
+          alert('검색하는 결과가 없습니다.');
+        }
+      },
+      error: function () {
+        alert('검색 실패');
+      },
+    });
   });
   //검색버튼을 클릭하면 할 일 end
 
@@ -75,7 +74,10 @@ $(() => {
   txtobj.keyup((e) => {
     if (e.key == 'Enter') {
       //Enter에 입력하면 할 일
+
       this.alert('enter 입력');
+
+      this.alert('enter입력');
     }
   });
   //입력창에 엔터를 누르면 할 일 start
@@ -100,7 +102,7 @@ $(() => {
             const viewtable = $('table.writing-list');
 
             //어떤 카테고리를 선택했는지 해더 출력
-            const categoryHeading = $('<h2>').html("카테고리 -> "+categorieValue);
+            const categoryHeading = $('<h2>').html('카테고리 -> ' + categorieValue);
             categoryHeading.css({
               'margin-bottom': '30px',
               'font-weight': 'bold',

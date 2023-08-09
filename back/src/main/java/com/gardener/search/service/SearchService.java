@@ -4,19 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.gardener.exception.FindException;
-import com.gardener.post.dto.Post;
-import com.gardener.post.service.PostService;
 import com.gardener.search.dto.Search;
 import com.gardener.search.repository.SearchRepository;
 
 public class SearchService {
 	private static SearchService service = new SearchService();
 	private SearchRepository repository;
-	
+
 	public SearchService() {
 		repository = new SearchRepository();
 	}
-	
+
 	public static SearchService getInstance() {
 		return service;
 	}
@@ -44,5 +42,5 @@ public class SearchService {
 		searchResult = repository.selectAll();
 		return searchResult;
 	}
-	
+
 }

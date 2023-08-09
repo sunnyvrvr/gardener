@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../js/signup.js"></script>
+    <title>회원가입</title>
     <link rel="stylesheet" href="../css/signup.css" />
-    <title>signup</title>
   </head>
 
   <body>
-    <div class="member">
+    <form class="signup">
       <!--프로필 이미지 첨부-->
       <div>
         <img class="profile" src="../images/profile.png" />
@@ -19,16 +23,17 @@
       <div class="field">
         <b>아이디</b>
       </div>
-      <span class="placehold-text"><input type="text" /></span>
+      <span class="placehold-text"><input type="text" name="loginId" /></span>
       <div>
-        <input type="button" value="아이디 중복 확인" />
+		<button type="button" class="iddupchk"/>아이디 중복 확인</button>
+        <!--<input type="button" class="iddupchk" value="아이디 중복 확인" />-->
       </div>
+        <!--비밀번호 입력-->
       <div class="field">
-        <!--내용 입력-->
         <b>비밀번호</b>
       </div>
       <div>
-        <input class="pwd" type="password" />
+        <input class="pwd" type="password" name="pwd" />
       </div>
       <div>
         <b>비밀번호 확인</b>
@@ -36,31 +41,27 @@
       <div>
         <input class="pwd confirm" type="password" />
       </div>
+      <!--필명 입력-->
       <div class="field">
-        <b>필명</b>
-      </div>
-      <span class="placehold-text"><input type="text" /></span>
-      <div>
-        <input type="button" value="필명 중복 확인" />
+        <!--이메일 입력-->
       </div>
       <div class="field">
         <b>이메일</b>
       </div>
-      <span class="placehold-text"><input type="email" /></span>
+      <span class="placehold-text"><input type="email" name="email" /></span>
       <div>
-        <input type="button" value="인증번호 전송" />
+        <b>필명</b>
       </div>
+      <span class="placehold-text"><input type="text" name="name" /></span>
       <div>
-        <b>인증번호 입력</b>
+		<button type="button" class="namedupchk"/>필명 중복 확인</button>
+        <!--<input type="button" value="필명 중복 확인" />-->
+        <!--가입버튼-->
+        <div>
+        <button class="bt-Signup">회원 가입</button>
+        <a href="./login.html"></a>
       </div>
-
-      <div>
-        <input type="number" />
-        <button class="check">인증확인</button>
       </div>
-      <div>
-        <button class="signup"><a href="./login.html">가입</a></button>
-      </div>
-    </div>
+    </form>
   </body>
 </html>
