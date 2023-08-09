@@ -16,12 +16,12 @@
     email = #{email},
     name = #{name},
     intro = #{intro},
-    profile = #{profile}
+    profile = #{profile}         
     WHERE id = #{id}
 </update>
 
  <delete id="deleteMember" parameterType="String">
-	DELETE FROM member WHERE LOGIN_ID = #{userId}
+	DELETE FROM member WHERE LOGINID = #{userId}
     </delete>
 
 </mapper>
