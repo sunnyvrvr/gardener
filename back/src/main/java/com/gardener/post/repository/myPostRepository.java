@@ -10,7 +10,11 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+
+import com.gardener.member.dto.Member;
+
 import com.gardener.exception.FindException;
+
 import com.gardener.post.dto.Post;
 
 public class myPostRepository {
@@ -60,13 +64,16 @@ public class myPostRepository {
 			SqlSession session = null;
 			System.out.println(loginid+" --");
 			session = sessionFactory.openSession();
-			List<Post> result = new ArrayList<Post>(); //list ����
+
+			List<Post> result = new ArrayList<Post>(); //list 생성
 			result = session.selectList("com.gardener.PostMapper.selectByLoginid", loginid);
-			//result.forEach(e->System.out.println(e)); //�댁�⑺����
-			System.out.println("session �곌껐 �깃났");
+			//result.forEach(e->System.out.println(e)); //내용확인
+			System.out.println("session 연결 성공");
 			if(result.size() == 0) {
-				throw new FindException("湲��� ���듬����");
+				throw new FindException("글없음");
 			}
 			return result;
 	}
+
+	
 }

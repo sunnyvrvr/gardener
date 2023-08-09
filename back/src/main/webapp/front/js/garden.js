@@ -15,22 +15,22 @@ $(() => {
   });
   //글내용 보여주기
   $.ajax({
-    url: "http://localhost:8888/mypost", //실제서버주소
+    url: "http://localhost:8888/back/mypost",
     type: "get",
-    data: { loginid: "id1" },
-
+    data: {loginId:"loginId"},
     success: (response) => {
       console.log(response, "--");
-      if (response[0] === null) {
-        alert("글이 없습니다");
-        $("#post-title-writer").hide();
-        $("#post-content").hide();
-        $(".thumbnail").hide();
-      } else {
-        alert("연결완료");
-        $("#post-title-writer").text(response[0].mainTitle);
-        $("#post-content").text(response[0].content);
+      const responselength = response.length;
+//      alert("연결완료");       
+      for (let i = 0; i < responselength; i++) {
+         const imageElement = $('div.posts_part>div.post>a.thumbnail>img');
+    // 새로운 이미지 경로로 src 속성 변경
+  		  imageElement.attr('src', response[i].mainTitleImg);
+        
+        $("#post-title-writer").text(response[i].mainTitle);
+        $("#post-content").text(response[i].content);
       }
+      $(div.posts_part).append(div.post);
     },
     error: () => {
       alert("에러발생");

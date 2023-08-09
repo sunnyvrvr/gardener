@@ -1,9 +1,8 @@
 package com.gardener.post.service;
 
-
 import java.util.ArrayList;
 import java.util.List;
-
+import com.gardener.member.dto.Member;
 import com.gardener.exception.FindException;
 import com.gardener.post.dto.Post;
 import com.gardener.post.repository.myPostRepository;
@@ -27,5 +26,4 @@ public class myPostService {
 		listPost = repository.selectByLoginid(loginid);
 		return listPost;
 	}
-
 }

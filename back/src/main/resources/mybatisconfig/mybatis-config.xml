@@ -29,5 +29,6 @@
     <mapper resource="/mappers/PostMapper.xml"/>
     <mapper resource="/mappers/CommentMapper.xml"/>
     <mapper resource="/mappers/SearchMapper.xml"/>
+    <mapper resource="/mappers/WriterMapper.xml"/>
   </mappers>
 </configuration>
