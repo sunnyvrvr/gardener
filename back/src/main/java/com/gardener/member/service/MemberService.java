@@ -1,57 +1,48 @@
 package com.gardener.member.service;
-
 import com.gardener.member.dto.Member;
 import com.gardener.member.repository.MemberRepository;
+import com.gradener.exception.AddException;
 import com.gradener.exception.FindException;
-import com.gradener.exception.UpdateException;
 
 public class MemberService {
 	private static MemberService service = new MemberService();
 	private MemberRepository repository;
 
+	
 	private MemberService() {
-		repository = new MemberRepository();
+		repository = new MemberRepository();	
 	}
-
+	
 	public static MemberService getInstance() {
-		return service;
+		return 	service;	
 	}
-    //회원 수정하기 시작
-	public void updateMember(Member m) throws UpdateException {
-		try {
-			repository.updateMember(m);
-		} catch (UpdateException e) {		
-			throw e;
-		  }
-
-	}
-	//회원 수정하기 끝
 	
-	//회원찾기 시작
-	public void findMember(Member m) {
+	
+	public void signup(Member m) throws AddException {
+		repository.insert(m);
+	}
+	
+	public void idDupChk(String loginId) throws FindException{
+		Member m = null;
 		try {
-			repository.findMember(m);
-		} catch (FindException e) {			
-			e.printStackTrace();
+			//loginId에 해당 고객이 있는 경우(중복인 경우)
+			m = repository.selectById(loginId);
+		}catch(FindException e) {
+			//loginId에 해당 고객이 있는 경우(id 사용가능한 경우)
 		}
-
-	}
- 
-	public Member findByMember(Object attribute) {
-		return null;
-	}
-
-	public Member findByMember(String loginId) {
-		return null;
-	}
-	//회원찾기 끝
+		if(m != null) {
+			throw new FindException("이미 사용중인 아이디 입니다");
+		}else {
+			System.out.println("사용 가능한 아이디 입니다");			
+		}
+	};
 	
-	
-	//회원탈퇴 시작
-    public boolean deleteMember(String userId) {
-		
-		return repository.deleteMember(userId);
+	public Member login (String loginId, String pwd) throws FindException {
+		Member m = repository.selectById(loginId);
+		if(pwd.equals(m.getPwd())) {
+			return m; // 로그인 성공
+		}else {
+			throw new FindException("로그인 실패");
+		}
 	}
-  //회원탈퇴 끝
-
 }

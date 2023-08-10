@@ -28,16 +28,24 @@ public class ApplyWriterController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		Gson gson = new Gson();
 
+		
 		HttpSession session = request.getSession();
-		Integer memberId = (Integer) session.getAttribute("id");
+	    int memberId = (int) session.getAttribute("Id");
 
-		// WriterService를 사용하여 작가 정보 삽입
-		boolean result = service.insertWriter(5);
+				
 
-		// 작가 정보 삽입 결과를 클라이언트에 반환
-		out.print(gson.toJson(result));
-		System.out.println("제출성공");
-
-	}
-
-}
+        if (memberId != 0) {
+            boolean writerInserted = service.insertWriterByMemberId(memberId);
+            if (writerInserted) {
+              out.print(gson.toJson(true));
+              System.out.println("작가 정보 등록 성공");
+            } else {
+              out.print(gson.toJson(false));
+              System.out.println("작가 정보 등록 실패");
+            }
+          } else {
+            out.print(gson.toJson(false));
+            System.out.println("세션 불일치");
+          }
+        }
+      }

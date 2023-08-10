@@ -35,4 +35,12 @@ public class Member {
 		Gson gson = new Gson();
 		return gson.toJson(this);
 	}
+	
+	public void setId(String loginId) {
+        this.loginId = loginId;
+    }
+	
+	public void print() {
+		
+	}
 }

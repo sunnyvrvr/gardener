@@ -4,10 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gardener.member.MemberMapper">
 
- <select id="selectById" parameterType="java.lang.String" resultType="com.gardener.member.dto.Member">
-        SELECT id, pwd, email, name, intro, profile
-        FROM member_table
-        WHERE id = #{id}
+ <select id="selectByLoginId" parameterType="map" resultType="com.gardener.member.dto.Member">
+        SELECT loginId, pwd, email, name, intro, profile
+        FROM member
+        WHERE LOGINID = #{loginId}
+    </select>
+    
+    <select id="selectById" resultType="Member" parameterType="string">
+    SELECT * FROM member WHERE loginid= #{loginid}
     </select>
  
  <update id="updateMember" parameterType="com.gardener.member.dto.Member">
@@ -21,7 +25,7 @@
 </update>
 
  <delete id="deleteMember" parameterType="String">
-	DELETE FROM member WHERE LOGINID = #{userId}
+	DELETE FROM member WHERE LOGINID = #{loginId}
     </delete>
 
 </mapper>

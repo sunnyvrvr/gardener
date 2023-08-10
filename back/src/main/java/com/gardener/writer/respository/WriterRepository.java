@@ -25,31 +25,22 @@ public class WriterRepository {
 	}
 
 	// 작가 신청서보내기 시작
-	public boolean insertWriter(int id) {
-		SqlSession session = null;
-		try {
-			session = sessionFactory.openSession();
-
-			// 시퀀스 값을 저장하는 로직 (이 부분은 실제로는 시퀀스 값을 얻어오는 방법에 따라 구현되어야 합니다.)
-
-			int rowsInserted = session.insert("com.gardener.writer.WriterMapper.insertWriter", id);
-			if (rowsInserted > 0) {
-				session.commit();
-				return true; // 작가 정보 등록 성공
-			} else {
-				session.rollback();
-				return false; // 작가 정보 등록 실패
-			}
-		} catch (PersistenceException e) {
-			session.rollback();
-			e.printStackTrace();
-			return false; // 작가 정보 등록 실패
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
-	}
+	public boolean insertWriterByMemberId(int memberId) {
+	    try (SqlSession session = sessionFactory.openSession()) {
+	        int rowsInserted = session.insert("com.gardener.writer.WriterMapper.insertWriterByMemberId", memberId);
+	        if (rowsInserted > 0) {
+	          session.commit();
+	          return true; // 작가 정보 등록 성공
+	        } else {
+	          session.rollback();
+	          return false; // 작가 정보 등록 실패
+	        }
+	      } catch (PersistenceException e) {
+	        e.printStackTrace();
+	        return false; // 작가 정보 등록 실패
+	      }
+	    }
+	  
 
 	// 작가 신청서보내기 끝
 
@@ -80,6 +71,5 @@ public class WriterRepository {
 
 	}
 	// 작가 신청 취소하기 끝
- 
 	
-	}
+}

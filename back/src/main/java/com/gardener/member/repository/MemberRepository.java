@@ -9,8 +9,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.gardener.member.dto.Member;
+import com.gradener.exception.AddException;
 import com.gradener.exception.FindException;
-import com.gradener.exception.UpdateException;
 
 public class MemberRepository {
 	private SqlSessionFactory sessionFactory;
@@ -18,6 +18,7 @@ public class MemberRepository {
 	public MemberRepository() {
 		String resource = "/mybatisconfig/mybatis-config.xml";
 		InputStream inputStream;
+
 		try {
 			inputStream = Resources.getResourceAsStream(resource);
 			sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -26,15 +27,17 @@ public class MemberRepository {
 		}
 	}
 
-	public Member selectById(String id) throws FindException {
+	public Member selectById(String loginId) throws FindException {
+		System.out.println("로그인 ID " + loginId);
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-			Member m = session.selectOne("com.my.member.mapper.MemberMapper.selectById", id);
+			Member m = session.selectOne("com.gardener.member.MemberMapper.selectById", loginId);
 			if (m == null) {
-				throw new FindException("");
+				throw new FindException("저장된 고객 정보가 없습니다");
 			}
-			System.out.println("m.id=" + m.getId() + ", m.pwd=" + m.getPwd() + ",m.name=" + m.getName());
+			// System.out.println("m.id=" + m.() + ", m.pwd=" + m.getPwd() + ",m.name=" +
+			// m.getName());
 			return m;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -44,75 +47,27 @@ public class MemberRepository {
 				session.close();
 			}
 		}
+	}
+
+	public void insert(Member m) throws AddException {
+		SqlSession session = null;
+		System.out.println(m.getEmail());
+		System.out.println(m.getName());
+		System.out.println(m.getPwd());
+		System.out.println(m.getLoginId());
+		try {
+			session = sessionFactory.openSession();
+			session.insert("com.gardener.mapper.MemberMapper.insertMember", m);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new AddException(e.getMessage());
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
 
 	}
-    //회원찾기
-	public void findMember(Member m) throws FindException {
-		SqlSession session = null;
-		try {
-			session = sessionFactory.openSession();
-			Member foundMember = session.selectOne("com.gardener.member.MemberMapper.selectById", m.getId());
-			if (foundMember == null) {
-				throw new FindException("Member not found");
-			}
-			// 조회된 회원 정보를 주어진 Member 객체에 업데이트
-			m.setPwd(foundMember.getPwd());
-			m.setEmail(foundMember.getEmail());
-			m.setName(foundMember.getName());
-			m.setIntro(foundMember.getIntro());
-			m.setProfile(foundMember.getProfile());
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new FindException(e.getMessage());
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
-	}
- 
-	//회원수정하기
-	public void updateMember(Member m) throws UpdateException {
-		SqlSession session = null;
-		try {
-			session = sessionFactory.openSession();
-			int result = session.update("com.gardener.member.MemberMapper.updateMember", m);
-			if (result == 0) {
-				throw new UpdateException("Failed to update member information");
-			}
-			session.commit(); // 변경 사항 커밋
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new UpdateException(e.getMessage());
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
-	}
-	
-	//회원탈퇴하기 
-	public boolean deleteMember(String userId) {
-		SqlSession session = null;
-        try {
-            session = sessionFactory.openSession();
-            System.out.println("delete:" + userId);
-            int rowsDeleted = session.delete("com.gardener.member.MemberMapper.deleteMember", userId);
-           
-            if (rowsDeleted > 0) {
-                session.commit();
-                return true; // 회원 탈퇴 성공
-            } else {
-                session.rollback();
-                return false; // 회원 탈퇴 실패 (삭제된 행이 없는 경우)
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false; // 회원 탈퇴 실패 (예외 발생)
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-	}
+
 }

@@ -11,18 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.gardener.member.dto.Member;
-import com.gardener.member.service.MemberService;
+import com.gardener.member.service.MemberMypageService;
 import com.google.gson.Gson;
 import com.gradener.exception.UpdateException;
 
 @WebServlet("/member")
 public class UpdateMemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private MemberService service;
+	private MemberMypageService service;
 	private Gson gson;
 
 	public UpdateMemberController() {
-		service = MemberService.getInstance();
+		service = MemberMypageService.getInstance();
 
 	}
 

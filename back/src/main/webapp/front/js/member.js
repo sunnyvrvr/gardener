@@ -1,13 +1,31 @@
-$(() => {
+ $(document).ready(() => {
+    // 페이지 로드 시에 사용자 정보 가져오기
+    $.ajax({
+          url: "http://localhost:8888/back/findmember",
+          method: "POST",
+          success: (response) => {
+//            const userInfo = JSON.parse(response);
+            const userInfo = response;
+            
+            $("#loginId").val(userInfo.loginId);         
+            $("#name").val(userInfo.name);
+            $("#email").val(userInfo.email);
+            $("#intro").val(userInfo.intro);
+            
+            const maskedPwd = userInfo.pwd.replace(/./g, "*");
+      $("#pwd").val(maskedPwd);
+          },
+          error: (error) => {
+            console.error(
+              "Failed to get user info:",
+              error
+            );
+          },
+        });
+
+
   let clickStatus = 0;
 
-  const data = {
-    id: "rdusn10",
-    name: "흥겨운",
-    email: "rudns10@naver.com",
-    joinDate: "2023년07월26일",
-    intro: "날 소개하지",
-  };
 
   /*정보수정 시작하기*/
   const btnClick = () => {
@@ -56,4 +74,6 @@ $(() => {
   $("#joinDate").prop("readonly", true);
 
   /*정보수정 끝*/
+  
+  /* 정보 가져오기 */
 });

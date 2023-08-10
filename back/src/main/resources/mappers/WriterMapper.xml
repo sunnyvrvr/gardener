@@ -5,9 +5,11 @@
 <mapper namespace="com.gardener.writer.WriterMapper">
  
  <!-- 작가신청하기 -->
-  <insert id="insertWriter" parameterType="int">
+  <insert id="insertWriterByMemberId" parameterType="int">
     INSERT INTO writer (writerId, writerType)
-    VALUES (#{id}, 1)
+    SELECT id, 1
+    FROM member
+    WHERE id = #{id}
   </insert>
   
   <!-- 작가신청 취소하기 -->
