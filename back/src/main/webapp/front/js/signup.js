@@ -63,12 +63,11 @@ $(() => {
       url: formObj.attr('action'),
       method: formObj.attr('method'),
       data: formObj.serialize(),
-      success: (responseObj) => {  
-		  
+      success: (responseObj) => { 
 		  console.log(responseObj)
         if (responseObj === '1') {
           //가입 성공인경우
-          swal('회원가입이 되었습니다')
+          alert('회원가입이 되었습니다')
           location.href = './login.html' //페이지 이동
         } else {
           //가입 실패인경우

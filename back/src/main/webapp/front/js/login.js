@@ -21,10 +21,9 @@ $(() => {
       localStorage.removeItem("savedId");
     }
 
-    const data = $(e.target).serialize(); // 이벤트가 발생한 곳
-   /* alert(data);*/
+    const data = $(e.target).serialize(); // 이벤트가 발생한 곳  
     $.ajax({
-      url: `${backURL}/login`,
+      url: 'http://localhost:8888/back/login',
       method: "post",
       data: data, //Servlet로넘어감
       success: (responseData) => { //" 12 3".trim() > "123"
@@ -34,10 +33,10 @@ $(() => {
           $("form.login>input[name=loginId]").focus();
         } else if (responseData.trim() == "1") {
           //로그인 성공인 경우
-          alert(`${backURL}/login`);
-          location.href = "./index.html"; //페이지 이동
+          swal("환영합니다");
+          location.href = `${backURL}/front/html/index.html`; //페이지 이동
         } else {
-			alert("환영합니다");
+		  swal("환영합니다");
 		}
       },
       error: (xhr) => {

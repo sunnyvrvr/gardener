@@ -50,6 +50,15 @@ public class MemberService {
 		}
 		
 	}
+	public Member login (String loginId, String pwd) throws FindException {
+		Member m = repository.selectById(loginId);
+		if(pwd.equals(m.getPwd())) {
+			return m; // 로그인 성공
+		}else {
+			throw new FindException("로그인 실패");
+		}
+	}
+	
 	public String findLoginId(String name, String email) throws FindException {
 		Member m = repository.selectByName(name);
 		if(name.equals(m.getName()) && email.equals(m.getEmail())) {
@@ -60,14 +69,13 @@ public class MemberService {
 		
 	}
 	
-	public Member login (String loginId, String pwd) throws FindException {
-		Member m = repository.selectById(loginId);
-		if(pwd.equals(m.getPwd())) {
-			return m; // 로그인 성공
+	public String findPwd(String loginId, String email) throws FindException {
+		Member m =repository.selectById(loginId);
+		if(loginId.equals(m.getLoginId()) && email.equals(m.getEmail())) {
+			return m.getPwd();
 		}else {
-			throw new FindException("로그인 실패");
+			throw new FindException("잘못된 정보입니다, 다시 입력해주세요");	
 		}
 	}
-	
 	
 }

@@ -1,5 +1,5 @@
-$(() => {
-
+$(() => {	
+	const backURL = "http://localhost:8888/back";
 	//필명 입력란 객체찾기
 	const inputNameObj = $('form.find-loginId>input[name=name]')
 
@@ -20,6 +20,7 @@ $(() => {
 			success: (responseData) => {
 				if (responseData != '0') {
 					alert('고객님의 아이디는 ' + responseData + ' 입니다')
+					location.href =`${backURL}/front/html/login.html`
 				} else {
 					alert('잘못된 정보입니다, 다시 입력해주세요')
 				}

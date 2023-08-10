@@ -23,15 +23,15 @@ div.logo {
 
 form.find-pwd {
   width: 250px;
-  margin: auto;
+ margin: auto;
   top: 300px;
   zoom: 1.5;
 }
 
 /*아이디 입력*/
-form.find-pwd input[name="id"] {
-  width: 200px;
-  margin: 50px 20px 5px;
+form.find-pwd > input[name="loginId"] {
+	width: 200px;
+   margin: 0px 20px 15px;
 }
 
 /*이메일 입력*/
