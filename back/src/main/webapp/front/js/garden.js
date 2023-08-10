@@ -17,23 +17,36 @@ $(() => {
   $.ajax({
     url: "http://localhost:8888/back/mypost",
     type: "get",
-    data: {loginId:"loginId"},
+    data: { loginId: "loginId" },
     success: (response) => {
       console.log(response, "--");
       const responselength = response.length;
-//      alert("연결완료");       
-      for (let i = 0; i < responselength; i++) {
-         const imageElement = $('div.posts_part>div.post>a.thumbnail>img');
-    // 새로운 이미지 경로로 src 속성 변경
-  		  imageElement.attr('src', response[i].mainTitleImg);
-        
-        $("#post-title-writer").text(response[i].mainTitle);
-        $("#post-content").text(response[i].content);
-      }
-      $(div.posts_part).append(div.post);
+
+      //결과를 보여줄 위치
+      const gardenResult = $("div.posts_part");
+
+      gardenResult.load("./gardenresult.html", () => {
+        const viewtable = $("table.writing-list");
+
+        for (var i = 0; i < responselength; i++) {
+          const tabletr = document.createElement("tr");
+
+          tabletr.innerHTML = `<td>
+            <a>
+              <img src="${response[i].mainTitleImg}" alt="제목이미지" 
+                        style="display: block; width: 200px; height: 150px;">
+            </a>
+          </td>
+          <td class="test">
+            <h2>${response[i].mainTitle}</h2>
+            <p>${response[i].content}</p>
+          </td>`;
+          $(viewtable).append(tabletr);
+        }
+      });
     },
-    error: () => {
-      alert("에러발생");
+    error: (xhr) => {
+      alert("에러발생" + xhr.status);
     },
   });
   $("div.paging").hide();

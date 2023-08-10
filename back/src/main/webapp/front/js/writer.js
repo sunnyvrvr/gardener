@@ -11,7 +11,7 @@ $(() => {
   $.ajax({
     url: "http://localhost:8888/back/writermember", //실제서버주소
     type: "get",
-    data: { writerid: "1" },
+    data: { writerid: "2" },
     success: (response) => {
       console.log(response, "--");
       const writerimage = $("div.wr>div.wr_part>img");
@@ -28,16 +28,33 @@ $(() => {
   $.ajax({
     url: "http://localhost:8888/back/writerpostlist", //실제서버주소
     type: "get",
-    data: { writerid: "1" },
+    data: { writerid: "2" },
     success: (response) => {
       console.log(response, "--");
       const responselength = response.length;
-      for (let i = 0; i < responselength; i++) {
-        const writerimage = $("#postimage");
-        writerimage.attr("src", response[0].mainTitleImg);
-        $("#post-title-writer").text(response[0].mainTitle);
-        $("#post-content").text(response[0].content);
-      }
+
+      //결과를 보여줄 위치
+      const gardenResult = $("div.posts_part");
+
+      gardenResult.load("./writerpostresult.html", () => {
+        const viewtable = $("table.writing-list");
+
+        for (var i = 0; i < responselength; i++) {
+          const tabletr = document.createElement("tr");
+
+          tabletr.innerHTML = `<td>
+            <a>
+              <img src="${response[i].mainTitleImg}" alt="제목이미지" 
+                        style="display: block; width: 200px; height: 150px;">
+            </a>
+          </td>
+          <td class="test">
+            <h2>${response[i].mainTitle}</h2>
+            <p>${response[i].content}</p>
+          </td>`;
+          $(viewtable).append(tabletr);
+        }
+      });
     },
     error: (xhr) => {
       alert("에러발생" + xhr.status);

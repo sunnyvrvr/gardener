@@ -52,7 +52,7 @@ div.posts-title {
   flex-direction: column;
   /*  height: calc(100%-100px);*/
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
   margin: 50px 200px 50px;
   font-family: "Orbit", sans-serif;
 }

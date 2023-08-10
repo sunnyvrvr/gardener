@@ -7,8 +7,7 @@ $(() => {
   const footer = $('body>div.footer');
   footer.load('../html/footer.html');
   
-  
-  
+ 
   $("div.paging").hide();
 });
 

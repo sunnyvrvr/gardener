@@ -51,5 +51,19 @@ public class WriterRepository {
 		}
 		return WriterPost;
 	}
+	public List<Member> subscribeWriter(String loginId) throws FindException {
+		SqlSession session = null;
+		System.out.println(loginId+"--");
+		session = sessionFactory.openSession();
+		
+		List<Member>SubscribeWriter = new ArrayList<Member>();
+		SubscribeWriter = session.selectList("com.gardener.WriterMapper.subscribeWriter", loginId);
+		SubscribeWriter.forEach(e->System.out.println(e)); //내용확인		
+		System.out.println("session 연결 성공");
+		if(SubscribeWriter.size() == 0) {
+			System.out.println("글없음"); //throws FindException 인가?
+		}		
+		return SubscribeWriter;
+	}
 }
 

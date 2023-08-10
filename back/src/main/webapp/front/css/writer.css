@@ -33,9 +33,10 @@ header > nav > ul > li > a {
 /*header CSS*/
 
 div.wr {
+  margin-top: 20px;
   display: block;
   /*   position: absolute;*/
-  border: 1px solid black;
+
   width: 100%;
   text-align: center;
   margin-bottom: 50px;
@@ -50,7 +51,7 @@ div.wr > div.wr_part > img {
   border-radius: 50px;
 }
 
-#writerimage{
+#writerimage {
   margin-top: 15px;
   margin-bottom: 5px;
   width: 300px;

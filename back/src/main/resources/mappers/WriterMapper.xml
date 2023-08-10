@@ -30,10 +30,18 @@
 	JOIN POST p ON p.userNum = m.id
 	WHERE writerid = #{writerid}
 </select>
+<select id="subscribeWriter"
+	parameterType = "string"
+	resultType = "Member">
+	SELECT m.name, m.profile
+	FROM subscribe s
+	JOIN writer w ON s.writerid = w.writerid
+	JOIN member m ON w.writerid = m.id
+	WHERE loginId = #{loginId}
+</select>
 
 
 
 
 
-	
 </mapper>

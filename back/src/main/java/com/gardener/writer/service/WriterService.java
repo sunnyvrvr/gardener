@@ -30,4 +30,10 @@ public List<Post> selectByWriterPost(int writerid) throws FindException {
 	WriterPost = repository.selectByWriterPost(writerid);
 	return WriterPost;
 	}
+
+public List<Member> subscribeWriter(String loginId) throws FindException {
+	List<Member> SubscribeWriter = new ArrayList<Member>();
+	SubscribeWriter = repository.subscribeWriter(loginId);
+	return SubscribeWriter;
+	}
 }
