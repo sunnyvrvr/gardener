@@ -2,6 +2,8 @@ package com.gardener.writer.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,44 +13,41 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.gardener.exception.FindException;
-import com.gardener.writer.service.WriterService;
-import com.gardener.member.service.MemberService;
 import com.gardener.member.dto.Member;
-
+import com.gardener.post.dto.Post;
+import com.gardener.writer.service.WriterService;
 import com.google.gson.Gson;
 
-@WebServlet("/writermember")
-public class WriterMemberController extends HttpServlet {
+@WebServlet("/writerpostlist")
+public class WriterPostController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private WriterService service;	
 
-    public WriterMemberController() {
+    public WriterPostController() {
     	service = WriterService.getInstance();
     }
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException{
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setHeader("Access-Control-Allow-Origin","*");
 		response.setContentType("application/json; charset=UTF-8");
 		
-		int writerid = Integer.parseInt(request.getParameter("writerid"));
+		HttpSession session = request.getSession();
+		int writerid = Integer.parseInt(request.getParameter("writerid").trim());
 		System.out.println("writer:"+ writerid);
 		
-		HttpSession session = request.getSession();
 		String memberJson = null;
 		
-		Member m = new Member();
+		List<Post> WriterPost = new ArrayList<Post>();		
 		try {
-			m = service.selectByWriter(writerid);
+			WriterPost = service.selectByWriterPost(writerid);
 			session.setAttribute("writerid", writerid);
 			Gson gson = new Gson();
-			memberJson = gson.toJson(m);
-			PrintWriter out;
+			memberJson = gson.toJson(WriterPost);
+	        PrintWriter out;
 			out = response.getWriter();
-		} catch (IOException e) {
+		} catch (FindException e) {
 			e.printStackTrace();
-		} 
-		
+		}	
         PrintWriter out = response.getWriter(); 
-        out.print(memberJson);		
+        out.print(memberJson);				
 	}
 }

@@ -12,6 +12,7 @@
   	<typeAlias type="com.gardener.post.dto.Post" alias="Post"/>
   	<typeAlias type="com.gardener.comment.dto.Comment" alias="Comment"/>
   	<typeAlias type="com.gardener.search.dto.Search" alias="Search"/>
+  	<typeAlias type="com.gardener.writer.dto.Writer" alias="Writer"/>  	
   </typeAliases>	
   <environments default="development">
     <environment id="development">

@@ -15,4 +15,25 @@
 	FROM member m JOIN writer w ON m.id = w.writerid 
 	WHERE writerid=#{writerid}
 	</select> 
+
+<resultMap id="WriterPostResultMap" type="Post">
+	<result property="mainTitle" column="mainTitle"/>
+	<result property="content" column="content"/>
+	<result property="mainTitleImg" column="mainTitleImg"/>
+</resultMap>
+<select id="selectByWriterPost"
+	parameterType="int"
+	resultMap="WriterPostResultMap">
+	SELECT mainTitle, content, mainTitleImg
+	FROM writer w
+	JOIN member m ON m.id=w.writerid
+	JOIN POST p ON p.userNum = m.id
+	WHERE writerid = #{writerid}
+</select>
+
+
+
+
+
+	
 </mapper>

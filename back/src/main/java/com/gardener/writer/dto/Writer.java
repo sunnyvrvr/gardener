@@ -1,4 +1,4 @@
-package com.garderner.writer.dto;
+package com.gardener.writer.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

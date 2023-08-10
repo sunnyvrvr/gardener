@@ -1,14 +1,18 @@
-package com.garderner.writer.repository;
+package com.gardener.writer.repository;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.gardener.exception.FindException;
 import com.gardener.member.dto.Member;
+import com.gardener.post.dto.Post;
 
 public class WriterRepository {
 	private SqlSessionFactory sessionFactory;
@@ -25,11 +29,27 @@ public class WriterRepository {
 		}
 	}
 
-	public void selectByWriter(int writerid) {
+	public Member selectByWriter(int writerid) {
 		SqlSession session = null;
 		session = sessionFactory.openSession();
 		Member m = new Member();
 		m = session.selectOne("com.gardener.WriterMapper.selectByWriter", writerid);
+		return m;
+	}
+	public List<Post> selectByWriterPost(int writerid) throws FindException {
+		SqlSession session = null;
+		System.out.println(writerid+"--");
+		session = sessionFactory.openSession();
+		
+		List<Post> WriterPost = new ArrayList<Post>(); //list 생성
+		WriterPost = null;
+		WriterPost = session.selectList("com.gardener.WriterMapper.selectByWriterPost", writerid);
+		WriterPost.forEach(e->System.out.println(e)); //내용확인
+		System.out.println("session 연결 성공");
+		if(WriterPost.size() == 0) {
+			throw new FindException("글없음");
+		}
+		return WriterPost;
 	}
 }
 

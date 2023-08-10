@@ -45,7 +45,19 @@ div.wr {
 div.wr > div.wr_part > img {
   margin-top: 15px;
   margin-bottom: 5px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50px;
 }
+
+#writerimage{
+  margin-top: 15px;
+  margin-bottom: 5px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50px;
+}
+
 #subscribe {
   left: 900px;
   background-color: rgb(121, 193, 150);

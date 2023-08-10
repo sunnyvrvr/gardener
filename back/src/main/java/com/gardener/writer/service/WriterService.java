@@ -1,11 +1,15 @@
 package com.gardener.writer.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
+import com.gardener.exception.FindException;
 import com.gardener.member.dto.Member;
-import com.garderner.writer.dto.Writer;
-
-import com.garderner.writer.repository.WriterRepository;
+import com.gardener.post.dto.Post;
+import com.gardener.writer.dto.Writer;
+import com.gardener.writer.repository.WriterRepository;
 
 public class WriterService {
 private static WriterService service= new WriterService();
@@ -18,7 +22,12 @@ public static WriterService getInstance() {
 }
 public Member selectByWriter(int writerid) {
 	Member m = new Member();
-	repository.selectByWriter(writerid);
+	m= repository.selectByWriter(writerid);
 	return m;
 }
+public List<Post> selectByWriterPost(int writerid) throws FindException {
+	List<Post> WriterPost = new ArrayList<Post>();
+	WriterPost = repository.selectByWriterPost(writerid);
+	return WriterPost;
+	}
 }
