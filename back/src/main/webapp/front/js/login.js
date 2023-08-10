@@ -1,13 +1,15 @@
 $(() => {
+	
   const backURL = "http://localhost:8888/back";
+  //form객체 찾기
   const formObj = $("form.login");
 
-  const cbObj = formObj.find("input[type=checkbox]"); //아이디저장 체크박스
+  //아이디저장 체크박스
+  const cbObj = formObj.find("input[type=checkbox]"); 
   const savedId = localStorage.getItem("savedId");
   if (savedId != null) {
     formObj.find("input[name-loginId]").val(savedId);
   }
-  
   
   formObj.submit((e) => {
     if (cbObj.prop("chekced")) {
@@ -28,7 +30,7 @@ $(() => {
       success: (responseData) => { //" 12 3".trim() > "123"
         if (responseData.trim() == "0") {
           //로그인 실패인 경우
-          alert("로그인실패");
+          swal("로그인실패");
           $("form.login>input[name=loginId]").focus();
         } else if (responseData.trim() == "1") {
           //로그인 성공인 경우

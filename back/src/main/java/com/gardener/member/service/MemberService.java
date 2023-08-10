@@ -50,6 +50,15 @@ public class MemberService {
 		}
 		
 	}
+	public String findLoginId(String name, String email) throws FindException {
+		Member m = repository.selectByName(name);
+		if(name.equals(m.getName()) && email.equals(m.getEmail())) {
+			return m.getLoginId(); 
+		}else {
+			throw new FindException("잘못된 정보입니다");
+		}
+		
+	}
 	
 	public Member login (String loginId, String pwd) throws FindException {
 		Member m = repository.selectById(loginId);
@@ -59,4 +68,6 @@ public class MemberService {
 			throw new FindException("로그인 실패");
 		}
 	}
+	
+	
 }

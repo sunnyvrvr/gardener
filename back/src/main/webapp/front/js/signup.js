@@ -21,11 +21,6 @@ $(() => {
   const btSignup = $('form.signup.bt-Signup')
 
 
-
-
-
-
-
   btIdDupChk.click(()=>{
 	const loginId = $("input[name='loginId']").val();
   $.ajax({
@@ -68,7 +63,8 @@ $(() => {
       url: formObj.attr('action'),
       method: formObj.attr('method'),
       data: formObj.serialize(),
-      success: (responseObj) => {
+      success: (responseObj) => {  
+		  
 		  console.log(responseObj)
         if (responseObj === '1') {
           //가입 성공인경우
