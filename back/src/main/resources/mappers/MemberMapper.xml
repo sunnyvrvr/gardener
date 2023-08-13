@@ -2,8 +2,11 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.gardener.MemberMapper">
-<select id="selectById" resultType="Member" parameterType="string">
-SELECT * FROM member WHERE loginid= #{loginid}
+<mapper namespace="com.gardener.member.MemberMapper">
+<select id="selectById" 
+	parameterType="string"
+	resultType="Member" >
+SELECT * FROM member 
+WHERE loginId= #{loginId}
 </select>
 </mapper>

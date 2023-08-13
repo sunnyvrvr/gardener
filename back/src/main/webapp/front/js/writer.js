@@ -9,7 +9,7 @@ $(() => {
 
   //작가내용 보여주기
   $.ajax({
-    url: "http://localhost:8888/back/writermember", //실제서버주소
+    url: "/back/writermember", //실제서버주소
     type: "get",
     data: { writerid: "2" },
     success: (response) => {
@@ -26,7 +26,7 @@ $(() => {
 
   //작가글 보여주기
   $.ajax({
-    url: "http://localhost:8888/back/writerpostlist", //실제서버주소
+    url: "/back/writerpostlist", //실제서버주소
     type: "get",
     data: { writerid: "2" },
     success: (response) => {

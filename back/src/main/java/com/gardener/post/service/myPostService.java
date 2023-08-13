@@ -16,11 +16,7 @@ public class myPostService {
 	public static myPostService getInstance() {
 		return service;
 	}
-	public List<Post> selectById(String mainTitle) throws FindException {
-		List<Post> listPost = new ArrayList<Post>();
-		listPost = repository.selectById(mainTitle);
-		return listPost;
-	}
+
 	public List<Post> selectByLoginid(String loginid) throws FindException {
 		List<Post> listPost = new ArrayList<Post>();
 		listPost = repository.selectByLoginid(loginid);

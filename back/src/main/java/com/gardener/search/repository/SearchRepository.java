@@ -91,5 +91,21 @@ public class SearchRepository {
 		}
 	}//searchContent end
 	
-
+	/**
+	 * text에 아무것도 입력 안했을때 전체 글 보여주기
+	 * @throws FindException 
+	 */
+	public List<Search> selectAll() throws FindException {
+		SqlSession session = null;
+		searchResult = null;
+		
+		session = sessionFactory.openSession();
+		searchResult = session.selectList("com.gardener.SearchMapper.selectall");
+			
+		if(searchResult==null) {
+			throw new FindException("글이 없습니다.");
+		}else {
+			return searchResult;	
+		}
+	}
 }

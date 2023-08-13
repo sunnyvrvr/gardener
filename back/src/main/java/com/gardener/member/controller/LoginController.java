@@ -13,42 +13,38 @@ import javax.servlet.http.HttpSession;
 import com.gardener.exception.FindException;
 import com.gardener.member.dto.Member;
 import com.gardener.member.service.MemberService;
-import com.google.gson.Gson;
-
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService service;
-    public LoginController() {
-       service = MemberService.getInstance();       
-    }
-    
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		//ø‰√ª¿¸¥ﬁµ•¿Ã≈Õ æÚ±‚
-		String loginId = request.getParameter("loginId");		//hello
-		String pwd = request.getParameter("pwd");	//kitty
-		
-		//ººº«æÚ±‚
+
+	public LoginController() {
+		service = MemberService.getInstance();
+	}       
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("application/json; charset=UTF-8");
+		//ÏöîÏ≤≠Ï†ÑÎã¨Îç∞Ïù¥ÌÑ∞ ÏñªÍ∏∞
+		String loginId = request.getParameter("loginId");
+		String pwd = request.getParameter("pwd");
+		//ÏÑ∏ÏÖòÏñªÍ∏∞
 		HttpSession session = request.getSession();
 		session.setAttribute("loginId", loginId);
-		
+		session.setAttribute("pwd", pwd);
+
 		String memberJson = null;
 		try {
 			Member m = service.login(loginId, pwd);
 			session.setAttribute("loginedId", loginId);
-//			Gson gson = new Gson();
-			System.out.println("test:" + m);		
-//			memberJson = gson.toJson(m);
-			memberJson = "1"; 			//∑Œ±◊¿Œº∫∞¯
-		} catch (FindException e) {			
+			System.out.println("loginedId:" + loginId);
+			memberJson = "1";
+		} catch (FindException e) {
 			e.printStackTrace();
-			memberJson = "0";			//∑Œ±◊¿ŒΩ«∆–
+			memberJson = "0";
 		}
-		PrintWriter out = response.getWriter();		
+		PrintWriter out = response.getWriter();
 		System.out.println(memberJson);
 		out.print(memberJson);
-//		response.getWriter().print(memberJson);
 	}
-
 }

@@ -39,9 +39,4 @@
 	JOIN member m ON w.writerid = m.id
 	WHERE loginId = #{loginId}
 </select>
-
-
-
-
-
 </mapper>

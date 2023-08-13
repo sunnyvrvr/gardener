@@ -8,7 +8,7 @@ $(() => {
 
   //이메일 입력란 객체 찾기
   const inputEmailObj = $("form.signup>input[name=email]");
-  
+
   //필명 입력란 객체 찾기
   const inputNameObj = $("form.signup>input[name=name]");
 
@@ -20,7 +20,7 @@ $(() => {
   //필명 중복확인 버튼
 
   $.ajax({
-    url: `${backURL}/signup`, //$(e.target).attr("action"),
+    url: "/back/signup", //$(e.target).attr("action"),
     method: "post", //$(e.target).attr("method"),
     data: formObj.serialize(),
     success: (responseObj) => {

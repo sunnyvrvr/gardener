@@ -36,4 +36,8 @@ public List<Member> subscribeWriter(String loginId) throws FindException {
 	SubscribeWriter = repository.subscribeWriter(loginId);
 	return SubscribeWriter;
 	}
+public boolean cancelWriter(int writerId) {
+	// TODO Auto-generated method stub
+	return false;
+}
 }

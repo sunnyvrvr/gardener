@@ -1,6 +1,6 @@
 package com.gardener.member.dto;
 
-import java.util.Date;
+import com.google.gson.Gson;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,6 +25,29 @@ public class Member {
 	this.pwd = pwd;
 	this.email = email;
 	this.name = name;
+	this.intro = intro;
+	this.profile = profile;
+	
    }
-      
+   public Member(String loginId, String pwd, String email, String name, String intro, String profile) {
+		this.loginId = loginId;
+		this.pwd = pwd;
+		this.email = email;
+		this.name = name;
+		this.intro = intro;
+		this.profile = profile;
+	}
+
+	public String toJsonString() {
+		Gson gson = new Gson();
+		return gson.toJson(this);
+	}
+	
+	public void setId(String loginId) {
+       this.loginId = loginId;
+   }
+	
+	public void print() {
+		
+	}
 }

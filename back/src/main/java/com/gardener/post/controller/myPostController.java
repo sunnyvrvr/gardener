@@ -28,7 +28,7 @@ public class myPostController extends HttpServlet {
 		service = myPostService.getInstance();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) //try-catch맞음
 			throws ServletException, IOException {
 		response.setHeader("Access-Control-Allow-Origin","*");
 		response.setContentType("application/json; charset=UTF-8");

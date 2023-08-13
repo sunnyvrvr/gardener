@@ -15,7 +15,7 @@ $(() => {
   });
   //글내용 보여주기
   $.ajax({
-    url: "http://localhost:8888/back/mypost",
+    url: "/back/mypost",
     type: "get",
     data: { loginId: "loginId" },
     success: (response) => {

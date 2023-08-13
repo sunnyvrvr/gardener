@@ -19,17 +19,17 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="oracle.jdbc.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@192.168.0.30:1521:xe"/>
-        <property name="username" value="gardener"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="webproject"/>
         <property name="password" value="1234"/>
       </dataSource>
     </environment>
   </environments>
   <mappers>
-    <mapper resource="/mappers/MemberMapper.xml"/>
-    <mapper resource="/mappers/PostMapper.xml"/>
-    <mapper resource="/mappers/CommentMapper.xml"/>
-    <mapper resource="/mappers/SearchMapper.xml"/>
-    <mapper resource="/mappers/WriterMapper.xml"/>
+    <mapper resource="mappers/MemberMapper.xml"/>
+    <mapper resource="mappers/PostMapper.xml"/>
+    <mapper resource="mappers/CommentMapper.xml"/>
+    <mapper resource="mappers/SearchMapper.xml"/>
+    <mapper resource="mappers/WriterMapper.xml"/>
   </mappers>
 </configuration>

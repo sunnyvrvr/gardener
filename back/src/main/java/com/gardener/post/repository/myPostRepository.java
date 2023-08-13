@@ -31,29 +31,7 @@ public class myPostRepository {
 		}
 	}
 
-	/**
-	 * 
-	 * @param ���깆�� id�� �대�뱁���� 湲��� 諛�������
-	 * @return List<Post>
-	 * @throws FindException 
-	 */
-	public List<Post> selectById(String mainTitle) throws FindException {		
-		SqlSession session = null;
-			System.out.println(mainTitle+" --");
-			session = sessionFactory.openSession();
-			List<Post> result = new ArrayList<Post>(); //list ���몄�媛� 
-			result = session.selectList("com.gardener.PostMapper.selectById", mainTitle);
-			result.forEach(e->System.out.println(e)); //�댁�⑺����
-			for(int i=0; i<result.size(); i++) {
-				
-			}
-			//listPost = session.selectList("com.gardener.PostMapper.selectById", mainTitle);
-			System.out.println("session �곌껐 �깃났");
-			if(result.size() == 0) {
-				throw new FindException("湲��� ���듬����");
-			}
-			return result;
-	}
+
 	/**
 	 * 
 	 * @param loginid
