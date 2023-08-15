@@ -31,11 +31,11 @@ public class PostRepository {
 		}
 	}
 
-	public void updatePost(Post post) {
+	public void insertPost(Post post) {
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-			session.insert("com.gardener.post.PostMapper.insertPost", post);
+			session.insert("com.gardener.PostMapper.insertPost", post);
 			session.commit();
 		} catch (Exception e) {
 			session.rollback();

@@ -18,7 +18,7 @@ public class PostService {
 		return service;
 	}
 
-	public void updatePost(Post post) {
-		repository.updatePost(post);
+	public void savePost(Post post) {
+		repository.insertPost(post);
 	}
 }

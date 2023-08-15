@@ -10,7 +10,8 @@
 	WHERE loginId= #{loginId}
 </select>
 <insert id="signup"
-	parameterType="Member">	
+	parameterType="Member"
+	>	
 	INSERT INTO member(loginId, pwd, email, name, intro) 
 	VALUES (#{loginId}, #{pwd}, #{email}, #{name}, #{intro})
 </insert>

@@ -1,6 +1,8 @@
 package com.gardener.post.dto;
 
 
+import javax.servlet.http.HttpSession;
+
 import com.gardener.comments.dto.Comments;
 import com.gardener.member.dto.Member;
 import com.google.gson.JsonElement;
@@ -14,33 +16,35 @@ import lombok.ToString;
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
 public class Post {
 	private int postNum;			//글번호
-	private int userNum;			//회원.아이디(번호)시퀀스
 	private String mainTitle;		//제목
-	private String subTitle;		//소제목
+	private String writer;		//작가
 	private String content;			//내용
 	private String mainTitleImg;	//제목이미지
-	private String category; 		//카테고리
-	private int postPublic;			//비공개,공개(0,1)
-	private int favorite;			//좋아요
-	private String createPost;		//글 생성일자
-	private Comments comments; 		// 댓글 dto
-	private Member member;			//member DTO
+	private Member member;			//member DTO Post 클래스에 Member 객체를 포함
 	
-	public Post(int postNum, int userNum, String mainTitle, String subTitle, String content, String mainTitleImg,
-			String category, int postPublic, int favorite, String createPost) {
+	public Post(int postNum, String mainTitle, String writer, String content, String mainTitleImg) {
 		super();
 		this.postNum = postNum;
-		this.userNum = userNum;
 		this.mainTitle = mainTitle;
-		this.subTitle = subTitle;
+		this.writer = writer;
 		this.content = content;
 		this.mainTitleImg = mainTitleImg;
-		this.category = category;
-		this.postPublic = postPublic;
-		this.favorite = favorite;
-		this.createPost = createPost;
+
 	}
 
-	
+	public String getLoginId() {
+        if (this.member != null) {
+            return this.member.getLoginId();
+        }
+        return null; 
+    }
+
+    public void setLoginId(String loginId) {
+        if (this.member == null) {
+            this.member = new Member();
+        }
+        this.member.setLoginId(loginId);
+    }
+
 }
 

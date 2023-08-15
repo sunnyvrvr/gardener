@@ -2,7 +2,6 @@ package com.gardener.post.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Optional;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.gardener.exception.AddException;
 import com.gardener.post.dto.Post;
 import com.gardener.post.service.PostService;
 import com.google.gson.Gson;
@@ -26,17 +26,10 @@ public class PostController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setContentType("application/json; charset=utf-8");
 		HttpSession session = request.getSession();
-		System.out.println(session + " -- session");
 		PrintWriter out = response.getWriter();
-		Gson gson = new Gson();
-//		int id = Integer.parseInt(request.getParameter("num"));
-		Post post = new Post();
-		System.out.println(post + " -- 넘겨주는 post");
-		String postJson = gson.toJson(post);
-		out.print(postJson);
+
 	}
 
 	@Override
@@ -46,19 +39,34 @@ public class PostController extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		System.out.println(session + " -- session");
-		Post post = null;
-
-		String mainTitle = request.getParameter("mainTitle");
-		String writer = request.getParameter("writer");
-		String content = request.getParameter("content");
-		String mainTitleImg = request.getParameter("mainTitleImg");
-
+		Post post = new Post();
+		String memberJson = null;
+		String loginId = (String) session.getAttribute("loginId");  //세션에 저장된 로그인아이디
+		System.out.println("loginId:" + loginId);
 		
-////		post = new Post(0, 1, title, subTitle, content, mainImg, cate, secret, 0, null);
-
-//		service.savePost(post);
-//		service.saveImg(imgArr);
-		response.getWriter().print(post.getPostNum());
-
+		try {
+//			int postNum = Integer.parseInt(request.getParameter("postNum"));
+			String mainTitle = request.getParameter("mainTitle");
+			String writer = request.getParameter("writer");
+			String content = request.getParameter("content");
+			String mainTitleImg = request.getParameter("mainTitleImg");
+			
+	        post.setMainTitle(mainTitle);
+	        post.setWriter(writer);
+	        post.setContent(content);
+	        post.setMainTitleImg(mainTitleImg);
+	        post.setLoginId(loginId);
+			
+			service.savePost(post);
+			System.out.println("글쓰기 성공");
+			memberJson = "1";
+		} catch (Exception e) {
+			e.printStackTrace();
+			memberJson = "0";
+			System.out.println("글쓰기 실패");
+		}
+		PrintWriter out = response.getWriter();
+		System.out.println(memberJson);
+		out.print(memberJson);
 	}
 }

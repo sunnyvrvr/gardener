@@ -3,6 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gardener.PostMapper">
+  <!--내 글 보기-->
     <select id="selectByLoginId" 
 		 parameterType="string"
 		 resultType="Post">
@@ -10,17 +11,17 @@ SELECT p.maintitle, p.writer, p.content, p.maintitleimg
 FROM post p JOIN member m ON (p.loginid = m.loginid)
 WHERE m.loginId =#{loginId}
   </select>
-  <insert id="updatePost" parameterType="Post">
-INSERT INTO post(postNum, maintitle,writer,mainTitleImg,content) VALUES(post_seq.nextval, #{loginId}, #{mainTitle}, #{writer}, #{mainTitleImg}, #{content})
+  <!--글입력-->
+  <insert id="insertPost" parameterType="Post">
+INSERT INTO post(postNum, mainTitle, writer, mainTitleImg, content, loginId) VALUES(post_seq.nextval, #{mainTitle}, #{writer}, #{mainTitleImg}, #{content}, #{member.loginId})
 </insert>
 <resultMap id="joinMap" type="Post" autoMapping="true">
 	<id property="postnum" column="postnum"/>
-	<result property="loginId" column="loginId"/>
-	<result property="mainTitle" column="maintitle"/>
+	<result property="mainTitle" column="mainTitle"/>
 	<result property="writer" column="writer"/>
 	<result property="content" column="content"/>
-	<result property="mainTitleImg" column="maintitleimg"/>
-	<result property="createPost" column="createpost"/>
+	<result property="mainTitleImg" column="mainTitleImg"/>
+	<result property="loginId" column="loginId"/>
 	<association property="member" javaType="Member" autoMapping="true"/>
 </resultMap>
 </mapper>

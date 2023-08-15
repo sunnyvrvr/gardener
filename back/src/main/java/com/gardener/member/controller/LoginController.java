@@ -36,6 +36,7 @@ public class LoginController extends HttpServlet {
 		String memberJson = null;
 		try {
 			Member m = service.login(loginId, pwd);
+			session = request.getSession();
 			session.setAttribute("loginedId", loginId);
 			System.out.println("loginedId:" + loginId);
 			memberJson = "1";

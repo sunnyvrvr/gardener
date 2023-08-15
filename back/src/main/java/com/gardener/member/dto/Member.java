@@ -12,4 +12,8 @@ public class Member{
 	String email;
 	String name; 
 	String intro;
+	
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
 }
