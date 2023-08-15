@@ -40,7 +40,7 @@ public class myPostController extends HttpServlet {
 		
 		List<Post> listPost = new ArrayList<Post>();
 		try {
-			listPost = service.selectByLoginid(loginId);
+			listPost = service.selectByLoginId(loginId);
 			session.setAttribute("listPost", listPost); //setAttribute瑜� ������
 			Gson gson = new Gson();
 			memberJson = gson.toJson(listPost);

@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/user.css" />
+    <link rel="stylesheet" href="../css/member.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/user.js"></script>
-
-    <title>User</title>
+    <script src="../js/applybtn.js"></script>
+    <script src="../js/member.js"></script>
+    <script src="../js/cancel.js"></script>
+    <script src="../js/delete.js"></script>
+    <title>Member</title>
   </head>
 
   <body>
@@ -21,43 +23,29 @@
     <header>
       <dl>
         <!--프로필 사진 시작-->
-        <div class="profile-photo" style="text-align: center">
+        <div class="profile-photo" style="margin-left: 140px">
           <img
             id="imgThumb"
-            src="https://phinf.pstatic.net/contact/20220826_129/1661504480389Eqvhq_JPEG/profileImage.jpg?type=s160"
+            src="https://i.imgur.com/qyTEOBF.jpg"
+            style="height: 150px"
+            width="150px"
           />
           <span class="mask"></span>
         </div>
         <!--프로필 사진 끝-->
         <!--내 정보 내용 시작-->
         <nav>
-          <p>
-            <span>아이디:</span
-            ><input type="text" id="userId" value="rudns10" readonly />
-          </p>
-          <p>
-            <span>필 명:</span
-            ><input type="text" id="name" value="흥겨운" readonly />
-          </p>
-          <p>
-            <span>이메일:</span
-            ><input type="text" id="email" value="rudns10@naver.com" readonly />
-          </p>
+          <p><span>아이디:</span><input type="text" id="loginId" readonly /></p>
+          <p><span>비밀번호:</span><input type="text" id="pwd" readonly /></p>
+          <p><span>필 명:</span><input type="text" id="name" readonly /></p>
+          <p><span>이메일:</span><input type="text" id="email" readonly /></p>
           <p>
             <span>가입날:</span
             ><input type="text" id="joinDate" value="2023년07월26일" readonly />
           </p>
           <p>
             <span>자기소개:</span
-            ><input
-              class="intro"
-              type="text"
-              id="intro"
-              value="안녕, 날 소개하지 이름은 정겨운 직업은
-            traveler 취미는 독서 영화시청 제일 좋아하는 말은 좋았다면 추억이고
-            나빳다면 경험이야"
-              readonly
-            />
+            ><input class="intro" type="text" id="intro" readonly />
           </p>
         </nav>
         <!--내 정보 내용 끝-->
@@ -67,9 +55,9 @@
     <!--버튼 클릭 시작-->
     <div class="container">
       <button class="modifybtn btn">회원정보수정</button>
-      <button class="cancelbtn btn">작가취소</button>
+      <button class="cancelbtn btn">작가신청</button>
       <div class="cancel">
-        <button class="cancelbtn">회원탈퇴</button>
+        <button class="deletebtn">회원탈퇴</button>
       </div>
     </div>
     <!--버튼 클릭 끝-->

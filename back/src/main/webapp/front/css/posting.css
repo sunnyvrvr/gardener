@@ -1,0 +1,102 @@
+/*body CSS*/
+* {
+  box-sizing: border-box;
+}
+
+/*header CSS*/
+h1 {
+  text-align: center;
+}
+
+h1 > a > img {
+  width: 250px;
+  height: 150px;
+}
+
+header > nav > ul {
+  list-style-type: none;
+  padding-left: 300px;
+  width: 100%;
+}
+
+header > nav > ul > li {
+  font-family: "Orbit", sans-serif;
+  display: inline-block;
+  width: 19%;
+}
+
+header > nav > ul > li > a {
+  text-decoration: none;
+  color: black;
+}
+/*header CSS*/
+
+form.posting {
+  display: block;
+  text-align: center;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+/*글제목*/
+form.posting > label.mainTitle {
+  margin-left: 50px;
+  margin-right: 15px;
+  position: fixed;
+}
+form.posting > input[name="mainTitle"] {
+  display: inline-block;
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+/*글쓴이*/
+form.posting > label.writer {
+  margin-left: 120px;
+  margin-right: 15px;
+}
+form.posting > input[name="writer"] {
+  position: block;
+  width: 70%;
+  margin-bottom: 10px;
+}
+/*글이미지*/
+form.posting > label.mainTitleImg {
+  margin-left: 120px;
+  margin-right: 15px;
+}
+form.posting > input[name="mainTitleImg"] {
+  position: block;
+  width: 70%;
+  margin-bottom: 10px;
+}
+/*글내용*/
+form.posting > label.content {
+  position: block;
+  margin-left: 120px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+form.posting > input[name="content"] {
+  position: block;
+  width: 78%;
+  height: 300px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/*footer CSS*/
+footer > div > p.footer-center {
+  text-align: center;
+}
+
+footer {
+  display: block;
+  background-color: black;
+  color: white;
+  bottom: 0;
+  height: 30px;
+  position: relative;
+  width: 100%;
+}
+/*footer CSS*/

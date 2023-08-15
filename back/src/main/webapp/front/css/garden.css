@@ -2,7 +2,6 @@
 * {
   box-sizing: border-box;
 }
-/*body CSS*/
 
 /*header CSS*/
 h1 {
@@ -32,51 +31,19 @@ header > nav > ul > li > a {
 }
 /*header CSS*/
 
-/*좋아요한 글, 구독 작가 선택-공통영역*/
-div.library_view {
-  margin: 50px 100px 100px 150px;
+div.wr {
   display: block;
-  font-family: "Orbit", sans-serif;
-}
-div.library_view > div.library_like {
-  float: left;
-  width: 50%;
-  position: static;
+  /*   position: absolute;*/
+  border: 1px solid black;
+  width: 100%;
   text-align: center;
-  color: rgb(34 12 64 / 60%);
-  margin-bottom: 0px;
-}
-div.library_view > div.library_like > span.like > a {
-  text-decoration: none;
-  color: black;
+  margin-bottom: 50px;
 }
 
-div.library_view > div.library_like > span.like:hover {
-  cursor: pointer;
-  /*    text-decoration: underline;*/
+div.wr > div.wr_part > img {
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
-
-div.library_view > div.library_following {
-  float: right;
-  width: 50%;
-  position: static;
-  text-align: center;
-  color: #008000;
-  font-weight: bold;
-  margin-bottom: 0px;
-  text-decoration: none;
-}
-
-div.library_view > div.library_following > span.following > a {
-  text-decoration: none;
-  color: black;
-}
-
-div.library_view > div.library_following > span.following:hover {
-  cursor: pointer;
-  /*    text-decoration: underline;*/
-}
-/*좋아요한 글, 구독 작가 선택- 공통영역*/
 
 /*작가글 전체 위치 잡는 영역*/
 div.posts-title {
@@ -88,11 +55,10 @@ div.posts-title {
   margin: 50px 200px 50px;
   font-family: "Orbit", sans-serif;
 }
-/*작가 글 1개씩 보여주는 영역--시작*/
+/*작가 글 1개씩 보여주는 영역*/
 div.post_part {
   padding-top: 10px;
   margin: 20px 300px 50px;
-  display: block;
 }
 
 div.posts_part > div.post > a.thumbnail {
@@ -100,19 +66,23 @@ div.posts_part > div.post > a.thumbnail {
   position: inline-block;
   margin: 10px;
 }
+div.posts_part > div.post > a.thumbnail > img {
+  width: 125px;
+  height: 125px;
+}
 
 div.posts_part > div.post > div.post-title-writer {
-  position: block;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-left: 10px;
   font-size: 20px;
+  display: block;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-break: break-all;
+  font-family: "Orbit", sans-serif;
 }
-
 div.posts_part > div.post > span.post-content {
   margin-top: 10px;
   margin-left: 10px;
@@ -124,14 +94,29 @@ div.posts_part > div.post > span.post-content {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  font-family: "Orbit", sans-serif;
 }
-/*작가 글 1개씩 보여주는 영역--끝*/
+
+/*버튼처리 시작*/
+div.button {
+  display: block;
+  margin-bottom: 20px;
+  flex-direction: column;
+  /* left: 80%;*/
+  margin: 50px 200px 50px;
+  text-align: right;
+}
+div.button > input[type="button"] {
+  background-color: rgb(121, 193, 150);
+  border-radius: 10px;
+  font-family: "Orbit", sans-serif;
+}
+/*버튼처리 끝*/
+
 /*페이징처리*/
 div.paging {
-  position: block;
+  display: block;
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
 }
 /*footer CSS*/
 footer > div > p.footer-center {
@@ -139,11 +124,12 @@ footer > div > p.footer-center {
 }
 
 footer {
-  display: inline-block;
+  display: block;
   background-color: black;
   color: white;
-  position: fixed;
   bottom: 0;
+  height: 30px;
+  position: relative;
   width: 100%;
 }
 /*footer CSS*/

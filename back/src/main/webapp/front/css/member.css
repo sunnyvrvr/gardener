@@ -25,7 +25,7 @@
 /*내용 작성 시작*/
 nav > p > span {
   display: inline-block;
-  width: 110px;
+  width: 150px;
   text-align: end;
 }
 /*내용 작성 끝*/
@@ -39,7 +39,7 @@ body > header {
   border-radius: 12px;
   height: 500px;
   display: flex;
-  text-align: left;
+  align-items: center;
   margin: 0 auto;
   background-color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

@@ -32,41 +32,32 @@ public class PostController extends HttpServlet {
 		System.out.println(session + " -- session");
 		PrintWriter out = response.getWriter();
 		Gson gson = new Gson();
-		int id = Integer.parseInt(request.getParameter("num"));
-
-		Optional<Post> post = service.findPost(id);
+//		int id = Integer.parseInt(request.getParameter("num"));
+		Post post = new Post();
 		System.out.println(post + " -- 넘겨주는 post");
-		String postJson = gson.toJson(post.get());
+		String postJson = gson.toJson(post);
 		out.print(postJson);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setHeader("Access-Control-Allow-Origin", "*");
-		request.setCharacterEncoding("utf-8");
+		response.setContentType("application/json; charset=UTF-8");
+
 		HttpSession session = request.getSession();
 		System.out.println(session + " -- session");
 		Post post = null;
 
-		String title = request.getParameter("title");
-		String subTitle = request.getParameter("subtitle");
+		String mainTitle = request.getParameter("mainTitle");
+		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
-		String mainImg = request.getParameter("mainImg");
-		String cate = request.getParameter("cate");
-		Integer secret = Integer.parseInt(request.getParameter("secret"));
-		String[] imgArr = request.getParameterValues("imgs[]");
-		Optional<String[]> imgOp = Optional.ofNullable(imgArr);
-		if (imgOp.isEmpty()) {
-			post = new Post(0, 1, title, subTitle, content, mainImg, cate, secret, 0, null);
-			service.savePost(post);
-			response.getWriter().print(post.getPostNum());
-			return;
-		}
+		String mainTitleImg = request.getParameter("mainTitleImg");
 
-		post = new Post(0, 1, title, subTitle, content, mainImg, cate, secret, 0, null);
-		service.savePost(post);
-		service.saveImg(imgArr);
+		
+////		post = new Post(0, 1, title, subTitle, content, mainImg, cate, secret, 0, null);
+
+//		service.savePost(post);
+//		service.saveImg(imgArr);
 		response.getWriter().print(post.getPostNum());
 
 	}

@@ -18,23 +18,6 @@ public class PostService {
 		return service;
 	}
 
-	public void savePost(Post post) {
-		repository.insertPost(post);
-	}
-
-	public void saveImg(String[] imgs) {
-		repository.insertImgs(imgs);
-	}
-
-	public Optional<Post> findPost(int id) {
-		Optional<Post> post = repository.selectById(id);
-		return post;
-	}
-
-	public List<Post> findAllPosts() {
-		return repository.selectAllPosts();
-	}
-
 	public void updatePost(Post post) {
 		repository.updatePost(post);
 	}

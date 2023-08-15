@@ -38,20 +38,20 @@ public class myPostRepository {
 	 * @return result 由ъ�ㅽ��
 	 * @throws FindException
 	 */
-	public List<Post> selectByLoginid(String loginid) throws FindException {		
+	public List<Post> selectByLoginId(String loginId) throws FindException {		
 			SqlSession session = null;
-			System.out.println(loginid+" --");
+			System.out.println(loginId+" --");
 			session = sessionFactory.openSession();
-
-			List<Post> result = new ArrayList<Post>(); //list 생성
-			result = session.selectList("com.gardener.PostMapper.selectByLoginid", loginid);
+			List<Post> listPost = new ArrayList<Post>(); //list 생성
+			
+			listPost = session.selectList("com.gardener.PostMapper.selectByLoginId", loginId);
 			//result.forEach(e->System.out.println(e)); //내용확인
 			System.out.println("session 연결 성공");
-			if(result.size() == 0) {
-				throw new FindException("글없음");
-			}
-			return result;
-	}
-
 	
+			if(listPost.size() == 0) { //result.size == 0에서 변경
+				throw new FindException("글없음");
+			} else {
+				return listPost;				
+			}	
+	}
 }

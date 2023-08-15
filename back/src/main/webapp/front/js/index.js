@@ -1,12 +1,34 @@
 $(() => {
-  //header를 넣을 태그 찾기
+  //header태그
+  /*
+  //로그인 여부에 따라 헤더로딩을 다르게 하기
+  $(function () {
+    $.ajax({
+      url: "back/logout", // 로그인 상태 체크주소
+      method: "get",
+      success: function (responseData) {
+        const header = $("body>div.header");
+        if (responseData.loginId) {
+          // 로그인된 상태
+          console.log(responseData + "로그인된 상태");
+          header.load("../newheader.html");
+        } else {
+          // 로그아웃 상태
+          console.log(responseData + "로그아웃 상태");
+          header.load("../header.html");
+        }
+      },
+      error: function (xhr) {
+        alert("로그인 상태 체크 중 오류 발생" + xhr.status);
+      },
+    });
+  });
+*/
+  //header 태그
   const header = $("body>div.header");
-  //div.header class속성에 header.html불러오기
-  header.load("./header.html");
-
-  //footer를 넣을 태그 찾기
+  header.load("../html/header.html");
+  //footer 태그
   const footer = $("body>div.footer");
-  //div.header class속성에 header.html불러오기
   footer.load("./footer.html");
 
   //index.html에서 해당위치에 결과값 출력
@@ -18,10 +40,8 @@ $(() => {
   searchbtn.click(() => {
     //input에 입력한 값
     const textValue = $("input.search-text").val();
-
     //select로 선택한 값
     const selectValue = $("select.dropdown").val();
-
     alert(selectValue + " button 검색");
 
     $.ajax({

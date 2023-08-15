@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/posting.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="../js/posting.js"></script>
+    <title>글쓰기페이지</title>
+  </head>
+  <body>
+    <!--헤더 -->
+    <div class="header"></div>
+    <!--로고 -->
+    <form class="posting">
+      <h1 class="title">글쓰기</h1>
+
+      <label for="mainTitle">글제목 </label>
+      <input type="text" name="mainTitle" id="mainTitle" /><br />
+      <label for="writer" name="pwd">글쓴이</label>
+      <input type="text" name="writer" id="writer" /><br />
+      <label for="mainTitleImg" placeholder="URL로 입력해주세요">이미지</label>
+      <input type="text" name="mainTitleImg" id="mainTitleImg" /><br />
+      <label for="content">글내용</label><br />
+      <input type="text" name="content" /><br />
+      <button class="submit" type="submit">제출</button>
+    </form>
+
+    <div class="footer"></div>
+  </body>
+</html>

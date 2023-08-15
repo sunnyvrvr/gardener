@@ -1,64 +1,47 @@
-@font-face {
-  font-family: "Dotum";
-  src: url(../font/KoPubDotumMedium.ttf);
-}
-
 * {
   box-sizing: border-box;
-  font-family: "Dotum";
-  /* aspect-ratio: ; */
+  font-family: "Orbit", sans-serif;
+}
+/*header CSS*/
+h1 {
+  text-align: center;
 }
 
-.signup {
-  margin: 0 350px;
-  width: 450px;
-  zoom: 1.8;
+h1 > a > img {
+  width: 250px;
+  height: 150px;
 }
 
-/*프로필 이미지 첨부*/
-.profile {
-  width: 50px;
-  height: 40px;
-  margin: 10px 5px;
-}
-.profile:hover {
-  cursor: pointer;
-}
-.profile > b {
-  font-size: 1px;
+header > nav > ul {
+  list-style-type: none;
+  padding-left: 300px;
+  width: 100%;
 }
 
-.signup > div > b {
-  font-size: 9px;
+header > nav > ul > li {
+  font-family: "Orbit", sans-serif;
+  display: inline-block;
+  width: 19%;
 }
 
-.placehold-text {
-  width: 50px;
-}
-
-.btn_area > type > span {
-  width: 100px;
-}
-
-/*아이디, 필명 중복확인*/
-.signup input[type="button"] {
-  width: 144px;
-  height: 20px;
-  font-size: 10px;
-}
-
-/*가입버튼*/
-.btn-Signup {
-  width: 144px;
-  height: 20px;
-  font-size: 10px;
-  background-color: rgb(121, 193, 150);
-  border: none;
-  color: white;
-}
-
-.btn-Signup > a {
+header > nav > ul > li > a {
   text-decoration: none;
-  color: white;
+  color: black;
+}
+/*header CSS*/
+
+/*footer CSS*/
+footer > div > p.footer-center {
+  text-align: center;
 }
 
+footer {
+  display: block;
+  background-color: black;
+  color: white;
+  bottom: 0;
+  height: 30px;
+  position: relative;
+  width: 100%;
+}
+/*footer CSS*/

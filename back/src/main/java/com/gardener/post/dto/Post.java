@@ -3,6 +3,7 @@ package com.gardener.post.dto;
 
 import com.gardener.comments.dto.Comments;
 import com.gardener.member.dto.Member;
+import com.google.gson.JsonElement;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,7 +39,8 @@ public class Post {
 		this.postPublic = postPublic;
 		this.favorite = favorite;
 		this.createPost = createPost;
-	}	
+	}
+
 	
 }
 

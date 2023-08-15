@@ -11,7 +11,7 @@ $(() => {
 
   //글쓰기 버튼으로 연결하기
   $("#write").on("click", function (e) {
-    window.location.href = "../html/write.html";
+    window.location.href = "../html/posting.html";
   });
   //글내용 보여주기
   $.ajax({
@@ -34,11 +34,12 @@ $(() => {
           tabletr.innerHTML = `<td>
             <a>
               <img src="${response[i].mainTitleImg}" alt="제목이미지" 
-                        style="display: block; width: 200px; height: 150px;">
+                        style="display: block; width: 200px; height: 150px;"
+                        />
             </a>
           </td>
           <td class="test">
-            <h2>${response[i].mainTitle}</h2>
+            <h2>${response[i].mainTitle} - ${response[i].writer}</h2>
             <p>${response[i].content}</p>
           </td>`;
           $(viewtable).append(tabletr);

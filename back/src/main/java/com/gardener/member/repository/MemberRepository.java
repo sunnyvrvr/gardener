@@ -8,8 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.gardener.exception.AddException;
 import com.gardener.exception.FindException;
-import com.gardener.exception.UpdateException;
 import com.gardener.member.dto.Member;
 
 public class MemberRepository {
@@ -31,18 +31,42 @@ public class MemberRepository {
 		SqlSession session = null;
 		System.out.println(loginId+"Repository");
 		session = sessionFactory.openSession();
-		try {
-			Member m = session.selectOne("com.gardener.member.MemberMapper.selectById", loginId);
-			if (m == null) {
-				throw new FindException("저장된 고객 정보가 없습니다");
+
+			Member m = session.selectOne("com.gardener.MemberMapper.selectById", loginId);
+			try {
+				System.out.println("연결성공");
+				return m;
+			} catch (Exception e) {
+				if (m == null) {
+					throw new FindException("저장된 고객 정보가 없습니다");
+				}
 			}
-//			System.out.println("m.id=" + m.getId() + ", m.pwd=" + m.getPwd() + ",m.name=" + m.getName());
-			System.out.println("연결성공");
 			return m;
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new FindException(e.getMessage());
-		} 
+			
+//			if (m == null) {
+//				throw new FindException("저장된 고객 정보가 없습니다");
+//			} else {
+////			System.out.println(m.getId() + ", m.pwd=" + m.getPwd() + ",m.name=" + m.getName());
+//			System.out.println("연결성공");
+//			return m;
+//			}
 	}
 
+	//회원가입
+	public void signup(Member m) throws AddException {
+		SqlSession session = null;
+		System.out.println(m.getLoginId());
+		System.out.println(m.getPwd());
+		System.out.println(m.getEmail());
+		System.out.println(m.getName());
+		System.out.println(m.getIntro());
+		try {
+			session = sessionFactory.openSession();
+			session.insert("com.gardener.MemberMapper.signup", m);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new AddException(e.getMessage());
+		} 
+	}
 }

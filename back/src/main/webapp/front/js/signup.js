@@ -1,40 +1,62 @@
 $(() => {
-  const backURL = "http://localhost:8888/back";
-  //DOM트리에서 form객체찾기
-  const formObj = $("formObj.signup");
+  const header = $("body>div.header"); //header
+  header.load("../html/header.html");
+  const footer = $("body>div.footer"); //footer
+  footer.load("../html/footer.html");
 
-  //아이디 입력란 객체 찾기
-  const inputIdObj = $("form.signup>input[name=id]");
+  //DOM트리 form객체 찾기
+  const formObj = $("form.signup");
+  //아이디 입력란 객체
+  const inputIdObj = $("input[name=loginId]");
+  //아이디중복확인 버튼
+  const btIdDupChk = $("form.signup>button.iddupchk");
+  //비밀번호 입력 객체찾기
+  const inputPwdObj = $("input[name=pwd]");
+  //닉네임 입력 객체찾기
+  const inputnameObj = $("input[name=name]");
+  //회원가입 버튼
+  const btSignup = $("form.signup>button.signup");
 
-  //이메일 입력란 객체 찾기
-  const inputEmailObj = $("form.signup>input[name=email]");
-
-  //필명 입력란 객체 찾기
-  const inputNameObj = $("form.signup>input[name=name]");
-
-  //가입버튼 객체 찾기
-  const btnSignup = $("form.signup.btn-Signup");
-
-  //아이디 중복확인 버튼 객체 찾기
-
-  //필명 중복확인 버튼
-
+  // 세션 없애기
   $.ajax({
-    url: "/back/signup", //$(e.target).attr("action"),
-    method: "post", //$(e.target).attr("method"),
-    data: formObj.serialize(),
-    success: (responseObj) => {
-      if (responseObj.status == 1) {
-        //가입 성공인경우
-        alert("성공:" + responseObj.msg);
-      } else {
-        //가입 실패인경우
-        alert(responseObj.msg);
-      }
+    url: "/back/logout",
+    method: "GET",
+    success: () => {
+      console.log("로그아웃 성공");
     },
     error: (xhr) => {
-      alert("에러:" + xhr.status);
+      console.log("로그아웃 실패");
+      +xhr.status;
     },
   });
-  return false;
+  //회원가입 버튼 누르기
+  formObj.submit((e) => {
+    alert(formObj.serialize());
+    $.ajax({
+      url: "/back/member",
+      method: formObj.attr("method"),
+      type: "post",
+      data: formObj.serialize(),
+      headers: {
+        Accept: "application/json",
+      },
+      success: (responseObj) => {
+        console.log(responseObj);
+        if (responseObj === "1") {
+          //가입 성공인경우
+          console.log(responseObj);
+          alert("회원가입이 완료되었습니다");
+          location.href = "/back/front/html/login.html"; //페이지 이동
+        } else {
+          //가입 실패인경우
+          console.log(responseObj);
+          alert(responseObj);
+        }
+      },
+      error: (xhr) => {
+        alert("회원가입에러발생:" + xhr.status + xhr.responseJSON);
+      },
+    });
+    return false;
+  });
 });

@@ -8,8 +8,8 @@
   <select id="searchtitle" 
 		 parameterType="String"
 		 resultType="com.gardener.search.dto.Search">
-  	SELECT maintitle, maintitleimg, content, name
-	FROM MEMBER m JOIN POST p ON (m.id = p.usernum)
+  	SELECT maintitle, maintitleimg, content, writer
+	FROM MEMBER m JOIN POST p ON (m.loginid = p.loginid)
 	WHERE maintitle LIKE '%'|| #{titletext} ||'%'
   </select>
   
@@ -18,7 +18,7 @@
 		 parameterType="String"
 		 resultType="Search">
   	SELECT maintitle, maintitleimg, content, name
-	FROM MEMBER m JOIN POST p ON (m.id = p.usernum)
+	FROM MEMBER m JOIN POST p ON (m.loginid = p.loginid)
 	WHERE name LIKE '%'|| #{nametext} ||'%'
   </select>
   
@@ -27,7 +27,7 @@
 		 parameterType="String"
 		 resultType="Search">
   	SELECT maintitle, maintitleimg, content, name
-	FROM MEMBER m JOIN POST p ON (m.id = p.usernum)
+	FROM MEMBER m JOIN POST p ON (m.loginid = p.loginid)
 	WHERE content LIKE '%'|| #{contenttext} ||'%'
   </select>
   
@@ -35,11 +35,16 @@
   <select id="selectcategory" 
 		 parameterType="String"
 		 resultType="Search">
-		SELECT name, maintitle, content, maintitleimg
-		FROM MEMBER m JOIN POST p ON(m.id = p.usernum)
+		SELECT writer, maintitle, content, maintitleimg
+		FROM MEMBER m JOIN POST p ON(m.loginid = p.loginid)
 		WHERE CATEGORY = #{category}
   </select>
   <!-- text창에 아무것도 입력안했을때 모든 글 가져오는 쿼리 -->
-<select resultType="Search" parameterType="String" id="selectall">SELECT name, maintitle, content, maintitleimgFROM MEMBER m JOIN POST p ON(m.id = p.usernum) </select>
+<select id="selectall" 
+		 parameterType="String"
+		 resultType="Search">
+		SELECT writer, maintitle, content, maintitleimg
+		FROM MEMBER m JOIN POST p ON(m.loginid = p.loginid)
+  </select>
 
 </mapper>

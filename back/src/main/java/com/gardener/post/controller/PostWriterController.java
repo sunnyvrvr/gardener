@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.gardener.member.dto.Member;
 import com.gardener.post.dto.Post;
 import com.gardener.post.service.myPostService;
 import com.google.gson.Gson;
@@ -30,8 +31,8 @@ public class PostWriterController extends HttpServlet {
 //		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setContentType("application/json, charset=UTF-8");
 
-		String loginid = request.getParameter("loginid");
-		System.out.println("loginid:" + loginid);
+		String loginId = request.getParameter("loginId");
+		System.out.println("loginId:" + loginId);
 		// 세션얻기
 		HttpSession session = request.getSession();
 		String memberJson = null;
@@ -39,8 +40,8 @@ public class PostWriterController extends HttpServlet {
 		List<Post> listPost = new ArrayList<>();
 		try {
 			// p = service.selectById(userNum);
-			listPost = service.selectByLoginid(loginid);
-			session.setAttribute("loginid", loginid);
+			listPost = service.selectByLoginId(loginId);
+			session.setAttribute("loginId", loginId);
 			Gson gson = new Gson();
 			memberJson = gson.toJson(listPost);
 			PrintWriter out = response.getWriter();
