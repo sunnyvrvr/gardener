@@ -1,20 +1,41 @@
 package com.gardener.post.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import com.gardener.post.dto.Post;
 import com.gardener.post.repository.PostRepository;
 
 public class PostService {
-	private static PostService service = new PostService();
+	static private PostService service = new PostService();
 	private PostRepository repository;
-	public PostService() {
+
+	private PostService() {
 		repository = new PostRepository();
 	}
+
 	public static PostService getInstance() {
 		return service;
 	}
-	public Post selectById(String loginid) {
-		Post p = new Post();
-		repository.selectById(loginid);
-		return p;
+
+	public void savePost(Post post) {
+		repository.insertPost(post);
+	}
+
+	public void saveImg(String[] imgs) {
+		repository.insertImgs(imgs);
+	}
+
+	public Optional<Post> findPost(int id) {
+		Optional<Post> post = repository.selectById(id);
+		return post;
+	}
+
+	public List<Post> findAllPosts() {
+		return repository.selectAllPosts();
+	}
+
+	public void updatePost(Post post) {
+		repository.updatePost(post);
 	}
 }

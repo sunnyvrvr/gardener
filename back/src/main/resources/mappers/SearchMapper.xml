@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gardener.SearchMapper">
+	
+	<!-- 제목으로 검색 SQL-->
+  <select id="searchtitle" 
+		 parameterType="String"
+		 resultType="com.gardener.search.dto.Search">
+  	SELECT maintitle, maintitleimg, content, name
+	FROM MEMBER m JOIN POST p ON (m.id = p.usernum)
+	WHERE maintitle LIKE '%'|| #{titletext} ||'%'
+  </select>
+  
+  <!-- 작가명으로 검색 SQL -->
+  <select id="searchname" 
+		 parameterType="String"
+		 resultType="Search">
+  	SELECT maintitle, maintitleimg, content, name
+	FROM MEMBER m JOIN POST p ON (m.id = p.usernum)
+	WHERE name LIKE '%'|| #{nametext} ||'%'
+  </select>
+  
+  <!-- 내용으로 검색 SQL -->
+  <select id="searchcontent" 
+		 parameterType="String"
+		 resultType="Search">
+  	SELECT maintitle, maintitleimg, content, name
+	FROM MEMBER m JOIN POST p ON (m.id = p.usernum)
+	WHERE content LIKE '%'|| #{contenttext} ||'%'
+  </select>
+  
+  <!-- 카테고리로 검색 SQL -->
+  <select id="selectcategory" 
+		 parameterType="String"
+		 resultType="Search">
+		SELECT name, maintitle, content, maintitleimg
+		FROM MEMBER m JOIN POST p ON(m.id = p.usernum)
+		WHERE CATEGORY = #{category}
+  </select>
+  
+  <!-- text창에 아무것도 입력안했을때 모든 글 가져오는 쿼리 -->
+  <select id="selectall" 
+		 parameterType="String"
+		 resultType="Search">
+		SELECT name, maintitle, content, maintitleimg
+		FROM MEMBER m JOIN POST p ON(m.id = p.usernum)
+  </select>
+  
+</mapper>

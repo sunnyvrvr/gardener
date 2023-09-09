@@ -1,8 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,intellij
 
+.classpath
+.project
 assets
-
+.idea
 ### Eclipse ###
 .metadata
 bin/
@@ -15,6 +17,7 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+
 
 # External tool builders
 .externalToolBuilders/

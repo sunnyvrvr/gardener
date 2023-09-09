@@ -17,26 +17,28 @@
     <artifactId>ojdbc8</artifactId>
     <version>21.1.0.0</version>
 	</dependency>
+
 <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api -->
-<dependency>
+	<dependency>
     <groupId>org.apache.tomcat</groupId>
     <artifactId>tomcat-servlet-api</artifactId>
-    <version>9.0.78</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-<dependency>
+    <version>9.0.75</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+	<dependency>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok</artifactId>
     <version>1.18.26</version>
     <scope>provided</scope>
-</dependency>
-<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-      <dependency>
-          <groupId>com.google.code.gson</groupId>
-          <artifactId>gson</artifactId>
-          <version>2.9.0</version>
-      </dependency>
+	</dependency>
+
+	 <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+     <dependency>
+     <groupId>com.google.code.gson</groupId>
+     <artifactId>gson</artifactId>
+     <version>2.9.0</version>
+     </dependency>
   
   </dependencies>
   
